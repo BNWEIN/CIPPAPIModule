@@ -1,4 +1,4 @@
-function Set-CIPPDeleteGDAPRelationship {
+function Remove-CIPPGDAPRelationship {
     [CmdletBinding()]
         Param(
             [Parameter(Mandatory = $true)]
