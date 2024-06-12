@@ -5,9 +5,17 @@ function Set-CIPPQuarantineManagement {
             [string]$CustomerTenantID,
             [Parameter(Mandatory = $true)]
             [string]$ID,
-            [Parameter(Mandatory = $true)]
+            [Parameter(Mandatory = $false)]
+            [ValidateSet(
+                'true',
+                'false'
+            )]
             [string]$AllowSender,
             [Parameter(Mandatory = $true)]
+            [ValidateSet(
+                'Deny',
+                'Release,
+                ')]
             [string]$Type
 
         )
@@ -20,6 +28,6 @@ function Set-CIPPQuarantineManagement {
         allowSender = $AllowSender
         type = $Type
     }
-    
+
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }
