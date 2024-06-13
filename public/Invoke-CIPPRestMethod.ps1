@@ -75,14 +75,15 @@ function Invoke-CIPPRestMethod {
     $BodyJson = $Body | ConvertTo-Json -Depth 10
 
     $Request = @{
-        Uri         = $UriBuilder.Uri
+        Uri         = $UriBuilder.ToString()
         Method      = $Method
         Headers     = $Headers
         ContentType = $ContentType
         Body        = $BodyJson
     }
-
-    $response = Invoke-RestMethod @Request
+    Write-Verbose "$Method [ $($UriBuilder.ToString()) ]"
+    
+    $response = Invoke-RestMethod @Request -ConnectionTimeoutSeconds 600
     return $response
 
 }
