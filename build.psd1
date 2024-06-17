@@ -2,9 +2,9 @@
 # command when building the module (see `Get-Help Build-Module -Full` for details).
 
 @{
-    ModuleManifest           = 'CIPPAPIModule.psd1'
+    ModuleManifest           = 'CIPPAPIModule\CIPPAPIModule.psd1'
     # Subsequent relative paths are to the ModuleManifest
-    OutputDirectory          = '.\Output\'
+    OutputDirectory          = '..\Output\'
     VersionedOutputDirectory = $false
     CopyDirectories          = @()
 }
