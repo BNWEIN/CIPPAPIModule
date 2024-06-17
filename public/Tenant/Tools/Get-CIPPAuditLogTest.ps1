@@ -4,10 +4,11 @@ function Get-CIPPAuditLogTest {
         [Parameter(Mandatory = $true)]
         [string]$CustomerTenantId,
         [Parameter(Mandatory = $true)]
+        [validateset('Audit.Exchange','Audit.AzureActiveDirectory')]
         [string]$LogType
     )
    
-    Write-Verbose "Looking up audit logs for tenant $CustomerTenantId of type $LogType"
+    Write-Verbose "Looking up $LogType logs for tenant $CustomerTenantId"
     $endpoint = "/api/ListAuditLogTest"
     $params = @{
         TenantFilter = $CustomerTenantId
