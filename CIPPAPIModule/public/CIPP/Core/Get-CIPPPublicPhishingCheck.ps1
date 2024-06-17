@@ -9,8 +9,8 @@ The Get-CIPPPublicPhishingCheck function retrieves the public phishing check for
 The ID of the customer tenant for which to retrieve the public phishing check.
 
 .EXAMPLE
-Get-CIPPPublicPhishingCheck -CustomerTenantID "12345"
-Retrieves the public phishing check for the customer tenant with the ID "12345".
+Get-CIPPPublicPhishingCheck -CustomerTenantID "87654321-4321-4321-4321-0987654321BA"
+Retrieves the public phishing check for the customer tenant with the ID "87654321-4321-4321-4321-0987654321BA".
 
 #>
 function Get-CIPPPublicPhishingCheck {

@@ -25,7 +25,7 @@ The first and probably most important requirement for this module is getting it 
 
 1. Set API Connection details
 ```powershell
-Set-CIPPAPIDetails -CIPPClientID "YourCliendIDGoesHere" -CIPPClientSecret "YourClientSecretGoesHere" -CIPPAPIUrl "https://your.cipp.apiurl" -TenantID "YourTenantID"
+Set-CIPPAPIDetails -CIPPClientID "YourClientIDGoesHere" -CIPPClientSecret "YourClientSecretGoesHere" -CIPPAPIUrl "https://your.cipp.apiurl" -TenantID "YourTenantID"
 ```
 
 2. Test your first call to the API

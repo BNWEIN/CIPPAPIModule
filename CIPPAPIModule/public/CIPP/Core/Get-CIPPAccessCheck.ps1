@@ -9,8 +9,8 @@
     Specifies the customer tenant ID for which the access check needs to be performed.
 
 .EXAMPLE
-    Get-CIPPAccessCheck -CustomerTenantID "12345678"
-    Runs a tenant access check for the customer tenant ID "12345678".
+    Get-CIPPAccessCheck -CustomerTenantID "87654321-4321-4321-4321-0987654321BA"
+    Runs a tenant access check for the customer tenant ID "87654321-4321-4321-4321-0987654321BA".
 
 #>
 function Get-CIPPAccessCheck {

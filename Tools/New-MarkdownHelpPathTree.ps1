@@ -1,7 +1,7 @@
 $Readme = Get-Content .\README.md -Raw
 $NewReadme = ($Readme -split '# Cmdlet Help')[0]
 
-$Folders = Get-ChildItem .\Public
+$Folders = Get-ChildItem .\CIPPAPIModule\Public
 $NewReadme = $NewReadme + '# Cmdlet Help'
 foreach ($Folder in $Folders) {
     $NewReadme = $NewReadme + ("`n## {0}" -f $Folder.BaseName)
