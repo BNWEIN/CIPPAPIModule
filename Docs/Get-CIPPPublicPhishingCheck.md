@@ -11,6 +11,6 @@ The ID of the customer tenant for which to retrieve the public phishing check.
 
  #### EXAMPLE 1
 ```powershell
-PS > Get-CIPPPublicPhishingCheck -CustomerTenantID "12345"
+PS > Get-CIPPPublicPhishingCheck -CustomerTenantID "87654321-4321-4321-4321-0987654321BA"
 ```
 

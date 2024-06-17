@@ -11,6 +11,6 @@ Specifies the customer tenant ID for which the access check needs to be performe
 
  #### EXAMPLE 1
 ```powershell
-PS > Get-CIPPAccessCheck -CustomerTenantID "12345678"
+PS > Get-CIPPAccessCheck -CustomerTenantID "87654321-4321-4321-4321-0987654321BA"
 ```
 
