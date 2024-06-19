@@ -25,7 +25,7 @@ The first and probably most important requirement for this module is getting it 
 
 1. Set API Connection details
 ```powershell
-Set-CIPPAPIDetails -CIPPClientID "YourCliendIDGoesHere" -CIPPClientSecret "YourClientSecretGoesHere" -CIPPAPIUrl "https://your.cipp.apiurl" -TenantID "YourTenantID"
+Set-CIPPAPIDetails -CIPPClientID "YourClientIDGoesHere" -CIPPClientSecret "YourClientSecretGoesHere" -CIPPAPIUrl "https://your.cipp.apiurl" -TenantID "YourTenantID"
 ```
 
 2. Test your first call to the API
@@ -204,11 +204,13 @@ Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnD
   - [Get-CIPPIntunePolicy](./Docs/Get-CIPPIntunePolicy.md)
   - [Get-CIPPIntuneTemplates](./Docs/Get-CIPPIntuneTemplates.md)
   - [Get-CIPPLocalAdminPassword](./Docs/Get-CIPPLocalAdminPassword.md)
+  - [Set-CIPPAutoPilotSync](./Docs/Set-CIPPAutoPilotSync.md)
 - [Get-CIPPGetBitLockerKey](./Docs/Get-CIPPGetBitLockerKey.md)
 - [Get-CIPPIntuneIntents](./Docs/Get-CIPPIntuneIntents.md)
 - [Get-CIPPIntunePolicy](./Docs/Get-CIPPIntunePolicy.md)
 - [Get-CIPPIntuneTemplates](./Docs/Get-CIPPIntuneTemplates.md)
 - [Get-CIPPLocalAdminPassword](./Docs/Get-CIPPLocalAdminPassword.md)
+- [Set-CIPPAutoPilotSync](./Docs/Set-CIPPAutoPilotSync.md)
 ## Security
 - Defender
   - [Get-CIPPDefenderState](./Docs/Get-CIPPDefenderState.md)
@@ -259,6 +261,7 @@ Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnD
   - [Get-CIPPDomainAnalyser](./Docs/Get-CIPPDomainAnalyser.md)
   - [Get-CIPPDomainHealth](./Docs/Get-CIPPDomainHealth.md)
   - [Get-CIPPStandards](./Docs/Get-CIPPStandards.md)
+  - [Set-CIPPStandardsRun](./Docs/Set-CIPPStandardsRun.md)
 - Tools
   - [Get-CIPPAuditLogTest](./Docs/Get-CIPPAuditLogTest.md)
   - [Get-CIPPExternalGEOIPLookup](./Docs/Get-CIPPExternalGEOIPLookup.md)
@@ -292,6 +295,7 @@ Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnD
 - [Get-CIPPDomainAnalyser](./Docs/Get-CIPPDomainAnalyser.md)
 - [Get-CIPPDomainHealth](./Docs/Get-CIPPDomainHealth.md)
 - [Get-CIPPStandards](./Docs/Get-CIPPStandards.md)
+- [Set-CIPPStandardsRun](./Docs/Set-CIPPStandardsRun.md)
 - [Get-CIPPAuditLogTest](./Docs/Get-CIPPAuditLogTest.md)
 - [Get-CIPPExternalGEOIPLookup](./Docs/Get-CIPPExternalGEOIPLookup.md)
 - [Get-CIPPExternalTenantInfo](./Docs/Get-CIPPExternalTenantInfo.md)
