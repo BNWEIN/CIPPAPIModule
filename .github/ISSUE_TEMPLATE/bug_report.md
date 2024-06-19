@@ -1,0 +1,45 @@
+---
+name: Bug report
+about: Create a report to help us improve
+title: "[BUG]"
+labels: bug
+assignees: ''
+
+---
+
+name: 🐞 Bug report 
+description: Report errors or unexpected behaviors.
+labels: [unconfirmed-by-user , bug]
+
+body:
+- type: markdown
+  attributes:
+    value: >
+      Thanks for reporting.
+
+      - Make sure you are able to reproduce this issue on the latest released version of the module. 
+      
+      - Please search the existing issues to see if there has been a similar issue filed
+      
+      - This is not the location for support. Issues that request support or are not a bug will be closed.
+- type: textarea
+  attributes:
+    label: Description
+    description: >
+      Please describe the issue and expected result. You can include a screenshot by pasting it. Issues with a description that is too short or does not explain each step in detail will be closed.
+      
+      **Please do not include any sensitive information in this field.**
+
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Environment data
+    description: >
+      Please let us know your environment information. This must follow this format or the ticket will be closed:
+      Module Version Number:
+      CIPP Back end version number: 
+      
+    render: PowerShell
+  validations:
+    required: true
