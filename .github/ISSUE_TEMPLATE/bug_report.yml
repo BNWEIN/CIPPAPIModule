@@ -1,12 +1,3 @@
----
-name: Bug report
-about: Create a report to help us improve
-title: "[BUG]"
-labels: bug
-assignees: ''
-
----
-
 name: 🐞 Bug report 
 description: Report errors or unexpected behaviors.
 labels: [unconfirmed-by-user , bug]
