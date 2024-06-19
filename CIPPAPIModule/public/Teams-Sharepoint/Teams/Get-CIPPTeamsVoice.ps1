@@ -9,8 +9,8 @@ The Get-CIPPTeamsVoice function retrieves teams voice information for a specifie
 The customer tenant ID for which to retrieve teams voice information. This parameter is mandatory.
 
 .EXAMPLE
-Get-CIPPTeamsVoice -CustomerTenantID "7ced1621-b8f7-4231-868c-bc6b1a2f1778"
-Retrieves teams voice information for the customer tenant with the ID "7ced1621-b8f7-4231-868c-bc6b1a2f1778".
+Get-CIPPTeamsVoice -CustomerTenantID "contoso.onmicrosoft.com"
+Retrieves teams voice information for the customer tenant with the ID "contoso.onmicrosoft.com".
 
 #>
 function Get-CIPPTeamsVoice {
