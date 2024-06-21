@@ -11,6 +11,6 @@ The customer tenant ID for which to retrieve teams voice information. This param
 
  #### EXAMPLE 1
 ```powershell
-PS > Get-CIPPTeamsVoice -CustomerTenantID "7ced1621-b8f7-4231-868c-bc6b1a2f1778"
+PS > Get-CIPPTeamsVoice -CustomerTenantID "contoso.onmicrosoft.com"
 ```
 
