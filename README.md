@@ -1,6 +1,6 @@
 ## What is this?
 
-This is the code for a [PowerShell](https://microsoft.com/powershell) module for [CIPP](https://cipp.app/). It is a work in progress, and only has about 80 out of the almost 300 API Endpoints built in. However, more will follow and it does have a generic 'Invoke-CIPPRestMethod' available so you can make any API call you want. See advanced usage examples below. 
+This is the code for a [PowerShell](https://microsoft.com/powershell) module for [CIPP](https://cipp.app/). It is a work in progress, and only has about 120 out of the almost 300 API Endpoints built in. However, more will follow and it does have a generic 'Invoke-CIPPRestMethod' available so you can make any API call you want. See advanced usage examples below. 
 
 The module is written for [PowerShell 7](https://docs.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-71?view=powershell-7.1). 
 
