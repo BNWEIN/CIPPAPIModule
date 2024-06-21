@@ -1,6 +1,6 @@
 ## What is this?
 
-This is the code for a [PowerShell](https://microsoft.com/powershell) module for [CIPP](https://cipp.app/). It is a work in progress, and only has about 80 out of the almost 300 API Endpoints built in. However, more will follow and it does have a generic 'Invoke-CIPPRestMethod' available so you can make any API call you want. See advanced usage examples below. 
+This is the code for a [PowerShell](https://microsoft.com/powershell) module for [CIPP](https://cipp.app/). It is a work in progress, and only has about 120 out of the almost 300 API Endpoints built in. However, more will follow and it does have a generic 'Invoke-CIPPRestMethod' available so you can make any API call you want. See advanced usage examples below. 
 
 The module is written for [PowerShell 7](https://docs.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-71?view=powershell-7.1). 
 
@@ -70,10 +70,8 @@ Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnD
   - [Get-CIPPLogs](./Docs/Get-CIPPLogs.md)
   - [Get-CIPPPublicPhishingCheck](./Docs/Get-CIPPPublicPhishingCheck.md)
   - [Set-CIPPExecCPVPerms](./Docs/Set-CIPPExecCPVPerms.md)
-- Scheduler
 - Settings
   - [Get-CIPPVersion](./Docs/Get-CIPPVersion.md)
-- Setup
 - [Get-CIPPAccessCheck](./Docs/Get-CIPPAccessCheck.md)
 - [Get-CIPPExecAPIPermissionsList](./Docs/Get-CIPPExecAPIPermissionsList.md)
 - [Get-CIPPKnownIPDB](./Docs/Get-CIPPKnownIPDB.md)
@@ -112,6 +110,7 @@ Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnD
 - [Set-CIPPHideFromGAL](./Docs/Set-CIPPHideFromGAL.md)
 - [Set-CIPPMailboxMobileDevices](./Docs/Set-CIPPMailboxMobileDevices.md)
 - [Set-CIPPMailboxPermissions](./Docs/Set-CIPPMailboxPermissions.md)
+- [Set-CIPPOOO](./Docs/Set-CIPPOOO.md)
 - [Set-CIPPQuarantineManagement](./Docs/Set-CIPPQuarantineManagement.md)
 - [Set-CIPPSpamFilter](./Docs/Set-CIPPSpamFilter.md)
 - [Set-CIPPTransportRule](./Docs/Set-CIPPTransportRule.md)
@@ -132,7 +131,6 @@ Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnD
 - [Get-CIPPDevices](./Docs/Get-CIPPDevices.md)
 ## Identity
 - Administration
-  - [Devices](./Docs/Devices.md)
   - [Groups](./Docs/Groups.md)
   - [Users](./Docs/Users.md)
   - [Get-CIPPRoles](./Docs/Get-CIPPRoles.md)
@@ -141,7 +139,6 @@ Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnD
   - [Get-CIPPInactiveAccounts](./Docs/Get-CIPPInactiveAccounts.md)
   - [Get-CIPPMFAUsers](./Docs/Get-CIPPMFAUsers.md)
   - [Get-CIPPSignIns](./Docs/Get-CIPPSignIns.md)
-- Devices
 - Groups
   - [Get-CIPPGroups](./Docs/Get-CIPPGroups.md)
   - [Get-CIPPGroupTemplates](./Docs/Get-CIPPGroupTemplates.md)
@@ -226,22 +223,28 @@ Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnD
 - [Get-CIPPIncidentList](./Docs/Get-CIPPIncidentList.md)
 - [Get-CIPPDeviceCompliance](./Docs/Get-CIPPDeviceCompliance.md)
 ## Teams-Sharepoint
+- OneDrive
+  - [Set-CIPPOneDrivePerms](./Docs/Set-CIPPOneDrivePerms.md)
 - Sharepoint
   - [Get-CIPPSharePointQuota](./Docs/Get-CIPPSharePointQuota.md)
   - [Get-CIPPSharePointSites](./Docs/Get-CIPPSharePointSites.md)
+  - [Set-CIPPSharePointSiteAdmin](./Docs/Set-CIPPSharePointSiteAdmin.md)
+  - [Set-CIPPSharePointSiteMembers](./Docs/Set-CIPPSharePointSiteMembers.md)
 - Teams
   - [Get-CIPPTeams](./Docs/Get-CIPPTeams.md)
   - [Get-CIPPTeamsActivity](./Docs/Get-CIPPTeamsActivity.md)
   - [Get-CIPPTeamsVoice](./Docs/Get-CIPPTeamsVoice.md)
+- [Set-CIPPOneDrivePerms](./Docs/Set-CIPPOneDrivePerms.md)
 - [Get-CIPPSharePointQuota](./Docs/Get-CIPPSharePointQuota.md)
 - [Get-CIPPSharePointSites](./Docs/Get-CIPPSharePointSites.md)
+- [Set-CIPPSharePointSiteAdmin](./Docs/Set-CIPPSharePointSiteAdmin.md)
+- [Set-CIPPSharePointSiteMembers](./Docs/Set-CIPPSharePointSiteMembers.md)
 - [Get-CIPPTeams](./Docs/Get-CIPPTeams.md)
 - [Get-CIPPTeamsActivity](./Docs/Get-CIPPTeamsActivity.md)
 - [Get-CIPPTeamsVoice](./Docs/Get-CIPPTeamsVoice.md)
 ## Tenant
 - Administration
   - [Alerts](./Docs/Alerts.md)
-  - [Application Approval](./Docs/Application Approval.md)
   - [Tenant](./Docs/Tenant.md)
   - [Get-CIPPAppConsentReqs](./Docs/Get-CIPPAppConsentReqs.md)
   - [Get-CIPPDomains](./Docs/Get-CIPPDomains.md)
@@ -268,7 +271,6 @@ Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnD
   - [Get-CIPPExternalTenantInfo](./Docs/Get-CIPPExternalTenantInfo.md)
 - Alerts
   - [Get-CIPPAlerts](./Docs/Get-CIPPAlerts.md)
-- Application Approval
 - Tenant
   - [Get-CIPPADConnectStatus](./Docs/Get-CIPPADConnectStatus.md)
   - [Get-CIPPOrg](./Docs/Get-CIPPOrg.md)

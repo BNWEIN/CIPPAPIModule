@@ -13,6 +13,10 @@ The ID of the customer tenant for which the sessions need to be revoked.
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
 The ID of the user for whom the sessions need to be revoked.
 
+  ## **-UserName**
+> ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
+
+
  #### EXAMPLE 1
 ```powershell
 PS > Set-CIPPRevokeSessions -CustomerTenantID "7ced1621-b8f7-4231-868c-bc6b1a2f1778" -UserID "281ceb6e-3d12-4a7f-b571-3c4f35ad85bc"
