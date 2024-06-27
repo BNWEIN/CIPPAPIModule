@@ -1,29 +1,41 @@
 <#
 .SYNOPSIS
-Retrieves a list of mailboxes for a specific customer tenant.
+Retrieves a list of mailboxes for a specified customer tenant ID.
 
 .DESCRIPTION
-The Get-CIPPMailboxes function retrieves a list of mailboxes for a specific customer tenant by making a REST API call to the "/api/ListMailboxes" endpoint.
+The Get-CIPPMailboxes function retrieves a list of mailboxes for a specified customer tenant ID. It can also include soft-deleted mailboxes if the -SoftDeletedMailboxes switch is used.
 
 .PARAMETER CustomerTenantID
-The ID of the customer tenant for which to retrieve the mailbox list.
+Specifies the customer tenant ID for which to retrieve the mailbox list.
+
+.PARAMETER SoftDeletedMailboxes
+Indicates whether to include soft-deleted mailboxes in the result. By default, this parameter is set to $false.
 
 .EXAMPLE
-Get-CIPPMailboxes -CustomerTenantID "7ced1621-b8f7-4231-868c-bc6b1a2f1778"
-Retrieves the mailbox list for the customer tenant with the ID "7ced1621-b8f7-4231-868c-bc6b1a2f1778".
+Get-CIPPMailboxes -CustomerTenantID "contoso.onmicrosoft.com"
+Retrieves the list of mailboxes for the "contoso.onmicrosoft.com" tenant.
 
+.EXAMPLE
+Get-CIPPMailboxes -CustomerTenantID "contoso.onmicrosoft.com" -SoftDeletedMailboxes
+Retrieves the list of soft-deleted mailboxes for the "contoso.onmicrosoft.com" tenant.
 #>
+
 function Get-CIPPMailboxes {
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory = $true)]
-        [string]$CustomerTenantID
+        [string]$CustomerTenantID,
+        [Parameter(Mandatory = $false)]
+        [switch]$SoftDeletedMailboxes
     )
 
     Write-Verbose "Getting Mailbox List for $CustomerTenantID"
     $endpoint = "/api/ListMailboxes"
     $params = @{
         tenantfilter = $CustomerTenantID
+    }
+    if ($SoftDeletedMailboxes) {
+        $params.Add("SoftDeletedMailbox", "true")
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }
