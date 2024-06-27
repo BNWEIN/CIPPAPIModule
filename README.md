@@ -1,6 +1,6 @@
 ## What is this?
 
-This is the code for a [PowerShell](https://microsoft.com/powershell) module for [CIPP](https://cipp.app/). It is a work in progress, and only has about 120 out of the almost 300 API Endpoints built in. However, more will follow and it does have a generic 'Invoke-CIPPRestMethod' available so you can make any API call you want. See advanced usage examples below. 
+This is the code for a [PowerShell](https://microsoft.com/powershell) module for [CIPP](https://cipp.app/). It is a work in progress, and only has about 134 out of the almost 300 API Endpoints built in. However, more will follow and it does have a generic 'Invoke-CIPPRestMethod' available so you can make any API call you want. See advanced usage examples below. 
 
 The module is written for [PowerShell 7](https://docs.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-71?view=powershell-7.1). 
 
@@ -42,15 +42,27 @@ Get-CIPPLogs
   - [Get-CIPPLogs](./Docs/Get-CIPPLogs.md)
   - [Get-CIPPPublicPhishingCheck](./Docs/Get-CIPPPublicPhishingCheck.md)
   - [Set-CIPPExecCPVPerms](./Docs/Set-CIPPExecCPVPerms.md)
+- Scheduler
 - Settings
+  - [Get-CIPPExcludedLicenses](./Docs/Get-CIPPExcludedLicenses.md)
+  - [Get-CIPPExcludedTenants](./Docs/Get-CIPPExcludedTenants.md)
   - [Get-CIPPVersion](./Docs/Get-CIPPVersion.md)
+  - [Set-CIPPExcludeLicense](./Docs/Set-CIPPExcludeLicense.md)
+  - [Set-CIPPExcludeTenant](./Docs/Set-CIPPExcludeTenant.md)
+  - [Set-CIPPPasswordSettings](./Docs/Set-CIPPPasswordSettings.md)
+- Setup
 - [Get-CIPPAccessCheck](./Docs/Get-CIPPAccessCheck.md)
 - [Get-CIPPExecAPIPermissionsList](./Docs/Get-CIPPExecAPIPermissionsList.md)
 - [Get-CIPPKnownIPDB](./Docs/Get-CIPPKnownIPDB.md)
 - [Get-CIPPLogs](./Docs/Get-CIPPLogs.md)
 - [Get-CIPPPublicPhishingCheck](./Docs/Get-CIPPPublicPhishingCheck.md)
 - [Set-CIPPExecCPVPerms](./Docs/Set-CIPPExecCPVPerms.md)
+- [Get-CIPPExcludedLicenses](./Docs/Get-CIPPExcludedLicenses.md)
+- [Get-CIPPExcludedTenants](./Docs/Get-CIPPExcludedTenants.md)
 - [Get-CIPPVersion](./Docs/Get-CIPPVersion.md)
+- [Set-CIPPExcludeLicense](./Docs/Set-CIPPExcludeLicense.md)
+- [Set-CIPPExcludeTenant](./Docs/Set-CIPPExcludeTenant.md)
+- [Set-CIPPPasswordSettings](./Docs/Set-CIPPPasswordSettings.md)
 ## Email-Exchange
 - [Add-CIPPContact](./Docs/Add-CIPPContact.md)
 - [Get-CIPPCalendarPerms](./Docs/Get-CIPPCalendarPerms.md)
@@ -80,8 +92,10 @@ Get-CIPPLogs
 - [Set-CIPPEnableArchive](./Docs/Set-CIPPEnableArchive.md)
 - [Set-CIPPExchConnector](./Docs/Set-CIPPExchConnector.md)
 - [Set-CIPPHideFromGAL](./Docs/Set-CIPPHideFromGAL.md)
+- [Set-CIPPMailboxForwarding](./Docs/Set-CIPPMailboxForwarding.md)
 - [Set-CIPPMailboxMobileDevices](./Docs/Set-CIPPMailboxMobileDevices.md)
 - [Set-CIPPMailboxPermissions](./Docs/Set-CIPPMailboxPermissions.md)
+- [Set-CIPPMailboxQuota](./Docs/Set-CIPPMailboxQuota.md)
 - [Set-CIPPOOO](./Docs/Set-CIPPOOO.md)
 - [Set-CIPPQuarantineManagement](./Docs/Set-CIPPQuarantineManagement.md)
 - [Set-CIPPSpamFilter](./Docs/Set-CIPPSpamFilter.md)
@@ -103,6 +117,7 @@ Get-CIPPLogs
 - [Get-CIPPDevices](./Docs/Get-CIPPDevices.md)
 ## Identity
 - Administration
+  - [Devices](./Docs/Devices.md)
   - [Groups](./Docs/Groups.md)
   - [Users](./Docs/Users.md)
   - [Get-CIPPRoles](./Docs/Get-CIPPRoles.md)
@@ -111,6 +126,7 @@ Get-CIPPLogs
   - [Get-CIPPInactiveAccounts](./Docs/Get-CIPPInactiveAccounts.md)
   - [Get-CIPPMFAUsers](./Docs/Get-CIPPMFAUsers.md)
   - [Get-CIPPSignIns](./Docs/Get-CIPPSignIns.md)
+- Devices
 - Groups
   - [Get-CIPPGroups](./Docs/Get-CIPPGroups.md)
   - [Get-CIPPGroupTemplates](./Docs/Get-CIPPGroupTemplates.md)
@@ -174,12 +190,14 @@ Get-CIPPLogs
   - [Get-CIPPIntuneTemplates](./Docs/Get-CIPPIntuneTemplates.md)
   - [Get-CIPPLocalAdminPassword](./Docs/Get-CIPPLocalAdminPassword.md)
   - [Set-CIPPAutoPilotSync](./Docs/Set-CIPPAutoPilotSync.md)
+  - [Set-CIPPDeviceAction](./Docs/Set-CIPPDeviceAction.md)
 - [Get-CIPPGetBitLockerKey](./Docs/Get-CIPPGetBitLockerKey.md)
 - [Get-CIPPIntuneIntents](./Docs/Get-CIPPIntuneIntents.md)
 - [Get-CIPPIntunePolicy](./Docs/Get-CIPPIntunePolicy.md)
 - [Get-CIPPIntuneTemplates](./Docs/Get-CIPPIntuneTemplates.md)
 - [Get-CIPPLocalAdminPassword](./Docs/Get-CIPPLocalAdminPassword.md)
 - [Set-CIPPAutoPilotSync](./Docs/Set-CIPPAutoPilotSync.md)
+- [Set-CIPPDeviceAction](./Docs/Set-CIPPDeviceAction.md)
 ## Security
 - Defender
   - [Get-CIPPDefenderState](./Docs/Get-CIPPDefenderState.md)
@@ -197,6 +215,7 @@ Get-CIPPLogs
 ## Teams-Sharepoint
 - OneDrive
   - [Set-CIPPOneDrivePerms](./Docs/Set-CIPPOneDrivePerms.md)
+  - [Set-CIPPOneDriveShortCut](./Docs/Set-CIPPOneDriveShortCut.md)
 - Sharepoint
   - [Get-CIPPSharePointQuota](./Docs/Get-CIPPSharePointQuota.md)
   - [Get-CIPPSharePointSites](./Docs/Get-CIPPSharePointSites.md)
@@ -207,6 +226,7 @@ Get-CIPPLogs
   - [Get-CIPPTeamsActivity](./Docs/Get-CIPPTeamsActivity.md)
   - [Get-CIPPTeamsVoice](./Docs/Get-CIPPTeamsVoice.md)
 - [Set-CIPPOneDrivePerms](./Docs/Set-CIPPOneDrivePerms.md)
+- [Set-CIPPOneDriveShortCut](./Docs/Set-CIPPOneDriveShortCut.md)
 - [Get-CIPPSharePointQuota](./Docs/Get-CIPPSharePointQuota.md)
 - [Get-CIPPSharePointSites](./Docs/Get-CIPPSharePointSites.md)
 - [Set-CIPPSharePointSiteAdmin](./Docs/Set-CIPPSharePointSiteAdmin.md)
@@ -217,6 +237,7 @@ Get-CIPPLogs
 ## Tenant
 - Administration
   - [Alerts](./Docs/Alerts.md)
+  - [Application Approval](./Docs/Application Approval.md)
   - [Tenant](./Docs/Tenant.md)
   - [Get-CIPPAppConsentReqs](./Docs/Get-CIPPAppConsentReqs.md)
   - [Get-CIPPDomains](./Docs/Get-CIPPDomains.md)
@@ -226,6 +247,7 @@ Get-CIPPLogs
   - [Get-CIPPNamedLocations](./Docs/Get-CIPPNamedLocations.md)
   - [Set-CIPPCAPolicy](./Docs/Set-CIPPCAPolicy.md)
 - GDAP
+  - [Get-CIPPGDAPRoles](./Docs/Get-CIPPGDAPRoles.md)
   - [Remove-CIPPGDAPRelationship](./Docs/Remove-CIPPGDAPRelationship.md)
 - Reports
   - [Get-CIPPLicenses](./Docs/Get-CIPPLicenses.md)
@@ -243,6 +265,7 @@ Get-CIPPLogs
   - [Get-CIPPExternalTenantInfo](./Docs/Get-CIPPExternalTenantInfo.md)
 - Alerts
   - [Get-CIPPAlerts](./Docs/Get-CIPPAlerts.md)
+- Application Approval
 - Tenant
   - [Get-CIPPADConnectStatus](./Docs/Get-CIPPADConnectStatus.md)
   - [Get-CIPPOrg](./Docs/Get-CIPPOrg.md)
@@ -261,6 +284,7 @@ Get-CIPPLogs
 - [Get-CIPPCATemplates](./Docs/Get-CIPPCATemplates.md)
 - [Get-CIPPNamedLocations](./Docs/Get-CIPPNamedLocations.md)
 - [Set-CIPPCAPolicy](./Docs/Set-CIPPCAPolicy.md)
+- [Get-CIPPGDAPRoles](./Docs/Get-CIPPGDAPRoles.md)
 - [Remove-CIPPGDAPRelationship](./Docs/Remove-CIPPGDAPRelationship.md)
 - [Get-CIPPLicenses](./Docs/Get-CIPPLicenses.md)
 - [Get-CIPPOAuthApps](./Docs/Get-CIPPOAuthApps.md)
@@ -303,6 +327,8 @@ This example sends a POST request to the '/api/adduser' endpoint with a Body 'te
 ## Special Thanks
 
 Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnDuprey](https://github.com/JohnDuprey/), [@rvdwegen](https://github.com/rvdwegen) and [@Jr7468](https://github.com/Jr7468/).  I Could not have got this far without you! 
+
+
 
 
 

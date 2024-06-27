@@ -38,7 +38,6 @@ Set-CIPPMailboxPermissions -CustomerTenantID "contoso.onmicrosoft.com" -Userid "
 This example sets mailbox permissions for the user "john.doe@example.com" in the CIPP system. It adds full access permissions with automapping enabled to "mailbox1@example.com" and "mailbox2@example.com", and adds send as permissions to "mailbox3@example.com".
 
 #>
-
 function Set-CIPPMailboxPermissions {
     [CmdletBinding()]
     Param(
@@ -61,21 +60,6 @@ function Set-CIPPMailboxPermissions {
         [Parameter(Mandatory = $false)]
         [array]$RemoveSendOnBehalf = @()
     )
-
-    function ConvertTo-FormattedArray {
-        param (
-            [array]$inputArray,
-            [string]$labelPrefix
-        )
-        $formattedArray = @()
-        foreach ($item in $inputArray) {
-            $formattedArray += @{
-                value = $item
-                label = "$labelPrefix - $item"
-            }
-        }
-        return $formattedArray
-    }
 
     Write-Verbose "Editing Mailbox permissions for $Userid"
 
