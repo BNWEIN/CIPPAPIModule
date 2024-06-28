@@ -117,9 +117,6 @@ Get-CIPPLogs
 - [Get-CIPPDevices](./Docs/Get-CIPPDevices.md)
 ## Identity
 - Administration
-  - [Devices](./Docs/Devices.md)
-  - [Groups](./Docs/Groups.md)
-  - [Users](./Docs/Users.md)
   - [Get-CIPPRoles](./Docs/Get-CIPPRoles.md)
 - Reports
   - [Get-CIPPBasicAuth](./Docs/Get-CIPPBasicAuth.md)
@@ -236,9 +233,6 @@ Get-CIPPLogs
 - [Get-CIPPTeamsVoice](./Docs/Get-CIPPTeamsVoice.md)
 ## Tenant
 - Administration
-  - [Alerts](./Docs/Alerts.md)
-  - [Application Approval](./Docs/Application Approval.md)
-  - [Tenant](./Docs/Tenant.md)
   - [Get-CIPPAppConsentReqs](./Docs/Get-CIPPAppConsentReqs.md)
   - [Get-CIPPDomains](./Docs/Get-CIPPDomains.md)
 - Conditional
@@ -324,9 +318,18 @@ Invoke-CIPPRestMethod -Endpoint '/api/adduser' -method 'POST' -Body @{ 'tenantID
 
 This example sends a POST request to the '/api/adduser' endpoint with a Body 'tenantID' set to '11c11ab1-527a-1d29-l92e-76413h012s76' and 'DisplayName' set to 'Test User', 'UserName' set to 'testuser', 'AutoPassword' set to $true, 'FirstName' set to 'Test', 'LastName' set to 'User', 'Domain' set to 'M365x72601982.onmicrosoft.com'
 
+## Example Scripts
+
+Some example scripts can be found Below:
+
+- [Get-AllTenants-Licenses.ps1](./Example%20Scripts/Get-AllTenants-Licenses.ps1)
+- [Get-AllTenants-SharedMailboxesEnabledAccount.ps1](./Example%20Scripts/Get-AllTenants-SharedMailboxesEnabledAccount.ps1)
+- [Get-AllTenants-SoftDeletedMailboxes.ps1](./Example%20Scripts/Get-AllTenants-SoftDeletedMailboxes.ps1)
+
 ## Special Thanks
 
 Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnDuprey](https://github.com/JohnDuprey/), [@rvdwegen](https://github.com/rvdwegen) and [@Jr7468](https://github.com/Jr7468/).  I Could not have got this far without you! 
+
 
 
 
