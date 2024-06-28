@@ -76,7 +76,7 @@ function Invoke-CIPPRestMethod {
     }
     Write-Verbose "$Method [ $($UriBuilder.ToString()) ]"
     
-    $response = Invoke-RestMethod @Request -ConnectionTimeoutSeconds 600
+    $response = Invoke-RestMethod @Request
     return $response
 
 }
