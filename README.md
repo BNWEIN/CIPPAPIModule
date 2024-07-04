@@ -16,6 +16,14 @@ This module is published to the PowerShell Gallery and can be installed from wit
 Install-Module -Name CIPPAPIModule
 ```
 
+## Updating
+
+This module is updated regularly. Remember to always check for the latest version from within PowerShell with `Update-Module`
+
+```powershell
+Update-Module -Name CIPPAPIModule
+```
+
 ## Getting Started
 
 The first and probably most important requirement for this module is getting it connected to your CIPP API.
@@ -235,7 +243,6 @@ Get-CIPPLogs
 - [Get-CIPPTeamsVoice](./Docs/Get-CIPPTeamsVoice.md)
 ## Tenant
 - Administration
-  - [Application Approval](./Docs/Application Approval.md)
   - [Get-CIPPAppConsentReqs](./Docs/Get-CIPPAppConsentReqs.md)
   - [Get-CIPPDomains](./Docs/Get-CIPPDomains.md)
 - Conditional
