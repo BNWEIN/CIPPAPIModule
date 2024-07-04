@@ -1,3 +1,7 @@
+function New-MarkdownHelpPathTree {
+    [CmdletBinding()]
+    Param()
+
 $Readme = Get-Content .\README.md -Raw
 $NewReadme = ($Readme -split '# Cmdlet Help')[0]
 $NewReadMeBottom = ($Readme -split '## Advanced Usage Examples')[1]
@@ -24,3 +28,4 @@ $NewReadme = $NewReadme + '
 ## Advanced Usage Examples' + $NewReadMeBottom
 
 $NewReadme | Set-Content -Path .\README.md
+}
