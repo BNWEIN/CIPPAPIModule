@@ -47,14 +47,18 @@ $DeletedMailboxes = $tenantsList.defaultDomainName | ForEach-Object -Parallel {
     $tenant = $_
     $Deleted = Get-CIPPMailboxes -CustomerTenantID $tenant -SoftDeletedMailboxes
     foreach ($mailbox in $Deleted) {
-        [PSCustomObject]@{
-            Tenant = $tenant
-            MailBoxDeletedDate = $mailbox.WhenSoftDeleted
-            DisplayName = $mailbox.DisplayName
-            UserPrincipalName = $mailbox.UPN
-            PrimarySmtpAddress = $mailbox.PrimarySmtpAddress
-            MailboxType = $mailbox.RecipientType
-            MailboxStatus = $mailbox.RecipientTypeDetails
+        if ($mailbox.IsInactiveMailbox -ne $true) {
+            [PSCustomObject]@{
+                Tenant = $tenant
+                MailBoxDeletedDate = $mailbox.WhenSoftDeleted
+                DisplayName = $mailbox.DisplayName
+                UserPrincipalName = $mailbox.UPN
+                PrimarySmtpAddress = $mailbox.PrimarySmtpAddress
+                MailboxType = $mailbox.RecipientType
+                MailboxStatus = $mailbox.RecipientTypeDetails
+                IsInactiveMailbox = $mailbox.IsInactiveMailbox
+                RecipientSoftDeletedStatus = $mailbox.RecipientSoftDeletedStatus
+            }
         }
     }
 } -ThrottleLimit 5

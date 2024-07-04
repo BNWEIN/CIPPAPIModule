@@ -143,6 +143,7 @@ Get-CIPPLogs
   - [Get-CIPPUsers](./Docs/Get-CIPPUsers.md)
   - [Get-CIPPUserSignIns](./Docs/Get-CIPPUserSignIns.md)
   - [Send-CIPPPush](./Docs/Send-CIPPPush.md)
+  - [Set-BECRemediate](./Docs/Set-BECRemediate.md)
   - [Set-CIPPClrImmID](./Docs/Set-CIPPClrImmID.md)
   - [Set-CIPPCreateTap](./Docs/Set-CIPPCreateTap.md)
   - [Set-CIPPResetPassword](./Docs/Set-CIPPResetPassword.md)
@@ -168,6 +169,7 @@ Get-CIPPLogs
 - [Get-CIPPUsers](./Docs/Get-CIPPUsers.md)
 - [Get-CIPPUserSignIns](./Docs/Get-CIPPUserSignIns.md)
 - [Send-CIPPPush](./Docs/Send-CIPPPush.md)
+- [Set-BECRemediate](./Docs/Set-BECRemediate.md)
 - [Set-CIPPClrImmID](./Docs/Set-CIPPClrImmID.md)
 - [Set-CIPPCreateTap](./Docs/Set-CIPPCreateTap.md)
 - [Set-CIPPResetPassword](./Docs/Set-CIPPResetPassword.md)
@@ -233,6 +235,7 @@ Get-CIPPLogs
 - [Get-CIPPTeamsVoice](./Docs/Get-CIPPTeamsVoice.md)
 ## Tenant
 - Administration
+  - [Application Approval](./Docs/Application Approval.md)
   - [Get-CIPPAppConsentReqs](./Docs/Get-CIPPAppConsentReqs.md)
   - [Get-CIPPDomains](./Docs/Get-CIPPDomains.md)
 - Conditional
@@ -257,6 +260,7 @@ Get-CIPPLogs
   - [Get-CIPPAuditLogTest](./Docs/Get-CIPPAuditLogTest.md)
   - [Get-CIPPExternalGEOIPLookup](./Docs/Get-CIPPExternalGEOIPLookup.md)
   - [Get-CIPPExternalTenantInfo](./Docs/Get-CIPPExternalTenantInfo.md)
+  - [Get-CIPPGraphRequest](./Docs/Get-CIPPGraphRequest.md)
 - Alerts
   - [Get-CIPPAlerts](./Docs/Get-CIPPAlerts.md)
 - Application Approval
@@ -291,6 +295,7 @@ Get-CIPPLogs
 - [Get-CIPPAuditLogTest](./Docs/Get-CIPPAuditLogTest.md)
 - [Get-CIPPExternalGEOIPLookup](./Docs/Get-CIPPExternalGEOIPLookup.md)
 - [Get-CIPPExternalTenantInfo](./Docs/Get-CIPPExternalTenantInfo.md)
+- [Get-CIPPGraphRequest](./Docs/Get-CIPPGraphRequest.md)
 ## Invoke-CIPPRestMethod
 - [Invoke-CIPPRestMethod](./Docs/Invoke-CIPPRestMethod.md)
 ## Set-CIPPAPIDetails
@@ -325,13 +330,8 @@ Some example scripts can be found Below:
 - [Get-AllTenants-Licenses.ps1](./Example%20Scripts/Get-AllTenants-Licenses.ps1)
 - [Get-AllTenants-SharedMailboxesEnabledAccount.ps1](./Example%20Scripts/Get-AllTenants-SharedMailboxesEnabledAccount.ps1)
 - [Get-AllTenants-SoftDeletedMailboxes.ps1](./Example%20Scripts/Get-AllTenants-SoftDeletedMailboxes.ps1)
+- [Get-AllTenants-LicensedUsers.ps1](./Example%20Scripts/Get-AllTenants-LicensedUsers.ps1)
 
 ## Special Thanks
 
 Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnDuprey](https://github.com/JohnDuprey/), [@rvdwegen](https://github.com/rvdwegen) and [@Jr7468](https://github.com/Jr7468/).  I Could not have got this far without you! 
-
-
-
-
-
-
