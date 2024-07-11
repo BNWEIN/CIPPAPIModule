@@ -22,35 +22,33 @@ Retrieves CIPP logs matching "alert" on 20240711
 function Get-CIPPLogs {
     [CmdletBinding()]
     Param(
-        $Severity,
-        $DateFilter
+        [Parameter(Mandatory = $false)]
+        [ValidateSet(
+            "error",
+            "alert",
+            "debug",
+            "info",
+            "warn",
+            "critical"
+        )]
+        [string]$Severity,
+
+        [Parameter(Mandatory = $false)]
+        [string]$DateFilter = (Get-Date -Format "yyyyMMdd")
     )
 
     $endpoint = "/api/ListLogs"
 
-    if($Severity -or $DateFilter){
         
-        $Params = @{
-            'Filter' = $True
-        }
-
-        if($Severity){
-            $Params['Severity'] = $Severity
-        }
-        
-        if($DateFilter){
-            $Params['DateFilter'] = $DateFilter
-        }else{
-            $Params['DateFilter'] = (Get-Date -Format "yyyyMMdd")
-        }
-
-        Write-Verbose "Getting CIPP Logs"
-        Invoke-CIPPRestMethod -Endpoint $endpoint -Param $Params
-
-    }else{
-
-        Write-Verbose "Getting CIPP Logs"
-        Invoke-CIPPRestMethod -Endpoint $endpoint
-
+    $Params = @{
+        'Filter' = $True
+        'DateFilter' = $DateFilter
     }
+
+    if($Severity){
+        $Params['Severity'] = $Severity
+    }
+    
+    Write-Verbose "Getting CIPP Logs"
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Param $Params
 }
