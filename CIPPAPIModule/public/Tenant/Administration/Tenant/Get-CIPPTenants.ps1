@@ -15,8 +15,8 @@ Indicates whether to clear the cache before retrieving the tenants. This paramet
 Indicates whether to trigger a refresh before retrieving the tenants. This parameter is optional.
 
 .EXAMPLE
-Get-CIPPTenants -CustomerTenantID "7ced1621-b8f7-4231-868c-bc6b1a2f1778" -ClearCache
-This example retrieves the list of CIPP tenants for the specified customer tenant ID and clears the cache before retrieving the tenants.
+Get-CIPPTenants -CustomerTenantID "contoso.onmicrosoft.com" -ClearCache
+This example retrieves the list of CIPP tenants for the specified customer tenant and clears the cache before retrieving the tenants.
 
 #>
 function Get-CIPPTenants {

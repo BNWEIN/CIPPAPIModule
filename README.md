@@ -95,6 +95,7 @@ Get-CIPPLogs
 - [Get-CIPPUserMailboxDetails](./Docs/Get-CIPPUserMailboxDetails.md)
 - [Get-CIPPUserMailboxRules](./Docs/Get-CIPPUserMailboxRules.md)
 - [Set-CIPPCalendarPermissions](./Docs/Set-CIPPCalendarPermissions.md)
+- [Set-CIPPContact](./Docs/Set-CIPPContact.md)
 - [Set-CIPPConvertMailbox](./Docs/Set-CIPPConvertMailbox.md)
 - [Set-CIPPCopyToSent](./Docs/Set-CIPPCopyToSent.md)
 - [Set-CIPPEnableArchive](./Docs/Set-CIPPEnableArchive.md)
@@ -125,6 +126,9 @@ Get-CIPPLogs
 - [Get-CIPPDevices](./Docs/Get-CIPPDevices.md)
 ## Identity
 - Administration
+  - [Devices](./Docs/Devices.md)
+  - [Groups](./Docs/Groups.md)
+  - [Users](./Docs/Users.md)
   - [Get-CIPPRoles](./Docs/Get-CIPPRoles.md)
 - Reports
   - [Get-CIPPBasicAuth](./Docs/Get-CIPPBasicAuth.md)
@@ -243,6 +247,9 @@ Get-CIPPLogs
 - [Get-CIPPTeamsVoice](./Docs/Get-CIPPTeamsVoice.md)
 ## Tenant
 - Administration
+  - [Alerts](./Docs/Alerts.md)
+  - [Application Approval](./Docs/Application Approval.md)
+  - [Tenant](./Docs/Tenant.md)
   - [Get-CIPPAppConsentReqs](./Docs/Get-CIPPAppConsentReqs.md)
   - [Get-CIPPDomains](./Docs/Get-CIPPDomains.md)
 - Conditional
