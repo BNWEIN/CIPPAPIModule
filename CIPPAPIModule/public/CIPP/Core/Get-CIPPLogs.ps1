@@ -15,6 +15,7 @@ Date in "yyyyMMdd" format. This should be in the time zone of your CIPP instance
 Get-CIPPLogs
 Retrieves CIPP logs from the API.
 
+.EXAMPLE
 Get-CIPPLogs -Severity "Alert" -DateFilter "20240711"
 Retrieves CIPP logs matching "alert" on 20240711
 #>

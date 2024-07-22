@@ -43,7 +43,7 @@ $SharedMailboxesEnabled = $tenantsList.defaultDomainName | ForEach-Object -Paral
     Import-Module CIPPAPIModule
     Set-CIPPAPIDetails -TenantID $using:TenantId -CIPPClientID $using:CIPPClientID -CIPPClientSecret $using:CIPPClientSecret -CIPPAPIUrl $using:CIPPAPIUrl
     $tenant = $_
-    $SharedMailboxes = Get-CIPPEnabledSharedMailboxe -CustomerTenantID $tenant
+    $SharedMailboxes = Get-CIPPEnabledSharedMailboxes -CustomerTenantID $tenant
     foreach ($mailbox in $SharedMailboxes) {
         [PSCustomObject]@{
             Tenant = $tenant

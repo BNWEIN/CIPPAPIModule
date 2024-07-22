@@ -19,6 +19,6 @@ Indicates whether to trigger a refresh before retrieving the tenants. This param
 
  #### EXAMPLE 1
 ```powershell
-PS > Get-CIPPTenants -CustomerTenantID "7ced1621-b8f7-4231-868c-bc6b1a2f1778" -ClearCache
+PS > Get-CIPPTenants -CustomerTenantID "contoso.onmicrosoft.com" -ClearCache
 ```
 
