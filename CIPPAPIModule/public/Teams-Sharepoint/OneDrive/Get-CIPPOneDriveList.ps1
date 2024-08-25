@@ -36,7 +36,7 @@ function Get-CIPPOneDriveList {
         [Parameter(Mandatory = $true)]
         [string]$CustomerTenantID,
         [Parameter(Mandatory = $false)]
-        [bool]$urlonly,
+        [switch]$urlonly,
         [Parameter(Mandatory = $false)]
         [string]$UserUPN
     )
