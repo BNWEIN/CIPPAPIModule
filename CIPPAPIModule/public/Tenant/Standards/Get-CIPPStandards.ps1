@@ -20,7 +20,7 @@ Retrieves the CIPP standards for the customer tenant with ID "test.onmicrosoft.c
 function Get-CIPPStandards {
     [CmdletBinding()]
     Param(
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [string]$CustomerTenantID
     )
     
