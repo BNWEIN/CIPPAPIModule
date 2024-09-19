@@ -6,7 +6,7 @@ The Get-CIPPStandards function retrieves the CIPP standards for a specific custo
 # PARAMETERS
 
 ## **-CustomerTenantID**
-> ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
+> ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) \
 The ID of the customer tenant for which to retrieve the standards.
 
  #### EXAMPLE 1
