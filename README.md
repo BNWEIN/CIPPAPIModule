@@ -46,6 +46,7 @@ Get-CIPPLogs
 - Core
   - [Get-CIPPAccessCheck](./Docs/Get-CIPPAccessCheck.md)
   - [Get-CIPPExecAPIPermissionsList](./Docs/Get-CIPPExecAPIPermissionsList.md)
+  - [Get-CIPPFunctionParameters](./Docs/Get-CIPPFunctionParameters.md)
   - [Get-CIPPKnownIPDB](./Docs/Get-CIPPKnownIPDB.md)
   - [Get-CIPPLogs](./Docs/Get-CIPPLogs.md)
   - [Get-CIPPPublicPhishingCheck](./Docs/Get-CIPPPublicPhishingCheck.md)
@@ -61,6 +62,7 @@ Get-CIPPLogs
 - Setup
 - [Get-CIPPAccessCheck](./Docs/Get-CIPPAccessCheck.md)
 - [Get-CIPPExecAPIPermissionsList](./Docs/Get-CIPPExecAPIPermissionsList.md)
+- [Get-CIPPFunctionParameters](./Docs/Get-CIPPFunctionParameters.md)
 - [Get-CIPPKnownIPDB](./Docs/Get-CIPPKnownIPDB.md)
 - [Get-CIPPLogs](./Docs/Get-CIPPLogs.md)
 - [Get-CIPPPublicPhishingCheck](./Docs/Get-CIPPPublicPhishingCheck.md)
@@ -78,6 +80,7 @@ Get-CIPPLogs
 - [Get-CIPPEnabledSharedMailboxes](./Docs/Get-CIPPEnabledSharedMailboxes.md)
 - [Get-CIPPExchangeConnectors](./Docs/Get-CIPPExchangeConnectors.md)
 - [Get-CIPPExchangeConnectorTemplates](./Docs/Get-CIPPExchangeConnectorTemplates.md)
+- [Get-CIPPMailboxCAS](./Docs/Get-CIPPMailboxCAS.md)
 - [Get-CIPPMailboxes](./Docs/Get-CIPPMailboxes.md)
 - [Get-CIPPMailboxMobileDevices](./Docs/Get-CIPPMailboxMobileDevices.md)
 - [Get-CIPPMailboxPermissions](./Docs/Get-CIPPMailboxPermissions.md)
@@ -225,6 +228,7 @@ Get-CIPPLogs
 - [Get-CIPPDeviceCompliance](./Docs/Get-CIPPDeviceCompliance.md)
 ## Teams-Sharepoint
 - OneDrive
+  - [Get-CIPPOneDriveList](./Docs/Get-CIPPOneDriveList.md)
   - [Set-CIPPOneDrivePerms](./Docs/Set-CIPPOneDrivePerms.md)
   - [Set-CIPPOneDriveShortCut](./Docs/Set-CIPPOneDriveShortCut.md)
 - Sharepoint
@@ -236,6 +240,7 @@ Get-CIPPLogs
   - [Get-CIPPTeams](./Docs/Get-CIPPTeams.md)
   - [Get-CIPPTeamsActivity](./Docs/Get-CIPPTeamsActivity.md)
   - [Get-CIPPTeamsVoice](./Docs/Get-CIPPTeamsVoice.md)
+- [Get-CIPPOneDriveList](./Docs/Get-CIPPOneDriveList.md)
 - [Set-CIPPOneDrivePerms](./Docs/Set-CIPPOneDrivePerms.md)
 - [Set-CIPPOneDriveShortCut](./Docs/Set-CIPPOneDriveShortCut.md)
 - [Get-CIPPSharePointQuota](./Docs/Get-CIPPSharePointQuota.md)
@@ -349,3 +354,4 @@ Some example scripts can be found Below:
 ## Special Thanks
 
 Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnDuprey](https://github.com/JohnDuprey/), [@rvdwegen](https://github.com/rvdwegen) and [@Jr7468](https://github.com/Jr7468/).  I Could not have got this far without you! 
+
