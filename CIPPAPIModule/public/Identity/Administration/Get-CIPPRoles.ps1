@@ -21,7 +21,7 @@ function Get-CIPPRoles {
     )
     
     Write-Verbose "Getting roles for $CustomerTenantID"
-    $endpoint = "/api/listroles"
+    $endpoint = '/api/listroles'
     $params = @{
         tenantfilter = $CustomerTenantID
     }

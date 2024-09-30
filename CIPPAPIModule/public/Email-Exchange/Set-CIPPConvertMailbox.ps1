@@ -36,11 +36,11 @@ function Set-CIPPConvertMailbox {
     
     Write-Verbose "Converting Mailbox $userID"
     
-    $endpoint = "/api/execconverttosharedmailbox"
+    $endpoint = '/api/execconverttosharedmailbox'
     $params = @{
-        tenantfilter = $CustomerTenantID
-        id = $UserID
-        ConvertToUser = if ($ConvertToUserMailbox) { "true" } else { "false" }
+        tenantfilter  = $CustomerTenantID
+        id            = $UserID
+        ConvertToUser = if ($ConvertToUserMailbox) { 'true' } else { 'false' }
     }
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

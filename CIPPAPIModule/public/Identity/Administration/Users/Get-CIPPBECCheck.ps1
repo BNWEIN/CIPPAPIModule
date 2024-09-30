@@ -34,11 +34,11 @@ function Get-CIPPBECCheck {
 
     Write-Verbose "Running BEC Check for $Username"
 
-    $endpoint = "/api/execbeccheck"
+    $endpoint = '/api/execbeccheck'
     $params = @{
-        tenantfilter    = $CustomerTenantID
-        userId          = $UserID
-        username        = $UserName
+        tenantfilter = $CustomerTenantID
+        userId       = $UserID
+        username     = $UserName
     }
 
     $initialResponse = Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
@@ -51,11 +51,11 @@ function Get-CIPPBECCheck {
         Start-Sleep -Seconds 10
         $response = Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 
-        if ($response.waiting -eq "True") {
-            Write-Verbose "BEC Check Still Running."
+        if ($response.waiting -eq 'True') {
+            Write-Verbose 'BEC Check Still Running.'
         } else {
-            Write-Verbose "BEC Check complete"
+            Write-Verbose 'BEC Check complete'
             return $response
         }
-    } while ($response.waiting -eq "True")
+    } while ($response.waiting -eq 'True')
 }

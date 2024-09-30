@@ -21,7 +21,7 @@ function Get-CIPPMailboxStatistics {
     )
 
     Write-Verbose "Getting mailbox statistics for $CustomerTenantID"
-    $endpoint = "/api/listmailboxstatistics"
+    $endpoint = '/api/listmailboxstatistics'
     $params = @{
         tenantfilter = $CustomerTenantID
     }

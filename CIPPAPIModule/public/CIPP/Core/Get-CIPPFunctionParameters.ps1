@@ -34,13 +34,13 @@ function Get-CIPPFunctionParameters {
         [bool]$Compliance = $false
     )
 
-    Write-Verbose "Getting Function Parameters"
-    $Endpoint = "/api/ListFunctionParameters"
+    Write-Verbose 'Getting Function Parameters'
+    $Endpoint = '/api/ListFunctionParameters'
 
     $params = @{
-        Module      = $Module
-        Function    = $Function
-        Compliance  = $Compliance
+        Module     = $Module
+        Function   = $Function
+        Compliance = $Compliance
     }
     
     Invoke-CIPPRestMethod -Endpoint $Endpoint -Params $params

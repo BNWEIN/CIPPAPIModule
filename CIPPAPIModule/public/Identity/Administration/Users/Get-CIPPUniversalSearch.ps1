@@ -23,9 +23,9 @@ function Get-CIPPUniversalSearch {
 
     Write-Verbose "Searching for $Name"
 
-    $endpoint = "/api/execuniversalsearch"
+    $endpoint = '/api/execuniversalsearch'
     $params = @{
-        name        = $Name
+        name = $Name
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

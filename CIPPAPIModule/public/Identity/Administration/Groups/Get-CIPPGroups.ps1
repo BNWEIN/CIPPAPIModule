@@ -52,7 +52,7 @@ function Get-CIPPGroups {
     if ($Owners) { $switchCount++ }
 
     if ($switchCount -gt 1) {
-        Write-Error "Only one role switch can be specified at a time."
+        Write-Error 'Only one role switch can be specified at a time.'
         return
     } 
     
@@ -65,18 +65,18 @@ function Get-CIPPGroups {
     } elseif ($GroupID -and -not $Members -and $Owners) {
         Write-Verbose "Getting Group Owners for Group $GroupID"
     } 
-    $endpoint = "/api/listgroups"
+    $endpoint = '/api/listgroups'
     $params = @{
         tenantfilter = $CustomerTenantID
-        groupid = $GroupID
+        groupid      = $GroupID
     }
 
     if ($Members) {
-        $params.members = "true"
+        $params.members = 'true'
     }
 
     if ($Owners) {
-        $params.owners = "true"
+        $params.owners = 'true'
     }
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

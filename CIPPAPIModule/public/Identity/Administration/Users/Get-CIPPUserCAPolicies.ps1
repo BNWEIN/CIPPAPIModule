@@ -28,10 +28,10 @@ function Get-CIPPUserCAPolicies {
     
     Write-Verbose "Getting user CA Policies $CustomerTenantID"
     
-    $endpoint = "/api/listuserconditionalaccesspolicies"
+    $endpoint = '/api/listuserconditionalaccesspolicies'
     $params = @{
         tenantfilter = $CustomerTenantID
-        userId = $UserID
+        userId       = $UserID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

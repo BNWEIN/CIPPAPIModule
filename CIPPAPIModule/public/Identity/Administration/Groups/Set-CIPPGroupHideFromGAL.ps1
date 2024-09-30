@@ -44,18 +44,18 @@ function Set-CIPPGroupHideFromGAL {
         [validateset(
             'true',
             'false'
-            )]
+        )]
         [string]$hidefromgal
     )
 
     Write-Verbose "Setting hide from GAL to $hidefromgal for $GroupID"
 
-    $endpoint = "/api/execgroupshidefromgal"
+    $endpoint = '/api/execgroupshidefromgal'
     $params = @{
-        tenantfilter                = $CustomerTenantID
-        id                          = $GroupID
-        grouptype                   = $Grouptype
-        hidefromgal                 = $hidefromgal
+        tenantfilter = $CustomerTenantID
+        id           = $GroupID
+        grouptype    = $Grouptype
+        hidefromgal  = $hidefromgal
     }
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

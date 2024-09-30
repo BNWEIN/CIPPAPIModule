@@ -28,10 +28,10 @@ function Set-CIPPRestoreDeletedUser {
 
     Write-Verbose "Restoring user: $ID"
 
-    $endpoint = "/api/execrestoredeleted"
+    $endpoint = '/api/execrestoredeleted'
     $params = @{
-        tenantfilter     = $CustomerTenantID
-        Id               = $ID
+        tenantfilter = $CustomerTenantID
+        Id           = $ID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

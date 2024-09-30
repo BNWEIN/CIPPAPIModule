@@ -132,58 +132,58 @@ function Set-CIPPUser {
     if ($AddToGroups.Count -gt 0) {
         $GroupsToAdd = foreach ($group in $AddToGroups) {
             $CIPPAddGroup = Get-CIPPGroups -CustomerTenantID $CustomerTenantID -GroupID $group
-                [PSCustomObject]@{
-                    value = [PSCustomObject]@{
-                        groupid = $cippAddGroup.ID
-                        groupName = $cippAddGroup.DisplayName
-                        groupType = $cippAddgroup.calculatedGroupType
-                    }
-                    label = "$($CIPPAddGroup.DisplayName) - $($CIPPAddGroup.calculatedGroupType)"
+            [PSCustomObject]@{
+                value = [PSCustomObject]@{
+                    groupid   = $cippAddGroup.ID
+                    groupName = $cippAddGroup.DisplayName
+                    groupType = $cippAddgroup.calculatedGroupType
                 }
+                label = "$($CIPPAddGroup.DisplayName) - $($CIPPAddGroup.calculatedGroupType)"
+            }
         }
     }
 
     if ($RemoveFromGroups.Count -gt 0) {
         $GroupsToRemove = foreach ($oldgroup in $RemoveFromGroups) {
             $CIPPRemoveGroup = Get-CIPPGroups -CustomerTenantID $CustomerTenantID -GroupID $oldgroup
-                [PSCustomObject]@{
-                    value = [PSCustomObject]@{
-                        groupid = $CIPPRemoveGroup.ID
-                        groupName = $CIPPRemoveGroup.DisplayName
-                        groupType = $CIPPRemoveGroup.calculatedGroupType
-                    }
-                    label = "$($CIPPRemoveGroup.DisplayName) - $($CIPPRemoveGroup.calculatedGroupType)"
+            [PSCustomObject]@{
+                value = [PSCustomObject]@{
+                    groupid   = $CIPPRemoveGroup.ID
+                    groupName = $CIPPRemoveGroup.DisplayName
+                    groupType = $CIPPRemoveGroup.calculatedGroupType
                 }
+                label = "$($CIPPRemoveGroup.DisplayName) - $($CIPPRemoveGroup.calculatedGroupType)"
+            }
         }
     }
 
     $body = @{
-        tenantID             = $CustomerTenantID
-        UserID               = $UserID
-        userPrincipalName    = $UserName ? ($UserName + "@" + $Domain) : $existingUser.UserPrincipalName
-        Username             = $UserName ? $UserName : $existingUser.UserName
-        DisplayName          = $DisplayName ? $DisplayName : $existingUser.DisplayName
-        Domain               = $Domain ? $Domain : $existingUser.primDomain
-        firstName            = $FirstName ? $FirstName : $existingUser.GivenName
-        LastName             = $LastName ? $LastName : $existingUser.surname
-        Jobtitle             = $Jobtitle ? $Jobtitle : $existingUser.Jobtitle
-        usageLocation        = $UsageLocation ? $UsageLocation : $existingUser.UsageLocation
-        BusinessPhone = if ($BusinessPhone.Count -eq 0) { 
+        tenantID          = $CustomerTenantID
+        UserID            = $UserID
+        userPrincipalName = $UserName ? ($UserName + '@' + $Domain) : $existingUser.UserPrincipalName
+        Username          = $UserName ? $UserName : $existingUser.UserName
+        DisplayName       = $DisplayName ? $DisplayName : $existingUser.DisplayName
+        Domain            = $Domain ? $Domain : $existingUser.primDomain
+        firstName         = $FirstName ? $FirstName : $existingUser.GivenName
+        LastName          = $LastName ? $LastName : $existingUser.surname
+        Jobtitle          = $Jobtitle ? $Jobtitle : $existingUser.Jobtitle
+        usageLocation     = $UsageLocation ? $UsageLocation : $existingUser.UsageLocation
+        BusinessPhone     = if ($BusinessPhone.Count -eq 0) { 
             $existingUser.BusinessPhones 
         } else { 
             $BusinessPhone 
         }
-        AddToGroups          = $GroupsToAdd
-        RemoveFromGroups     = $GroupsToRemove
-        CopyFrom             = $CopyFrom
-        Country              = $Country ? $Country : $existingUser.Country
-        PostalCode           = $PostalCode ? $PostalCode : $existingUser.PostalCode
-        CompanyName          = $CompanyName ? $CompanyName : $existingUser.CompanyName
-        StreetAddress        = $StreetAddress ? $StreetAddress : $existingUser.StreetAddress
-        MobilePhone          = $MobilePhone ? $MobilePhone : $existingUser.MobilePhone
-        Department           = $Department ? $Department : $existingUser.Department
-        City                 = $City ? $City : $existingUser.City
+        AddToGroups       = $GroupsToAdd
+        RemoveFromGroups  = $GroupsToRemove
+        CopyFrom          = $CopyFrom
+        Country           = $Country ? $Country : $existingUser.Country
+        PostalCode        = $PostalCode ? $PostalCode : $existingUser.PostalCode
+        CompanyName       = $CompanyName ? $CompanyName : $existingUser.CompanyName
+        StreetAddress     = $StreetAddress ? $StreetAddress : $existingUser.StreetAddress
+        MobilePhone       = $MobilePhone ? $MobilePhone : $existingUser.MobilePhone
+        Department        = $Department ? $Department : $existingUser.Department
+        City              = $City ? $City : $existingUser.City
     }
 
-    Invoke-CIPPRestMethod -Endpoint "/api/edituser" -Body $body -Method 'POST'
+    Invoke-CIPPRestMethod -Endpoint '/api/edituser' -Body $body -Method 'POST'
 }

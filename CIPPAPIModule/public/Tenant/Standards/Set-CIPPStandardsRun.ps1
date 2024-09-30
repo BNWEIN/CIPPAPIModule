@@ -21,7 +21,7 @@ function Set-CIPPStandardsRun {
     )
     
     Write-Verbose "Running standards for $CustomerTenantID"
-    $endpoint = "/api/execstandardsrun"
+    $endpoint = '/api/execstandardsrun'
     $params = @{
         tenantfilter = $CustomerTenantID
     }

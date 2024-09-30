@@ -23,7 +23,7 @@ Function Set-CIPPAutoPilotSync {
     Write-Verbose "Syncing AutoPilot Devices for $CustomerTenantID"
     
     # Define the endpoint and parameters
-    $endpoint = "/api/execsyncapdevices"
+    $endpoint = '/api/execsyncapdevices'
     $params = @{
         tenantfilter = $CustomerTenantID
     }

@@ -28,10 +28,10 @@ function Get-CIPPUserDevices {
     
     Write-Verbose "Getting user devices for $userID"
     
-    $endpoint = "/api/listuserdevices"
+    $endpoint = '/api/listuserdevices'
     $params = @{
         tenantfilter = $CustomerTenantID
-        userId = $UserID
+        userId       = $UserID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

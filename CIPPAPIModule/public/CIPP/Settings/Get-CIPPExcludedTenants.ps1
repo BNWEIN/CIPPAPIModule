@@ -25,16 +25,16 @@ function Get-CIPPExcludedTenants {
         [switch]$ListAll
     )
 
-    Write-Verbose "Getting Excluded Tenants List"
+    Write-Verbose 'Getting Excluded Tenants List'
 
-    $endpoint = "/api/execexcludetenant"
+    $endpoint = '/api/execexcludetenant'
     if (!$listAll) {
         $params = @{
-            List = "true"
+            List = 'true'
         }
     } else {
         $params = @{
-            ListAll = "true"
+            ListAll = 'true'
         }
     }
 

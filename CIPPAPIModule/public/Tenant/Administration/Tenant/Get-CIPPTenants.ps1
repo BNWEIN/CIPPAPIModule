@@ -30,18 +30,18 @@ function Get-CIPPTenants {
         [switch]$TriggerRefresh
     )
 
-    Write-Verbose "Getting Tenants"
-    $endpoint = "/api/listtenants"
+    Write-Verbose 'Getting Tenants'
+    $endpoint = '/api/listtenants'
     $params = @{
         tenantfilter = $CustomerTenantID
     }
 
     if ($ClearCache) {
-        $params.ClearCache = "true"
+        $params.ClearCache = 'true'
     }
 
     if ($TriggerRefresh) {
-        $params.TriggerRefresh = "true"
+        $params.TriggerRefresh = 'true'
     }
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

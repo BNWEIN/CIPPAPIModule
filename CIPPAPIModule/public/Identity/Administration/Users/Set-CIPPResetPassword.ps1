@@ -28,19 +28,19 @@ function Set-CIPPResetPassword {
         [string]$UserID,
         [Parameter(Mandatory = $false)]
         [ValidateSet(
-            "true",
-            "false" 
+            'true',
+            'false' 
         )]
-        [string]$MustChange = "true"
+        [string]$MustChange = 'true'
     )
     
     Write-Verbose "Resetting password for $UserID"
 
-    $endpoint = "/api/execresetpass"
+    $endpoint = '/api/execresetpass'
     $params = @{
-        tenantfilter     = $CustomerTenantID
-        Id               = $UserID
-        MustChange       = $MustChange
+        tenantfilter = $CustomerTenantID
+        Id           = $UserID
+        MustChange   = $MustChange
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

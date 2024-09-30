@@ -21,7 +21,7 @@ function Get-CIPPApps {
     )
 
     Write-Verbose "Getting Apps for $CustomerTenantID"
-    $Endpoint = "/api/listapps"
+    $Endpoint = '/api/listapps'
     $Params = @{
         tenantfilter = $CustomerTenantID
     }

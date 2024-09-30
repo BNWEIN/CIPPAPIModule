@@ -30,16 +30,16 @@ function Get-CIPPAutoPilotConfig {
         [string]$Type
     )
     
-    if ($Type -eq "ESP") {
+    if ($Type -eq 'ESP') {
         Write-Verbose "Getting AutoPilot Status Page for $CustomerTenantID"
-    } elseif ($Type -eq "ApProfile"){
+    } elseif ($Type -eq 'ApProfile') {
         Write-Verbose "Getting AutoPilot Profile for customer: $CustomerTenantID"
     }
     
-    $Endpoint = "/api/listautopilotconfig"
+    $Endpoint = '/api/listautopilotconfig'
     $Params = @{
         tenantfilter = $CustomerTenantID
-        type = $Type
+        type         = $Type
     }
         
     Invoke-CIPPRestMethod -Endpoint $Endpoint -Params $Params

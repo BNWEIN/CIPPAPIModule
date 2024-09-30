@@ -20,11 +20,11 @@ function Get-CIPPExcludedLicenses {
     [CmdletBinding()]
     Param()
 
-    Write-Verbose "Getting Excluded License List"
+    Write-Verbose 'Getting Excluded License List'
 
-    $endpoint = "/api/execexcludelicenses"
+    $endpoint = '/api/execexcludelicenses'
     $params = @{
-        List = "true"
+        List = 'true'
     }
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

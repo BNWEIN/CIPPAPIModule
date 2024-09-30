@@ -157,6 +157,8 @@ Get-CIPPLogs
   - [Get-CIPPUserPhoto](./Docs/Get-CIPPUserPhoto.md)
   - [Get-CIPPUsers](./Docs/Get-CIPPUsers.md)
   - [Get-CIPPUserSignIns](./Docs/Get-CIPPUserSignIns.md)
+  - [New-CIPPUserOffboarding](./Docs/New-CIPPUserOffboarding.md)
+  - [Remove-CIPPUser](./Docs/Remove-CIPPUser.md)
   - [Send-CIPPPush](./Docs/Send-CIPPPush.md)
   - [Set-BECRemediate](./Docs/Set-BECRemediate.md)
   - [Set-CIPPClrImmID](./Docs/Set-CIPPClrImmID.md)
@@ -183,6 +185,8 @@ Get-CIPPLogs
 - [Get-CIPPUserPhoto](./Docs/Get-CIPPUserPhoto.md)
 - [Get-CIPPUsers](./Docs/Get-CIPPUsers.md)
 - [Get-CIPPUserSignIns](./Docs/Get-CIPPUserSignIns.md)
+- [New-CIPPUserOffboarding](./Docs/New-CIPPUserOffboarding.md)
+- [Remove-CIPPUser](./Docs/Remove-CIPPUser.md)
 - [Send-CIPPPush](./Docs/Send-CIPPPush.md)
 - [Set-BECRemediate](./Docs/Set-BECRemediate.md)
 - [Set-CIPPClrImmID](./Docs/Set-CIPPClrImmID.md)
@@ -232,28 +236,31 @@ Get-CIPPLogs
   - [Set-CIPPOneDrivePerms](./Docs/Set-CIPPOneDrivePerms.md)
   - [Set-CIPPOneDriveShortCut](./Docs/Set-CIPPOneDriveShortCut.md)
 - Sharepoint
+  - [Add-CIPPSharePointSite](./Docs/Add-CIPPSharePointSite.md)
   - [Get-CIPPSharePointQuota](./Docs/Get-CIPPSharePointQuota.md)
   - [Get-CIPPSharePointSites](./Docs/Get-CIPPSharePointSites.md)
   - [Set-CIPPSharePointSiteAdmin](./Docs/Set-CIPPSharePointSiteAdmin.md)
   - [Set-CIPPSharePointSiteMembers](./Docs/Set-CIPPSharePointSiteMembers.md)
 - Teams
+  - [Add-CIPPTeam](./Docs/Add-CIPPTeam.md)
   - [Get-CIPPTeams](./Docs/Get-CIPPTeams.md)
   - [Get-CIPPTeamsActivity](./Docs/Get-CIPPTeamsActivity.md)
   - [Get-CIPPTeamsVoice](./Docs/Get-CIPPTeamsVoice.md)
 - [Get-CIPPOneDriveList](./Docs/Get-CIPPOneDriveList.md)
 - [Set-CIPPOneDrivePerms](./Docs/Set-CIPPOneDrivePerms.md)
 - [Set-CIPPOneDriveShortCut](./Docs/Set-CIPPOneDriveShortCut.md)
+- [Add-CIPPSharePointSite](./Docs/Add-CIPPSharePointSite.md)
 - [Get-CIPPSharePointQuota](./Docs/Get-CIPPSharePointQuota.md)
 - [Get-CIPPSharePointSites](./Docs/Get-CIPPSharePointSites.md)
 - [Set-CIPPSharePointSiteAdmin](./Docs/Set-CIPPSharePointSiteAdmin.md)
 - [Set-CIPPSharePointSiteMembers](./Docs/Set-CIPPSharePointSiteMembers.md)
+- [Add-CIPPTeam](./Docs/Add-CIPPTeam.md)
 - [Get-CIPPTeams](./Docs/Get-CIPPTeams.md)
 - [Get-CIPPTeamsActivity](./Docs/Get-CIPPTeamsActivity.md)
 - [Get-CIPPTeamsVoice](./Docs/Get-CIPPTeamsVoice.md)
 ## Tenant
 - Administration
   - [Alerts](./Docs/Alerts.md)
-  - [Application Approval](./Docs/Application Approval.md)
   - [Tenant](./Docs/Tenant.md)
   - [Get-CIPPAppConsentReqs](./Docs/Get-CIPPAppConsentReqs.md)
   - [Get-CIPPDomains](./Docs/Get-CIPPDomains.md)
@@ -354,4 +361,5 @@ Some example scripts can be found Below:
 ## Special Thanks
 
 Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnDuprey](https://github.com/JohnDuprey/), [@rvdwegen](https://github.com/rvdwegen) and [@Jr7468](https://github.com/Jr7468/).  I Could not have got this far without you! 
+
 

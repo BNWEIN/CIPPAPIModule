@@ -21,7 +21,7 @@ function Get-CIPPDeviceCompliance {
     )
     
     Write-Verbose "Getting Device Compliance for $CustomerTenantID"
-    $endpoint = "/api/listalltenantdevicecompliance"
+    $endpoint = '/api/listalltenantdevicecompliance'
     $params = @{
         tenantfilter = $CustomerTenantID
     }

@@ -21,7 +21,7 @@ function Get-CIPPAlertsList {
     )
     
     Write-Verbose "Getting Alerts for customer: $CustomerTenantID"
-    $endpoint = "/api/execalertslist"
+    $endpoint = '/api/execalertslist'
     $params = @{
         tenantfilter = $CustomerTenantID
     }

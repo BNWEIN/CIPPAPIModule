@@ -52,7 +52,7 @@ function Set-CIPPOOO {
             'Scheduled',
             'Disabled',
             'Enabled'
-            )]
+        )]
         [string]$autoreplystate,
         [Parameter(Mandatory = $false)]
         [string]$externalmessage,
@@ -75,17 +75,17 @@ function Set-CIPPOOO {
         }
     }
 
-    $endpoint = "/api/execsetooo"
+    $endpoint = '/api/execsetooo'
     $body = @{
-        TenantFilter = $CustomerTenantID
-        User = $User
-        AutoReplyState = $autoreplystate
+        TenantFilter    = $CustomerTenantID
+        User            = $User
+        AutoReplyState  = $autoreplystate
         externalmessage = $externalmessage
         internalmessage = $internalmessage
-        endtime = $endtime
-        starttime = $starttime
-        input = $Input
+        endtime         = $endtime
+        starttime       = $starttime
+        input           = $Input
     }
     
-    Invoke-CIPPRestMethod -Endpoint $endpoint -body $body -Method 'POST'
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method 'POST'
 }

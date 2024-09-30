@@ -22,7 +22,7 @@ function Get-CIPPExchangeConnectors {
     )
     
     Write-Verbose "Getting Exchange Connectors for customer: $CustomerTenantID"
-    $endpoint = "/api/listexchangeconnectors"
+    $endpoint = '/api/listexchangeconnectors'
     $params = @{
         tenantfilter = $CustomerTenantID
     }

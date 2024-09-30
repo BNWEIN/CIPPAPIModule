@@ -32,7 +32,7 @@ function Get-CIPPKnownIPDB {
     )
 
     Write-Verbose "Getting Known IP Database for $CustomerTenantID"
-    $endpoint = "/api/listknownipdb"
+    $endpoint = '/api/listknownipdb'
     $params = @{
         tenantfilter = $CustomerTenantID
     }

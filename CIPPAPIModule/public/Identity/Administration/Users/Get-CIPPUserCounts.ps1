@@ -22,7 +22,7 @@ function Get-CIPPUserCounts {
     )
 
     Write-Verbose "Getting User Counts for $CustomerTenantID"
-    $endpoint = "/api/listusercounts"
+    $endpoint = '/api/listusercounts'
     $params = @{
         tenantfilter = $CustomerTenantID
     }

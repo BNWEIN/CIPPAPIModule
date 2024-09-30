@@ -36,18 +36,18 @@ function Get-CIPPMailboxRestores {
     )
     
     Write-Verbose "Getting mailbox restores for $CustomerTenantID"
-    $endpoint = "/api/listmailboxrestores"
+    $endpoint = '/api/listmailboxrestores'
     $params = @{
         tenantfilter = $CustomerTenantID
-        identity = $Identity
+        identity     = $Identity
     }
 
     if ($Includereport) {
-        $params.IncludeReport = "true"
+        $params.IncludeReport = 'true'
     }
 
     if ($Statistics) {
-        $params.Statistics = "true"
+        $params.Statistics = 'true'
     }
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
