@@ -21,7 +21,7 @@ function Get-CIPPTeamsVoice {
     )
     
     Write-Verbose "Getting teams voice $CustomerTenantID"
-    $endpoint = "/api/listteamsvoice"
+    $endpoint = '/api/listteamsvoice'
     $params = @{
         tenantfilter = $CustomerTenantID
     }

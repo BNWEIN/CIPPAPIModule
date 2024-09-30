@@ -20,11 +20,11 @@ function Get-CIPPIntuneTemplates {
         [string]$TemplateID
     )
 
-    Write-Verbose "Getting Intune Templates"
-    $endpoint = "/api/listintunetemplates"
+    Write-Verbose 'Getting Intune Templates'
+    $endpoint = '/api/listintunetemplates'
     $params = @{
         tenantfilter = $CustomerTenantID
-        id = $TemplateID
+        id           = $TemplateID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

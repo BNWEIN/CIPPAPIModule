@@ -30,11 +30,11 @@ function Set-CIPPRevokeSessions {
 
     Write-Verbose "Revoking Sessions for user: $UserID"
 
-    $endpoint = "/api/execrevokesessions"
+    $endpoint = '/api/execrevokesessions'
     $params = @{
-        TenantFilter     = $CustomerTenantID
-        ID               = $UserID
-        UserName         = $UserName
+        TenantFilter = $CustomerTenantID
+        ID           = $UserID
+        UserName     = $UserName
 
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

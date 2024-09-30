@@ -21,7 +21,7 @@ function Get-CIPPExternalTenantInfo {
     )
    
     Write-Verbose "Getting Tenant info for $Tenant"
-    $endpoint = "/api/ListExternalTenantInfo"
+    $endpoint = '/api/ListExternalTenantInfo'
     $params = @{
         tenant = $Tenant
     }

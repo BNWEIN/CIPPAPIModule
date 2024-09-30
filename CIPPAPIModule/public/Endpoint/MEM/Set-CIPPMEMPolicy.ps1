@@ -37,16 +37,16 @@ function Set-CIPPMEMPolicy {
         [string]$DisplayName,
         [Parameter(Mandatory = $false)]
         [string]$Description,
-        [ValidateSet("allLicensedUsers", "AllDevices", "AllDevicesAndUsers")]
+        [ValidateSet('allLicensedUsers', 'AllDevices', 'AllDevicesAndUsers')]
         [string]$AssignTo
     )
 
     Write-Verbose "Getting app consent requests for customer: $CustomerTenantID"
-    $Endpoint = "/api/editpolicy"
+    $Endpoint = '/api/editpolicy'
 
     $body = @{
-        Tenant = $CustomerTenantID
-        ID = $ID
+        Tenant      = $CustomerTenantID
+        ID          = $ID
         displayname = $DisplayName
         description = $Description
     }

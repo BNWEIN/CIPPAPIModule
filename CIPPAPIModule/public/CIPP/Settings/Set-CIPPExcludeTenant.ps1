@@ -38,18 +38,18 @@ function Set-CIPPExcludeTenant {
 
     # Ensure only one of the switches is used
     if ($AddExclusion -and $RemoveExclusion) {
-        throw "You cannot use both -AddExclusion and -RemoveExclusion switches at the same time."
+        throw 'You cannot use both -AddExclusion and -RemoveExclusion switches at the same time.'
     }
 
     if (-not $AddExclusion -and -not $RemoveExclusion) {
-        throw "You must specify either -AddExclusion or -RemoveExclusion switch."
+        throw 'You must specify either -AddExclusion or -RemoveExclusion switch.'
     }
 
-    $endpoint = "/api/execexcludetenant"
+    $endpoint = '/api/execexcludetenant'
 
     if ($RemoveExclusion) {
         $params = @{
-            TenantFilter = $CustomerTenantID
+            TenantFilter    = $CustomerTenantID
             RemoveExclusion = $true
         }
         Write-Verbose "Removing Tenant $CustomerTenantID from the exclusion list."

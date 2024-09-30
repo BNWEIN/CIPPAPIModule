@@ -20,8 +20,8 @@ function Get-CIPPSpamFilterTemplates {
         [string]$TemplateID
     )
 
-    Write-Verbose "Getting spam filter templates"
-    $endpoint = "/api/listspamfiltertemplates"
+    Write-Verbose 'Getting spam filter templates'
+    $endpoint = '/api/listspamfiltertemplates'
     $params = @{
         id = $TemplateID
     }

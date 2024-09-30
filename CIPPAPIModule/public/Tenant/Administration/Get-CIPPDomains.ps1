@@ -24,7 +24,7 @@ Function Get-CIPPDomains {
     Write-Verbose "Getting Domains for customer: $CustomerTenantID"
     
     # Define the endpoint and parameters
-    $endpoint = "/api/ListDomains"
+    $endpoint = '/api/ListDomains'
     $params = @{
         tenantfilter = $CustomerTenantID
     }

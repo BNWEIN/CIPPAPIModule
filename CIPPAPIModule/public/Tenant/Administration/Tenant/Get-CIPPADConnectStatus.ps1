@@ -42,21 +42,21 @@ function Get-CIPPADConnectStatus {
         [Parameter(Mandatory = $true)]
         [string]$CustomerTenantID,
         [Parameter(Mandatory = $false)]
-        [ValidateSet("AzureADConnectSettings", "AzureADObjectsInError")]
+        [ValidateSet('AzureADConnectSettings', 'AzureADObjectsInError')]
         [string]$dataToReturn
     )
 
-    if ($dataToReturn -eq "AzureADConnectSettings") {
+    if ($dataToReturn -eq 'AzureADConnectSettings') {
         Write-Verbose "Getting AD Connect Settings for: $CustomerTenantID"
-    } elseif ($dataToReturn -eq "AzureADObjectsInError") {
+    } elseif ($dataToReturn -eq 'AzureADObjectsInError') {
         Write-Verbose "Getting AD Objects in Error for: $CustomerTenantID"
     } else {
         Write-Verbose "Getting AD Connect Status for: $CustomerTenantID"
     }
-        $Endpoint = "/api/listazureadconnectstatus"
-        $Params = @{
-            tenantfilter = $CustomerTenantID
-            datatoreturn = $dataToReturn
-        }
-        Invoke-CIPPRestMethod -Endpoint $Endpoint -Params $Params
+    $Endpoint = '/api/listazureadconnectstatus'
+    $Params = @{
+        tenantfilter = $CustomerTenantID
+        datatoreturn = $dataToReturn
+    }
+    Invoke-CIPPRestMethod -Endpoint $Endpoint -Params $Params
 }

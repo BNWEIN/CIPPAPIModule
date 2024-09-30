@@ -27,10 +27,10 @@ function Get-CIPPCalendarPerms {
     )
 
     Write-Verbose "Getting user calendar permissions for user: $UserID"
-    $Endpoint = "/api/listcalendarpermissions"
+    $Endpoint = '/api/listcalendarpermissions'
     $Params = @{
         tenantfilter = $CustomerTenantID
-        userId = $UserID
+        userId       = $UserID
     }
     Invoke-CIPPRestMethod -Endpoint $Endpoint -Params $Params
 }

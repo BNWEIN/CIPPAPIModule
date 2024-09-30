@@ -28,10 +28,10 @@ function Get-CIPPUserGroups {
     
     Write-Verbose "Getting user groups for $userID"
     
-    $endpoint = "/api/listusergroups"
+    $endpoint = '/api/listusergroups'
     $params = @{
         tenantfilter = $CustomerTenantID
-        userId = $UserID
+        userId       = $UserID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

@@ -21,7 +21,7 @@ function Get-CIPPEnabledSharedMailboxes {
     )
 
     Write-Verbose "Getting shared mailboxes with account enabled for $CustomerTenantID"
-    $endpoint = "/api/listsharedmailboxaccountenabled"
+    $endpoint = '/api/listsharedmailboxaccountenabled'
     $params = @{
         tenantfilter = $CustomerTenantID
     }

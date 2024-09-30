@@ -21,13 +21,13 @@ function Get-CIPPAccessCheck {
     )
 
     Write-Verbose "Running tenant access check for $CustomerTenantID"
-    $Endpoint = "/api/execaccesschecks"
+    $Endpoint = '/api/execaccesschecks'
 
     $params = @{
-        tenants = "true"
+        tenants = 'true'
     }
     $body = @{
-        tenantid        = $CustomerTenantID
+        tenantid = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $Endpoint -Body $body -Params $params -Method POST
 }

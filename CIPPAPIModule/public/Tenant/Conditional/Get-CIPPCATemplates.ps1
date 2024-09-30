@@ -17,8 +17,8 @@ Retrieves the list of Conditional Access Templates.
 function Get-CIPPCATemplates {
     [CmdletBinding()]
     Param()
-    Write-Verbose "Getting Conditional Access Templates"
-    $endpoint = "/api/listcatemplates"
+    Write-Verbose 'Getting Conditional Access Templates'
+    $endpoint = '/api/listcatemplates'
     
     Invoke-CIPPRestMethod -Endpoint $endpoint
     

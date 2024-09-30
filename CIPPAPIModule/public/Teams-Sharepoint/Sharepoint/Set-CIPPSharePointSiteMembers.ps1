@@ -46,14 +46,14 @@ function Set-CIPPSharePointSiteMembers {
     )
 
     Write-Verbose "Setting SharePoint Member on $Url"
-    $endpoint = "/api/ExecSetSharePointMember"
+    $endpoint = '/api/ExecSetSharePointMember'
     $body = @{
-        TenantFilter = $CustomerTenantID
+        TenantFilter   = $CustomerTenantID
         SharePointType = $SharePointType
-        URL = $SiteUrl
-        add = $AddPermission
-        GroupId = $GroupUPN
-        input = $UserToGiveAccessUPN
+        URL            = $SiteUrl
+        add            = $AddPermission
+        GroupId        = $GroupUPN
+        input          = $UserToGiveAccessUPN
     }
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST

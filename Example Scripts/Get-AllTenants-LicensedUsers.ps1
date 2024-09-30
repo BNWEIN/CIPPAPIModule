@@ -29,29 +29,29 @@ Prompts the user to enter the CIPP API URL, client ID, client secret, and tenant
 
 #>
 
-$CIPPAPIUrl = Read-Host "Enter the CIPP API URL"
-$CIPPClientID = Read-Host "Enter the CIPP API Client ID"
-$CIPPClientSecret = Read-Host "Enter the CIPP API Client Secret"
-$TenantId = Read-Host "Enter the Tenant ID"
+$CIPPAPIUrl = Read-Host 'Enter the CIPP API URL'
+$CIPPClientID = Read-Host 'Enter the CIPP API Client ID'
+$CIPPClientSecret = Read-Host 'Enter the CIPP API Client Secret'
+$TenantId = Read-Host 'Enter the Tenant ID'
 
 Import-Module CIPPAPIModule
-Set-CIPPAPIDetails -CIPPClientID $CIPPClientID -CIPPClientSecret $CIPPClientSecret -CIPPAPIUrl $CIPPAPIUrl -TenantId $TenantId
+Set-CIPPAPIDetails -CIPPClientID $CIPPClientID -CIPPClientSecret $CIPPClientSecret -CIPPAPIUrl $CIPPAPIUrl -TenantID $TenantId
 
-Write-Output "Getting List of tenants"
+Write-Output 'Getting List of tenants'
 $tenantsList = Get-CIPPTenants
-Write-Output "Getting all users - This can take a few minutes..."
+Write-Output 'Getting all users - This can take a few minutes...'
 $licensedUsers = $tenantsList.defaultDomainName | ForEach-Object -Parallel {
     Import-Module CIPPAPIModule
     Set-CIPPAPIDetails -TenantID $using:TenantId -CIPPClientID $using:CIPPClientID -CIPPClientSecret $using:CIPPClientSecret -CIPPAPIUrl $using:CIPPAPIUrl
     $tenant = $_
-    $users = Get-CIPPUsers -CustomerTenantID $tenant | Where-Object {$_.assignedLicenses -ne $null}
+    $users = Get-CIPPUsers -CustomerTenantID $tenant | Where-Object { $_.assignedLicenses -ne $null }
     foreach ($User in $users) {
         [PSCustomObject]@{
-            Tenant = $tenant
-            displayName = $User.displayName
-            User = $User.UserPrincipalName
+            Tenant         = $tenant
+            displayName    = $User.displayName
+            User           = $User.UserPrincipalName
             accountEnabled = $User.accountEnabled
-            License = $User.LicJoined
+            License        = $User.LicJoined
         }
     }
 } -ThrottleLimit 5
@@ -60,9 +60,9 @@ if ($null -eq $licensedUsers) {
     exit
 }
 
-$filename = "licensedUsers" + (Get-Date -Format "yyyy-MM-dd") + ".csv"
+$filename = 'licensedUsers' + (Get-Date -Format 'yyyy-MM-dd') + '.csv'
 $filepath = "$env:TEMP\$($filename)"
 
-$licensedUsers | Export-CSV -Path $filepath
+$licensedUsers | Export-Csv -Path $filepath
 
 Start-Process -FilePath $filepath

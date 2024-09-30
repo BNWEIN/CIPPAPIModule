@@ -28,10 +28,10 @@ function Get-CIPPUserSignIns {
 
     Write-Verbose "Getting sign-in logs for User $userID"
 
-    $endpoint = "/api/listusersigninlogs"
+    $endpoint = '/api/listusersigninlogs'
     $params = @{
         tenantfilter = $CustomerTenantID
-        userId = $UserID
+        userId       = $UserID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

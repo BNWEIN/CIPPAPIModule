@@ -22,10 +22,10 @@ function Get-CIPPDeletedItems {
 
     Write-Verbose "Getting deleted items for $CustomerTenantID"
 
-    $endpoint = "/api/listdeleteditems"
+    $endpoint = '/api/listdeleteditems'
     $params = @{
         tenantfilter = $CustomerTenantID
-        userId = $UserID
+        userId       = $UserID
     }
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

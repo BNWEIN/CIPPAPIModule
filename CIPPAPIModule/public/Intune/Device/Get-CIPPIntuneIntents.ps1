@@ -27,7 +27,7 @@ Function Get-CIPPIntuneIntents {
     Write-Verbose "Getting Intune Intents for customer: $CustomerTenantID"
     
     # Define the endpoint and parameters
-    $endpoint = "/api/listintuneintents"
+    $endpoint = '/api/listintuneintents'
     $params = @{
         tenantfilter = $CustomerTenantID
     }

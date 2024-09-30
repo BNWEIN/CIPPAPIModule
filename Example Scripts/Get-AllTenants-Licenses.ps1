@@ -29,17 +29,17 @@ The ID of the tenant.
 This script requires the CIPPAPIModule to be installed.
 #>
 
-$CIPPAPIUrl = Read-Host "Enter the CIPP API URL"
-$CIPPClientID = Read-Host "Enter the CIPP API Client ID"
-$CIPPClientSecret = Read-Host "Enter the CIPP API Client Secret"
-$TenantId = Read-Host "Enter the Tenant ID"
+$CIPPAPIUrl = Read-Host 'Enter the CIPP API URL'
+$CIPPClientID = Read-Host 'Enter the CIPP API Client ID'
+$CIPPClientSecret = Read-Host 'Enter the CIPP API Client Secret'
+$TenantId = Read-Host 'Enter the Tenant ID'
 
 Import-Module CIPPAPIModule
-Set-CIPPAPIDetails -CIPPClientID $CIPPClientID -CIPPClientSecret $CIPPClientSecret -CIPPAPIUrl $CIPPAPIUrl -TenantId $TenantId
+Set-CIPPAPIDetails -CIPPClientID $CIPPClientID -CIPPClientSecret $CIPPClientSecret -CIPPAPIUrl $CIPPAPIUrl -TenantID $TenantId
 
-Write-Output "Getting List of tenants"
+Write-Output 'Getting List of tenants'
 $tenantsList = Get-CIPPTenants
-Write-Output "Getting all customer licenses - This can take a few minutes..."
+Write-Output 'Getting all customer licenses - This can take a few minutes...'
 $CustomerLicenses = $tenantsList.defaultDomainName | ForEach-Object -Parallel {
     Import-Module CIPPAPIModule
     Set-CIPPAPIDetails -TenantID $using:TenantId -CIPPClientID $using:CIPPClientID -CIPPClientSecret $using:CIPPClientSecret -CIPPAPIUrl $using:CIPPAPIUrl
@@ -47,13 +47,13 @@ $CustomerLicenses = $tenantsList.defaultDomainName | ForEach-Object -Parallel {
     $Licenses = Get-CIPPLicenses -CustomerTenantID $tenant
     foreach ($License in $Licenses) {
         [PSCustomObject]@{
-            Tenant = $tenant
-            License = $License.License
-            CountUsed = $License.CountUsed
+            Tenant         = $tenant
+            License        = $License.License
+            CountUsed      = $License.CountUsed
             CountAvailable = $License.CountAvailable
-            TotalLicenses = $License.TotalLicenses
-            skuid = $License.skuid
-            skuPartNumber = $License.skuPartNumber
+            TotalLicenses  = $License.TotalLicenses
+            skuid          = $License.skuid
+            skuPartNumber  = $License.skuPartNumber
         }
     }
 } -ThrottleLimit 5
@@ -62,9 +62,9 @@ if ($null -eq $CustomerLicenses) {
     exit
 }
 
-$filename = "CustomerLicenses" + (Get-Date -Format "yyyy-MM-dd") + ".csv"
+$filename = 'CustomerLicenses' + (Get-Date -Format 'yyyy-MM-dd') + '.csv'
 $filepath = "$env:TEMP\$($filename)"
 
-$CustomerLicenses | Export-CSV -Path $filepath
+$CustomerLicenses | Export-Csv -Path $filepath
 
 Start-Process -FilePath $filepath

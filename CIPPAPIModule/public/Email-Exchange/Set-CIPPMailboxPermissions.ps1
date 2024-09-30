@@ -63,18 +63,18 @@ function Set-CIPPMailboxPermissions {
 
     Write-Verbose "Editing Mailbox permissions for $Userid"
 
-    $endpoint = "/api/execeditmailboxpermissions"
+    $endpoint = '/api/execeditmailboxpermissions'
     $body = @{
-        TenantFilter = $CustomerTenantID
-        UserID = $Userid
-        RemoveFullAccess = (ConvertTo-FormattedArray -inputArray $RemoveFullAccess -labelPrefix "Remove Full Access")
-        AddFullAccess = (ConvertTo-FormattedArray -inputArray $AddFullAccessAutoMap -labelPrefix "Add Full Access AutoMap")
-        AddFullAccessNoAutoMap = (ConvertTo-FormattedArray -inputArray $AddFullAccessNoAutoMap -labelPrefix "Add Full Access No AutoMap")
-        AddSendAs = (ConvertTo-FormattedArray -inputArray $AddSendAs -labelPrefix "Add Send As")
-        RemoveSendAs = (ConvertTo-FormattedArray -inputArray $RemoveSendAs -labelPrefix "Remove Send As")
-        AddSendOnBehalf = (ConvertTo-FormattedArray -inputArray $AddSendOnBehalf -labelPrefix "Add Send On Behalf")
-        RemoveSendOnBehalf = (ConvertTo-FormattedArray -inputArray $RemoveSendOnBehalf -labelPrefix "Remove Send On Behalf")
+        TenantFilter           = $CustomerTenantID
+        UserID                 = $Userid
+        RemoveFullAccess       = (ConvertTo-FormattedArray -inputArray $RemoveFullAccess -labelPrefix 'Remove Full Access')
+        AddFullAccess          = (ConvertTo-FormattedArray -inputArray $AddFullAccessAutoMap -labelPrefix 'Add Full Access AutoMap')
+        AddFullAccessNoAutoMap = (ConvertTo-FormattedArray -inputArray $AddFullAccessNoAutoMap -labelPrefix 'Add Full Access No AutoMap')
+        AddSendAs              = (ConvertTo-FormattedArray -inputArray $AddSendAs -labelPrefix 'Add Send As')
+        RemoveSendAs           = (ConvertTo-FormattedArray -inputArray $RemoveSendAs -labelPrefix 'Remove Send As')
+        AddSendOnBehalf        = (ConvertTo-FormattedArray -inputArray $AddSendOnBehalf -labelPrefix 'Add Send On Behalf')
+        RemoveSendOnBehalf     = (ConvertTo-FormattedArray -inputArray $RemoveSendOnBehalf -labelPrefix 'Remove Send On Behalf')
     }
     
-    Invoke-CIPPRestMethod -Endpoint $endpoint -body $body -Method 'POST'
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method 'POST'
 }

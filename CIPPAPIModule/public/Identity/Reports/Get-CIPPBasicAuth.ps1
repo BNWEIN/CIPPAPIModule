@@ -21,7 +21,7 @@ function Get-CIPPBasicAuth {
     )
     
     Write-Verbose "Getting Basic Auth for customer: $CustomerTenantID"
-    $Endpoint = "/api/listbasicauth"
+    $Endpoint = '/api/listbasicauth'
     $Params = @{
         tenantfilter = $CustomerTenantID
     }

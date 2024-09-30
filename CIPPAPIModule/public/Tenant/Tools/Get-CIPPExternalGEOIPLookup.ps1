@@ -37,7 +37,7 @@ function Get-CIPPExternalGEOIPLookup {
     )
    
     Write-Verbose "Looking up $ip in Geo DB"
-    $endpoint = "/api/execgeoiplookup"
+    $endpoint = '/api/execgeoiplookup'
     $params = @{
         ip = $IP
     }

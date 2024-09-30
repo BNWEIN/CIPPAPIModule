@@ -21,7 +21,7 @@ function Get-CIPPPublicPhishingCheck {
     )
     
     Write-Verbose "Getting public phishing check $CustomerTenantID"
-    $endpoint = "/api/publicphishingcheck"
+    $endpoint = '/api/publicphishingcheck'
     $params = @{
         tenantfilter = $CustomerTenantID
     }

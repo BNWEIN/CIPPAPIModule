@@ -72,21 +72,21 @@ function Get-CIPPGraphRequest {
     )
 
     Write-Verbose "Querying Graph Endpoint $EndPoint for tenant $CustomerTenantId"
-    $endpoint = "/api/ListGraphRequest"
+    $endpoint = '/api/ListGraphRequest'
     $params = [ordered]@{
         tenantFilter = $CustomerTenantId
         endpoint     = $GraphEndPoint
     }
 
     $optionalParams = @{
-        '$count'                  = $count
-        '$select'                 = $Select
-        'NoPagination'            = if ($DisablePagination) { "true" } else { "false" }
-        '$top'                    = $Top
-        '$format'                 = $Format
-        '$filter'                 = $Filter
-        '$expand'                 = $Expand
-        '$search'                 = $Search
+        '$count'                      = $count
+        '$select'                     = $Select
+        'NoPagination'                = if ($DisablePagination) { 'true' } else { 'false' }
+        '$top'                        = $Top
+        '$format'                     = $Format
+        '$filter'                     = $Filter
+        '$expand'                     = $Expand
+        '$search'                     = $Search
         'reverseTenantLookupProperty' = $ReverseTenantLookupProperty
     }
 

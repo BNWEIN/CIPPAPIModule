@@ -30,17 +30,17 @@ This script requires the CIPPAPIModule to be installed.
 
 #>
 
-$CIPPAPIUrl = Read-Host "Enter the CIPP API URL"
-$CIPPClientID = Read-Host "Enter the CIPP API Client ID"
-$CIPPClientSecret = Read-Host "Enter the CIPP API Client Secret"
-$TenantId = Read-Host "Enter the Tenant ID"
+$CIPPAPIUrl = Read-Host 'Enter the CIPP API URL'
+$CIPPClientID = Read-Host 'Enter the CIPP API Client ID'
+$CIPPClientSecret = Read-Host 'Enter the CIPP API Client Secret'
+$TenantId = Read-Host 'Enter the Tenant ID'
 
 Import-Module CIPPAPIModule
-Set-CIPPAPIDetails -CIPPClientID $CIPPClientID -CIPPClientSecret $CIPPClientSecret -CIPPAPIUrl $CIPPAPIUrl -TenantId $TenantId
+Set-CIPPAPIDetails -CIPPClientID $CIPPClientID -CIPPClientSecret $CIPPClientSecret -CIPPAPIUrl $CIPPAPIUrl -TenantID $TenantId
 
-Write-Output "Getting List of tenants"
+Write-Output 'Getting List of tenants'
 $tenantsList = Get-CIPPTenants
-Write-Output "Getting all customers soft deleted mailboxes - This can take a few minutes..."
+Write-Output 'Getting all customers soft deleted mailboxes - This can take a few minutes...'
 $DeletedMailboxes = $tenantsList.defaultDomainName | ForEach-Object -Parallel {
     Import-Module CIPPAPIModule
     Set-CIPPAPIDetails -TenantID $using:TenantId -CIPPClientID $using:CIPPClientID -CIPPClientSecret $using:CIPPClientSecret -CIPPAPIUrl $using:CIPPAPIUrl
@@ -49,14 +49,14 @@ $DeletedMailboxes = $tenantsList.defaultDomainName | ForEach-Object -Parallel {
     foreach ($mailbox in $Deleted) {
         if ($mailbox.IsInactiveMailbox -ne $true) {
             [PSCustomObject]@{
-                Tenant = $tenant
-                MailBoxDeletedDate = $mailbox.WhenSoftDeleted
-                DisplayName = $mailbox.DisplayName
-                UserPrincipalName = $mailbox.UPN
-                PrimarySmtpAddress = $mailbox.PrimarySmtpAddress
-                MailboxType = $mailbox.RecipientType
-                MailboxStatus = $mailbox.RecipientTypeDetails
-                IsInactiveMailbox = $mailbox.IsInactiveMailbox
+                Tenant                     = $tenant
+                MailBoxDeletedDate         = $mailbox.WhenSoftDeleted
+                DisplayName                = $mailbox.DisplayName
+                UserPrincipalName          = $mailbox.UPN
+                PrimarySmtpAddress         = $mailbox.PrimarySmtpAddress
+                MailboxType                = $mailbox.RecipientType
+                MailboxStatus              = $mailbox.RecipientTypeDetails
+                IsInactiveMailbox          = $mailbox.IsInactiveMailbox
                 RecipientSoftDeletedStatus = $mailbox.RecipientSoftDeletedStatus
             }
         }
@@ -67,9 +67,9 @@ if ($null -eq $DeletedMailboxes) {
     exit
 }
 
-$filename = "SoftDeletedMailboxes" + (Get-Date -Format "yyyy-MM-dd") + ".csv"
+$filename = 'SoftDeletedMailboxes' + (Get-Date -Format 'yyyy-MM-dd') + '.csv'
 $filepath = "$env:TEMP\$($filename)"
 
-$DeletedMailboxes | Export-CSV -Path $filepath
+$DeletedMailboxes | Export-Csv -Path $filepath
 
 Start-Process -FilePath $filepath

@@ -22,7 +22,7 @@ function Get-CIPPInactiveAccounts {
     )
     
     Write-Verbose "Getting inactive accounts for customer: $CustomerTenantID"
-    $endpoint = "/api/listinactiveaccounts"
+    $endpoint = '/api/listinactiveaccounts'
     $params = @{
         tenantfilter = $CustomerTenantID
     }

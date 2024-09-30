@@ -26,27 +26,27 @@ function Set-CIPPPasswordSettings {
     Param(
         [Parameter(Mandatory = $false)]
         [ValidateSet(
-            "Correct-Battery-Horse",
-            "Classic"
-            )]
+            'Correct-Battery-Horse',
+            'Classic'
+        )]
         [string]$Type,
         [Parameter(Mandatory = $false)]
         [bool]$List
     )
 
-    Write-Verbose "Getting CIPP Password Settings"
+    Write-Verbose 'Getting CIPP Password Settings'
 
-    $endpoint = "/api/execpasswordconfig"
+    $endpoint = '/api/execpasswordconfig'
 
     if ($List) {
         $params = @{
-            List = "true"
+            List = 'true'
         }
         Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
     } else {
         $body = @{
             passwordType = $Type
         }
-        Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method "POST"
+        Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method 'POST'
     }
 }

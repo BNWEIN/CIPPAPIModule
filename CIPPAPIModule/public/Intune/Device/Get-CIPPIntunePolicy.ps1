@@ -38,15 +38,15 @@ Function Get-CIPPIntunePolicy {
 
     # Validation to ensure both $PolicyID and $urlname are supplied together
     if (($PolicyID -and -not $urlname) -or (-not $PolicyID -and $urlname)) {
-        throw "You must supply both -PolicyID and -Urlname parameters together or not at all."
+        throw 'You must supply both -PolicyID and -Urlname parameters together or not at all.'
     }
     
     # Define the endpoint and parameters
-    $endpoint = "/api/listintunepolicy"
+    $endpoint = '/api/listintunepolicy'
     $params = @{
         tenantfilter = $CustomerTenantID
-        URLName = $urlname
-        id = $PolicyID
+        URLName      = $urlname
+        id           = $PolicyID
     }
     
     # Use the Invoke-CIPPRequest function to make the request

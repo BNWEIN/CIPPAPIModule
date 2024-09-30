@@ -29,10 +29,10 @@ function Get-CIPPUserPhoto {
     
     Write-Verbose "Getting user photo for $userID"
     
-    $endpoint = "/api/listuserphoto"
+    $endpoint = '/api/listuserphoto'
     $params = @{
         tenantfilter = $CustomerTenantID
-        userId = $UserID
+        userId       = $UserID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

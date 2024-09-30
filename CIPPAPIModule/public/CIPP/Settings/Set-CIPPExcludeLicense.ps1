@@ -41,18 +41,18 @@ function Set-CIPPExcludeLicense {
 
     # Ensure only one of the switches is used
     if ($AddExclusion -and $RemoveExclusion) {
-        throw "You cannot use both -AddExclusion and -RemoveExclusion switches at the same time."
+        throw 'You cannot use both -AddExclusion and -RemoveExclusion switches at the same time.'
     }
 
     if (-not $AddExclusion -and -not $RemoveExclusion) {
-        throw "You must specify either -AddExclusion or -RemoveExclusion switch."
+        throw 'You must specify either -AddExclusion or -RemoveExclusion switch.'
     }
 
-    $endpoint = "/api/execexcludelicenses"
+    $endpoint = '/api/execexcludelicenses'
     
     if ($RemoveExclusion) {
         $params = @{
-            GUID = $LicenseGUID
+            GUID            = $LicenseGUID
             RemoveExclusion = $true
         }
         Write-Verbose "Removing License $LicenseGUID from the exclusion list."
@@ -62,7 +62,7 @@ function Set-CIPPExcludeLicense {
             AddExclusion = $true
         }
         $body = @{
-            GUID = $LicenseGUID
+            GUID    = $LicenseGUID
             SKUName = $SKUName
         }
         Write-Verbose "Adding License $LicenseGUID to the exclusion list."
