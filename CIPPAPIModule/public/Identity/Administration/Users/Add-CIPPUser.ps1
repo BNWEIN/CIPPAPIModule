@@ -142,11 +142,8 @@ function Add-CIPPUser {
         [bool]$MustChangePass = $true,
         [Parameter(Mandatory = $false)]
         [datetime]$ScheduledFor,
-        [Parameter(Mandatory = $false)]
         [switch]$SendResultsToEmail,
-        [Parameter(Mandatory = $false)]
         [switch]$SendResultsToPSA,
-        [Parameter(Mandatory = $false)]
         [switch]$SendResultsToWebhook
 
     )
@@ -201,42 +198,3 @@ function Add-CIPPUser {
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method 'POST'
 }
-
-
-<#
-{
-    "AddedAliases": "",
-    "BusinessPhone": "98765432",
-    "City": "aalborg",
-    "CompanyName": "compela",
-    "CopyFrom": "",
-    "Country": "denmark",
-    "Department": "IT",
-    "DisplayName": "321 321 ",
-    "Domain": "complea-it.dk",
-    "FirstName": "321",
-    "Jobtitle": "job",
-    "LastName": "321",
-    "MobilePhone": "12345678",
-    "PostalCode": "0909",
-    "Usagelocation": "DK",
-    "Username": "321321",
-    "streetAddress": "street",
-    "Autopassword": false,
-    "tenantID": "complea-it.dk",
-    "setManager": {
-        "value": "dad3057f-4003-423d-a721-22b9d3c17dd4",
-        "label": "Com Full User 1"
-    },
-    "Scheduled": {
-        "enabled": true,
-        "date": 1727719200
-    },
-    "PostExecution": {
-        "webhook": true,
-        "psa": true,
-        "email": true
-    }
-}
-
-#>
