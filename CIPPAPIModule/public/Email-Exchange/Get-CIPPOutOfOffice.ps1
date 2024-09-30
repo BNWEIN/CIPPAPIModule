@@ -26,10 +26,10 @@ function Get-CIPPOutOfOffice {
     )
 
     Write-Verbose "Getting out of office for $UserID"
-    $endpoint = "/api/listooo"
+    $endpoint = '/api/listooo'
     $params = @{
         tenantfilter = $CustomerTenantID
-        userid = $UserID
+        userid       = $UserID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

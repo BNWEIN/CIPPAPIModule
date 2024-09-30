@@ -21,7 +21,7 @@ function Get-CIPPAPDevices {
     )
 
     Write-Verbose "Getting AutoPilot Devices for $CustomerTenantID"
-    $Endpoint = "/api/listapdevices"
+    $Endpoint = '/api/listapdevices'
     $Params = @{
         tenantfilter = $CustomerTenantID
     }

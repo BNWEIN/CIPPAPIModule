@@ -29,7 +29,7 @@ function Set-CIPPTransportRule {
         [Parameter(Mandatory = $true)]
         [string]$CustomerTenantID,
         [Parameter(Mandatory)]
-        [ValidateSet("Enable", "Disable")]
+        [ValidateSet('Enable', 'Disable')]
         [string]$State,
         [Parameter(Mandatory = $true)]
         [guid]$Guid
@@ -37,11 +37,11 @@ function Set-CIPPTransportRule {
 
 
     Write-Verbose "Editing transport rule for tenant $CustomerTenantID"
-    $endpoint = "/api/edittransportrule"
+    $endpoint = '/api/edittransportrule'
     $params = @{
         TenantFilter = $CustomerTenantID
-        state = $State
-        GUID = $Guid
+        state        = $State
+        GUID         = $Guid
     }
     
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

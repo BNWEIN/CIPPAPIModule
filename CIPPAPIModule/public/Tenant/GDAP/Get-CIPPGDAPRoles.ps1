@@ -18,9 +18,9 @@ function Get-CIPPGDAPRoles {
     [CmdletBinding()]
     Param()
 
-    Write-Verbose "Getting GDAP Role List"
+    Write-Verbose 'Getting GDAP Role List'
 
-    $endpoint = "/api/ListGDAPRoles"
+    $endpoint = '/api/ListGDAPRoles'
 
     Invoke-CIPPRestMethod -Endpoint $endpoint
 }

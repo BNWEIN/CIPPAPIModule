@@ -21,7 +21,7 @@ function Get-CIPPDomainAnalyser {
     )
 
     Write-Verbose "Getting Domain Analyser List for customer: $CustomerTenantID"
-    $endpoint = "/api/ListDomainAnalyser"
+    $endpoint = '/api/ListDomainAnalyser'
     $params = @{
         tenantfilter = $CustomerTenantID
     }

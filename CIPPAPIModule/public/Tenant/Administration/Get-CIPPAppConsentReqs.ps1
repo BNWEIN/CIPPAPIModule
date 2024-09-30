@@ -21,7 +21,7 @@ function Get-CIPPAppConsentReqs {
     )
     
     Write-Verbose "Getting app consent requests for customer: $CustomerTenantID"
-    $Endpoint = "/api/listappconsentrequests"
+    $Endpoint = '/api/listappconsentrequests'
     $Params = @{
         tenantfilter = $CustomerTenantID
     }

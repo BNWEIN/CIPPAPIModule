@@ -33,14 +33,14 @@ function Get-CIPPSignIns {
     )
 
     Write-Verbose "Getting Signins for $CustomerTenantID"
-    $endpoint = "/api/listsignins"
+    $endpoint = '/api/listsignins'
     $params = @{
         tenantfilter = $CustomerTenantID
-        filter = $filter
+        filter       = $filter
     }
 
     if ($failedlogononly) {
-        $params.failedlogononly = "true"
+        $params.failedlogononly = 'true'
     }
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

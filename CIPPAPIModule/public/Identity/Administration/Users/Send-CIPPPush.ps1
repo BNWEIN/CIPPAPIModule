@@ -27,10 +27,10 @@ function Send-CIPPPush {
     
     Write-Verbose "Sending Push Notification to $UserEmail"
 
-    $endpoint = "/api/execsendpush"
+    $endpoint = '/api/execsendpush'
     $params = @{
-        tenantfilter     = $CustomerTenantID
-        Useremail        = $UserEmail
+        tenantfilter = $CustomerTenantID
+        Useremail    = $UserEmail
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

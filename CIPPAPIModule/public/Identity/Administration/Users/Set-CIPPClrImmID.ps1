@@ -29,10 +29,10 @@ function Set-CIPPClrImmID {
 
     Write-Verbose "Clearing Immutable ID for User: $userID"
 
-    $endpoint = "/api/execclrimmid"
+    $endpoint = '/api/execclrimmid'
     $params = @{
         tenantfilter = $CustomerTenantID
-        Id = $UserID
+        Id           = $UserID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

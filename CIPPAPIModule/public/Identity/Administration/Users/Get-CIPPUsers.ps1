@@ -33,10 +33,10 @@ function Get-CIPPUsers {
     } else {
         Write-Verbose "Getting user details for user $UserID"
     }
-    $endpoint = "/api/Listusers"
+    $endpoint = '/api/Listusers'
     $params = @{
         tenantfilter = $CustomerTenantID
-        userId = $UserID
+        userId       = $UserID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

@@ -21,7 +21,7 @@ function Get-CIPPDefenderTVM {
     )
     
     Write-Verbose "Getting Defender TVM for customer: $CustomerTenantID"
-    $endpoint = "/api/listdefendertvm"
+    $endpoint = '/api/listdefendertvm'
     $params = @{
         tenantfilter = $CustomerTenantID
     }

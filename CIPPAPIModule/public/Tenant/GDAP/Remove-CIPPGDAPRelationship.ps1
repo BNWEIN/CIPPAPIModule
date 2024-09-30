@@ -21,7 +21,7 @@ function Remove-CIPPGDAPRelationship {
     )
 
     Write-Verbose "Terminating GDAP Relationship: $GDAPID"
-    $Endpoint = "/api/execdeletegdaprelationship"
+    $Endpoint = '/api/execdeletegdaprelationship'
     $Params = @{
         gdapid = $GDAPID
     }

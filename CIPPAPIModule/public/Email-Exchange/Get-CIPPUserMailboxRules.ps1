@@ -28,10 +28,10 @@ function Get-CIPPUserMailboxRules {
     
     Write-Verbose "Getting user Mailbox Rules for $userID"
     
-    $endpoint = "/api/listusermailboxrules"
+    $endpoint = '/api/listusermailboxrules'
     $params = @{
         tenantfilter = $CustomerTenantID
-        userId = $UserID
+        userId       = $UserID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

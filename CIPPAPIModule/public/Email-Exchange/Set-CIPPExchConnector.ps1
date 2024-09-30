@@ -29,7 +29,7 @@ function Set-CIPPExchConnector {
         [Parameter(Mandatory = $true)]
         [string]$CustomerTenantID,
         [Parameter(Mandatory)]
-        [ValidateSet("Enable", "Disabled")]
+        [ValidateSet('Enable', 'Disabled')]
         [string]$State,
         [Parameter(Mandatory = $true)]
         [guid]$Guid,
@@ -39,12 +39,12 @@ function Set-CIPPExchConnector {
 
 
     Write-Verbose "Editing Exchange Connector for tenant $CustomerTenantID"
-    $endpoint = "/api/editexconnector"
+    $endpoint = '/api/editexconnector'
     $params = @{
         TenantFilter = $CustomerTenantID
-        state = $State
-        GUID = $Guid
-        Type = $Type
+        state        = $State
+        GUID         = $Guid
+        Type         = $Type
     }
     
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

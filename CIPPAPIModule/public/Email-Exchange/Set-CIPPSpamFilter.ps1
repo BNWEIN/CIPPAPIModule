@@ -36,17 +36,17 @@ function Set-CIPPSpamFilter {
         [Parameter(Mandatory = $true)]
         [string]$Name,
         [Parameter(Mandatory = $true)]
-        [ValidateSet("Enable", "Disable")]
+        [ValidateSet('Enable', 'Disable')]
         [string]$State
     )
 
-    Write-Verbose "Editing Spam Filter"
-    $endpoint = "/api/editspamfilter"
+    Write-Verbose 'Editing Spam Filter'
+    $endpoint = '/api/editspamfilter'
     $params = @{
         tenantfilter = $CustomerTenantID
-        guid = $Guid
-        name = $Name
-        state = $State
+        guid         = $Guid
+        name         = $Name
+        state        = $State
     }
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

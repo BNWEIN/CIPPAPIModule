@@ -28,10 +28,10 @@ function Get-CIPPGroupTemplates {
     if ($TemplateID) {
         Write-Verbose "Getting Group Template $TemplateID"
     } else {
-        Write-Verbose "Getting all Group Templates"
+        Write-Verbose 'Getting all Group Templates'
     }
 
-    $endpoint = "/api/ListGroupTemplates"
+    $endpoint = '/api/ListGroupTemplates'
     $params = @{
         id = $TemplateID
     }

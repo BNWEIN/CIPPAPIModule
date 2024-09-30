@@ -1,6 +1,6 @@
 function Update-ModuleVersion {
     param (
-        [string]$FilePath = "..\CIPPAPIModule\CIPPAPIModule\CIPPAPIModule.psd1"
+        [string]$FilePath = '..\CIPPAPIModule\CIPPAPIModule\CIPPAPIModule.psd1'
     )
     
     # Read the file contents
@@ -33,6 +33,6 @@ function Update-ModuleVersion {
         
         Write-Host "Module version updated to $newVersion"
     } else {
-        Write-Host "ModuleVersion line not found in the file."
+        Write-Host 'ModuleVersion line not found in the file.'
     }
 }

@@ -41,13 +41,13 @@ function Set-CIPPSharePointSiteAdmin {
     )
 
     Write-Verbose "Setting SharePoint Owner on $Url"
-    $endpoint = "/api/ExecSharePointPerms"
+    $endpoint = '/api/ExecSharePointPerms'
     $body = @{
-        TenantFilter = $CustomerTenantID
-        UPN = $CurrentAdminUPN
-        URL = $SiteUrl
+        TenantFilter     = $CustomerTenantID
+        UPN              = $CurrentAdminUPN
+        URL              = $SiteUrl
         RemovePermission = $RemovePermission
-        input = $AdditionalAdminUPN
+        input            = $AdditionalAdminUPN
     }
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST

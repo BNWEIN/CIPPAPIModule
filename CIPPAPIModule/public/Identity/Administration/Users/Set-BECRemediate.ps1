@@ -33,11 +33,11 @@ function Set-BECRemediate {
     
     Write-Verbose "Running BEC Remediation for $Username"
 
-    $endpoint = "/api/execbecremediate"
+    $endpoint = '/api/execbecremediate'
     $body = @{
-        tenantfilter    = $CustomerTenantID
-        username        = $Username
-        userid          = $Userid
+        tenantfilter = $CustomerTenantID
+        username     = $Username
+        userid       = $Userid
     }
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -method POST
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }

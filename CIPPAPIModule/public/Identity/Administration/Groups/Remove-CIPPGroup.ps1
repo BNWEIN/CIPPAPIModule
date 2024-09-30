@@ -36,12 +36,12 @@ function Remove-CIPPGroup {
 
     Write-Verbose "Removing group: $GroupID"
 
-    $endpoint = "/api/execgroupsdelete"
+    $endpoint = '/api/execgroupsdelete'
     $params = @{
-        tenantfilter        = $CustomerTenantID
-        id                  = $GroupID
-        grouptype           = $Grouptype
-        displayname         = $DisplayName
+        tenantfilter = $CustomerTenantID
+        id           = $GroupID
+        grouptype    = $Grouptype
+        displayname  = $DisplayName
     }
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

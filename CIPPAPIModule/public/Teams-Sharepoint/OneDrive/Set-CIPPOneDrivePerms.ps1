@@ -39,13 +39,13 @@ function Set-CIPPOneDrivePerms {
     )
 
     Write-Verbose "Giving access to $GiveAccessToUPN on $OneDriveUserUPN's OneDrive."
-    $endpoint = "/api/ExecSharePointPerms"
+    $endpoint = '/api/ExecSharePointPerms'
     $body = @{
-        TenantFilter = $CustomerTenantID
-        UPN = $OneDriveUserUPN
-        URL = $SiteUrl
+        TenantFilter     = $CustomerTenantID
+        UPN              = $OneDriveUserUPN
+        URL              = $SiteUrl
         RemovePermission = $RemovePermission
-        input = $GiveAccessToUPN
+        input            = $GiveAccessToUPN
     }
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST

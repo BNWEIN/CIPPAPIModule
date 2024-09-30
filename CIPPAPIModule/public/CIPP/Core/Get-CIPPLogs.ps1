@@ -25,31 +25,31 @@ function Get-CIPPLogs {
     Param(
         [Parameter(Mandatory = $false)]
         [ValidateSet(
-            "error",
-            "alert",
-            "debug",
-            "info",
-            "warn",
-            "critical"
+            'error',
+            'alert',
+            'debug',
+            'info',
+            'warn',
+            'critical'
         )]
         [string]$Severity,
 
         [Parameter(Mandatory = $false)]
-        [string]$DateFilter = (Get-Date -Format "yyyyMMdd")
+        [string]$DateFilter = (Get-Date -Format 'yyyyMMdd')
     )
 
-    $endpoint = "/api/ListLogs"
+    $endpoint = '/api/ListLogs'
 
         
     $Params = @{
-        'Filter' = $True
+        'Filter'     = $True
         'DateFilter' = $DateFilter
     }
 
-    if($Severity){
+    if ($Severity) {
         $Params['Severity'] = $Severity
     }
     
-    Write-Verbose "Getting CIPP Logs"
+    Write-Verbose 'Getting CIPP Logs'
     Invoke-CIPPRestMethod -Endpoint $endpoint -Param $Params
 }

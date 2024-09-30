@@ -40,18 +40,18 @@ function Set-CIPPGroupDeliveryManagement {
         [validateset(
             'true',
             'false'
-            )]
+        )]
         [string]$onlyallowinternal
     )
 
     Write-Verbose "Setting delivery management for group: $GroupID"
 
-    $endpoint = "/api/execgroupsdeliverymanagement"
+    $endpoint = '/api/execgroupsdeliverymanagement'
     $params = @{
-        tenantfilter                = $CustomerTenantID
-        id                          = $GroupID
-        grouptype                   = $Grouptype
-        onlyallowinternal           = $onlyallowinternal
+        tenantfilter      = $CustomerTenantID
+        id                = $GroupID
+        grouptype         = $Grouptype
+        onlyallowinternal = $onlyallowinternal
     }
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

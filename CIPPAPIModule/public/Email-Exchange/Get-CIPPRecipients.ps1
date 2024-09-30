@@ -21,7 +21,7 @@ function Get-CIPPRecipients {
     )
 
     Write-Verbose "Getting recipients for $CustomerTenantID"
-    $endpoint = "/api/listrecipients"
+    $endpoint = '/api/listrecipients'
     $params = @{
         tenantfilter = $CustomerTenantID
     }

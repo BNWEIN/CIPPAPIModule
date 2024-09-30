@@ -28,17 +28,17 @@ PS C:\> .\Get-AllTenants-SharedMailboxesEnabledAccount.ps1
 This script requires the CIPPAPIModule to be installed.
 #>
 
-$CIPPAPIUrl = Read-Host "Enter the CIPP API URL"
-$CIPPClientID = Read-Host "Enter the CIPP API Client ID"
-$CIPPClientSecret = Read-Host "Enter the CIPP API Client Secret"
-$TenantId = Read-Host "Enter the Tenant ID"
+$CIPPAPIUrl = Read-Host 'Enter the CIPP API URL'
+$CIPPClientID = Read-Host 'Enter the CIPP API Client ID'
+$CIPPClientSecret = Read-Host 'Enter the CIPP API Client Secret'
+$TenantId = Read-Host 'Enter the Tenant ID'
 
 Import-Module CIPPAPIModule
-Set-CIPPAPIDetails -CIPPClientID $CIPPClientID -CIPPClientSecret $CIPPClientSecret -CIPPAPIUrl $CIPPAPIUrl -TenantId $TenantId
+Set-CIPPAPIDetails -CIPPClientID $CIPPClientID -CIPPClientSecret $CIPPClientSecret -CIPPAPIUrl $CIPPAPIUrl -TenantID $TenantId
 
-Write-Output "Getting List of tenants"
+Write-Output 'Getting List of tenants'
 $tenantsList = Get-CIPPTenants
-Write-Output "Getting all shared mailboxes with account enabled - This can take a few minutes..."
+Write-Output 'Getting all shared mailboxes with account enabled - This can take a few minutes...'
 $SharedMailboxesEnabled = $tenantsList.defaultDomainName | ForEach-Object -Parallel {
     Import-Module CIPPAPIModule
     Set-CIPPAPIDetails -TenantID $using:TenantId -CIPPClientID $using:CIPPClientID -CIPPClientSecret $using:CIPPClientSecret -CIPPAPIUrl $using:CIPPAPIUrl
@@ -46,12 +46,12 @@ $SharedMailboxesEnabled = $tenantsList.defaultDomainName | ForEach-Object -Paral
     $SharedMailboxes = Get-CIPPEnabledSharedMailboxes -CustomerTenantID $tenant
     foreach ($mailbox in $SharedMailboxes) {
         [PSCustomObject]@{
-            Tenant = $tenant
-            UserPrincipalName = $mailbox.UserPrincipalName
-            DisplayName = $mailbox.DisplayName
-            GivenName = $mailbox.GivenName
-            Surname = $mailbox.Surname
-            AccountEnabled = $mailbox.AccountEnabled
+            Tenant                = $tenant
+            UserPrincipalName     = $mailbox.UserPrincipalName
+            DisplayName           = $mailbox.DisplayName
+            GivenName             = $mailbox.GivenName
+            Surname               = $mailbox.Surname
+            AccountEnabled        = $mailbox.AccountEnabled
             onPremisesSyncEnabled = $mailbox.onPremisesSyncEnabled
         }
     }
@@ -61,9 +61,9 @@ if ($null -eq $SharedMailboxesEnabled) {
     exit
 }
 
-$filename = "SharedMailboxesAccountEnabled" + (Get-Date -Format "yyyy-MM-dd") + ".csv"
+$filename = 'SharedMailboxesAccountEnabled' + (Get-Date -Format 'yyyy-MM-dd') + '.csv'
 $filepath = "$env:TEMP\$($filename)"
 
-$SharedMailboxesEnabled | Export-CSV -Path $filepath
+$SharedMailboxesEnabled | Export-Csv -Path $filepath
 
 Start-Process -FilePath $filepath

@@ -50,23 +50,23 @@ Function Set-CIPPDeviceAction {
         [guid]$DeviceID,
         [Parameter(Mandatory = $true)]
         [ValidateSet(
-            "syncDevice",
-            "rebootNow",
-            "locateDevice",
-            "RotateLocalAdminPassword",
-            "WindowsDefenderFullScan",
-            "WindowsDefenderQuickScan",
-            "UpdateWindowsDefender",
-            "GenerateLogsAndShipToMEM",
-            "RenameDevice",
-            "FreshStartRemoveUserData",
-            "FreshStartDoNotRemoveUserData", 
-            "WipeDeviceKeepEnrollmentData",
-            "WipeDeviceRemoveEnrollmentData",
-            "WipeDeviceKeepEnrollmentDataContinueAtPowerloss", 
-            "WipeDeviceRemoveEnrollmentDataContinueAtPowerloss",
-            "AutopilotReset",
-            "RetireDevice")]
+            'syncDevice',
+            'rebootNow',
+            'locateDevice',
+            'RotateLocalAdminPassword',
+            'WindowsDefenderFullScan',
+            'WindowsDefenderQuickScan',
+            'UpdateWindowsDefender',
+            'GenerateLogsAndShipToMEM',
+            'RenameDevice',
+            'FreshStartRemoveUserData',
+            'FreshStartDoNotRemoveUserData', 
+            'WipeDeviceKeepEnrollmentData',
+            'WipeDeviceRemoveEnrollmentData',
+            'WipeDeviceKeepEnrollmentDataContinueAtPowerloss', 
+            'WipeDeviceRemoveEnrollmentDataContinueAtPowerloss',
+            'AutopilotReset',
+            'RetireDevice')]
         [string]$Action,
         [Parameter(Mandatory = $false)]
         [string]$NewDeviceName
@@ -75,81 +75,81 @@ Function Set-CIPPDeviceAction {
     Write-Verbose "Executing $Action on Device $DeviceID"
 
     # Determine the HTTP method and construct the body if needed
-    $method = "GET"
+    $method = 'GET'
     $body = @{}
     $actionQuery = $Action
 
     switch ($Action) {
-        "WindowsDefenderFullScan" {
-            $method = "POST"
-            $actionQuery = "WindowsDefenderScan"
+        'WindowsDefenderFullScan' {
+            $method = 'POST'
+            $actionQuery = 'WindowsDefenderScan'
             $body.quickScan = $false
         }
-        "WindowsDefenderQuickScan" {
-            $method = "POST"
-            $actionQuery = "WindowsDefenderScan"
+        'WindowsDefenderQuickScan' {
+            $method = 'POST'
+            $actionQuery = 'WindowsDefenderScan'
             $body.quickScan = $true
         }
-        "UpdateWindowsDefender" {
-            $method = "POST"
-            $actionQuery = "windowsDefenderUpdateSignatures"
+        'UpdateWindowsDefender' {
+            $method = 'POST'
+            $actionQuery = 'windowsDefenderUpdateSignatures'
         }
-        "RenameDevice" {
-            $method = "POST"
+        'RenameDevice' {
+            $method = 'POST'
             $body.newDeviceName = $NewDeviceName
         }
-        "FreshStartRemoveUserData" {
-            $method = "POST"
+        'FreshStartRemoveUserData' {
+            $method = 'POST'
             $body.keepUserData = $false
-            $actionQuery = "cleanWindowsDevice"
+            $actionQuery = 'cleanWindowsDevice'
         }
-        "FreshStartDoNotRemoveUserData" {
-            $method = "POST"
+        'FreshStartDoNotRemoveUserData' {
+            $method = 'POST'
             $body.keepUserData = $true
-            $actionQuery = "cleanWindowsDevice"
+            $actionQuery = 'cleanWindowsDevice'
         }
-        "WipeDeviceKeepEnrollmentData" {
-            $method = "POST"
+        'WipeDeviceKeepEnrollmentData' {
+            $method = 'POST'
             $body.keepUserData = $true
             $body.keepEnrollmentData = $true
-            $actionQuery = "cleanWindowsDevice"
+            $actionQuery = 'cleanWindowsDevice'
         }
-        "WipeDeviceRemoveEnrollmentData" {
-            $method = "POST"
+        'WipeDeviceRemoveEnrollmentData' {
+            $method = 'POST'
             $body.keepUserData = $false
             $body.keepEnrollmentData = $false
-            $actionQuery = "cleanWindowsDevice"
+            $actionQuery = 'cleanWindowsDevice'
         }
-        "WipeDeviceKeepEnrollmentDataContinueAtPowerloss" {
-            $method = "POST"
+        'WipeDeviceKeepEnrollmentDataContinueAtPowerloss' {
+            $method = 'POST'
             $body.keepUserData = $false
             $body.keepEnrollmentData = $true
             $body.useProtectedWipe = $true
-            $actionQuery = "cleanWindowsDevice"
+            $actionQuery = 'cleanWindowsDevice'
         }
-        "WipeDeviceRemoveEnrollmentDataContinueAtPowerloss" {
-            $method = "POST"
+        'WipeDeviceRemoveEnrollmentDataContinueAtPowerloss' {
+            $method = 'POST'
             $body.keepUserData = $false
             $body.keepEnrollmentData = $false
             $body.useProtectedWipe = $true
-            $actionQuery = "cleanWindowsDevice"
+            $actionQuery = 'cleanWindowsDevice'
         }
         default {
-            if ($Action -in @("RotateLocalAdminPassword", "AutopilotReset")) {
-                $method = "POST"
+            if ($Action -in @('RotateLocalAdminPassword', 'AutopilotReset')) {
+                $method = 'POST'
             }
         }
     }
 
     # Define the endpoint and parameters
-    $endpoint = "/api/ExecDeviceAction"
+    $endpoint = '/api/ExecDeviceAction'
     $params = @{
         TenantFilter = $CustomerTenantID
         GUID         = $DeviceID
         Action       = $actionQuery
     }
     
-    if ($method -eq "GET") {
+    if ($method -eq 'GET') {
         Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params -Method $method
     } else {
         Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params -Method $method -Body $body

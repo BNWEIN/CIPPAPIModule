@@ -90,23 +90,23 @@ function Set-CIPPContact {
     $existingMobilePhone = ($existingContact.phones | Where-Object { $_.type -eq 'mobile' }).number
     $existingBusinessPhone = ($existingContact.phones | Where-Object { $_.type -eq 'business' }).number
 
-    $Endpoint = "/api/Editcontact"
+    $Endpoint = '/api/Editcontact'
 
     $body = @{
-        tenantID             = $CustomerTenantID
-        ContactID            = $ContactID
-        DisplayName          = $DisplayName ? $DisplayName : $existingContact.DisplayName
-        mail                 = $ExternalEmailAddress ? $ExternalEmailAddress : $existingContact.mail
-        firstName            = $FirstName ? $FirstName : $existingContact.givenName
-        LastName             = $LastName ? $LastName : $existingContact.surname
-        jobTitle             = $JobTitle ? $JobTitle : $existingContact.jobTitle
-        Country              = $Country ? $Country : $existingContact.addresses.CountryOrRegion
-        PostalCode           = $PostalCode ? $PostalCode : $existingContact.addresses.postalcode
-        CompanyName          = $CompanyName ? $CompanyName : $existingContact.companyName
-        StreetAddress        = $StreetAddress ? $StreetAddress : $existingContact.addresses.street
-        MobilePhone          = $MobilePhone ? $MobilePhone : $existingMobilePhone
-        BusinessPhone        = $PhoneNumber ? $PhoneNumber : $existingBusinessPhone
-        City                 = $City ? $City : $existingContact.addresses.city
+        tenantID      = $CustomerTenantID
+        ContactID     = $ContactID
+        DisplayName   = $DisplayName ? $DisplayName : $existingContact.DisplayName
+        mail          = $ExternalEmailAddress ? $ExternalEmailAddress : $existingContact.mail
+        firstName     = $FirstName ? $FirstName : $existingContact.givenName
+        LastName      = $LastName ? $LastName : $existingContact.surname
+        jobTitle      = $JobTitle ? $JobTitle : $existingContact.jobTitle
+        Country       = $Country ? $Country : $existingContact.addresses.CountryOrRegion
+        PostalCode    = $PostalCode ? $PostalCode : $existingContact.addresses.postalcode
+        CompanyName   = $CompanyName ? $CompanyName : $existingContact.companyName
+        StreetAddress = $StreetAddress ? $StreetAddress : $existingContact.addresses.street
+        MobilePhone   = $MobilePhone ? $MobilePhone : $existingMobilePhone
+        BusinessPhone = $PhoneNumber ? $PhoneNumber : $existingBusinessPhone
+        City          = $City ? $City : $existingContact.addresses.city
     }
 
     Invoke-CIPPRestMethod -Endpoint $Endpoint -Body $body -Method POST

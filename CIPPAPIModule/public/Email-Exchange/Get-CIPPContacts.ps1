@@ -34,10 +34,10 @@ function Get-CIPPContacts {
     } else {
         Write-Verbose "Getting all Contacts for tenant $CustomerTenantID"
     }
-    $endpoint = "/api/listcontacts"
+    $endpoint = '/api/listcontacts'
     $params = @{
         tenantfilter = $CustomerTenantID
-        contactid = $ContactID
+        contactid    = $ContactID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 

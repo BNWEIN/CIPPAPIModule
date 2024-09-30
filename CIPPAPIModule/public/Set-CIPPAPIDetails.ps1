@@ -35,7 +35,7 @@ function Set-CIPPAPIDetails {
         [Parameter(ParameterSetName = 'CIPP', Mandatory = $true)]
         [String]$TenantID
     )
-    write-Verbose "Setting CIPP API Keys"
+    Write-Verbose 'Setting CIPP API Keys'
     $script:CIPPClientID = $CIPPClientID
     $script:CIPPClientSecret = $CIPPClientSecret
     $script:CIPPAPIUrl = $CIPPAPIUrl
