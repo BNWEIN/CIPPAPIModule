@@ -136,7 +136,7 @@ function Set-CIPPUser {
                 value = [PSCustomObject]@{
                     groupid   = $cippAddGroup.ID
                     groupName = $cippAddGroup.DisplayName
-                    groupType = $cippAddgroup.calculatedGroupType
+                    groupType = $CIPPAddGroup.calculatedGroupType
                 }
                 label = "$($CIPPAddGroup.DisplayName) - $($CIPPAddGroup.calculatedGroupType)"
             }
@@ -183,6 +183,7 @@ function Set-CIPPUser {
         MobilePhone       = $MobilePhone ? $MobilePhone : $existingUser.MobilePhone
         Department        = $Department ? $Department : $existingUser.Department
         City              = $City ? $City : $existingUser.City
+        MustChangePass    = $MustChangePass
     }
 
     Invoke-CIPPRestMethod -Endpoint '/api/edituser' -Body $body -Method 'POST'
