@@ -75,6 +75,8 @@ Get-CIPPLogs
 - [Set-CIPPPasswordSettings](./Docs/Set-CIPPPasswordSettings.md)
 ## Email-Exchange
 - [Add-CIPPContact](./Docs/Add-CIPPContact.md)
+- [Add-CIPPRoomMailbox](./Docs/Add-CIPPRoomMailbox.md)
+- [Add-CIPPSharedMailbox](./Docs/Add-CIPPSharedMailbox.md)
 - [Get-CIPPCalendarPerms](./Docs/Get-CIPPCalendarPerms.md)
 - [Get-CIPPContacts](./Docs/Get-CIPPContacts.md)
 - [Get-CIPPEnabledSharedMailboxes](./Docs/Get-CIPPEnabledSharedMailboxes.md)
@@ -149,6 +151,7 @@ Get-CIPPLogs
   - [Add-CIPPUser](./Docs/Add-CIPPUser.md)
   - [Get-CIPPBECCheck](./Docs/Get-CIPPBECCheck.md)
   - [Get-CIPPDeletedItems](./Docs/Get-CIPPDeletedItems.md)
+  - [Get-CIPPPerUserMFA](./Docs/Get-CIPPPerUserMFA.md)
   - [Get-CIPPUniversalSearch](./Docs/Get-CIPPUniversalSearch.md)
   - [Get-CIPPUserCAPolicies](./Docs/Get-CIPPUserCAPolicies.md)
   - [Get-CIPPUserCounts](./Docs/Get-CIPPUserCounts.md)
@@ -177,6 +180,7 @@ Get-CIPPLogs
 - [Add-CIPPUser](./Docs/Add-CIPPUser.md)
 - [Get-CIPPBECCheck](./Docs/Get-CIPPBECCheck.md)
 - [Get-CIPPDeletedItems](./Docs/Get-CIPPDeletedItems.md)
+- [Get-CIPPPerUserMFA](./Docs/Get-CIPPPerUserMFA.md)
 - [Get-CIPPUniversalSearch](./Docs/Get-CIPPUniversalSearch.md)
 - [Get-CIPPUserCAPolicies](./Docs/Get-CIPPUserCAPolicies.md)
 - [Get-CIPPUserCounts](./Docs/Get-CIPPUserCounts.md)
@@ -361,5 +365,6 @@ Some example scripts can be found Below:
 ## Special Thanks
 
 Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnDuprey](https://github.com/JohnDuprey/), [@rvdwegen](https://github.com/rvdwegen) and [@Jr7468](https://github.com/Jr7468/).  I Could not have got this far without you! 
+
 
 
