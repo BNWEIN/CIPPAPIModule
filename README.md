@@ -55,9 +55,11 @@ Get-CIPPLogs
 - Settings
   - [Get-CIPPExcludedLicenses](./Docs/Get-CIPPExcludedLicenses.md)
   - [Get-CIPPExcludedTenants](./Docs/Get-CIPPExcludedTenants.md)
+  - [Get-CIPPExtensionMapping](./Docs/Get-CIPPExtensionMapping.md)
   - [Get-CIPPVersion](./Docs/Get-CIPPVersion.md)
   - [Set-CIPPExcludeLicense](./Docs/Set-CIPPExcludeLicense.md)
   - [Set-CIPPExcludeTenant](./Docs/Set-CIPPExcludeTenant.md)
+  - [Set-CIPPExtensionMappingHaloPSA](./Docs/Set-CIPPExtensionMappingHaloPSA.md)
   - [Set-CIPPPasswordSettings](./Docs/Set-CIPPPasswordSettings.md)
 - Setup
 - [Get-CIPPAccessCheck](./Docs/Get-CIPPAccessCheck.md)
@@ -69,9 +71,11 @@ Get-CIPPLogs
 - [Set-CIPPExecCPVPerms](./Docs/Set-CIPPExecCPVPerms.md)
 - [Get-CIPPExcludedLicenses](./Docs/Get-CIPPExcludedLicenses.md)
 - [Get-CIPPExcludedTenants](./Docs/Get-CIPPExcludedTenants.md)
+- [Get-CIPPExtensionMapping](./Docs/Get-CIPPExtensionMapping.md)
 - [Get-CIPPVersion](./Docs/Get-CIPPVersion.md)
 - [Set-CIPPExcludeLicense](./Docs/Set-CIPPExcludeLicense.md)
 - [Set-CIPPExcludeTenant](./Docs/Set-CIPPExcludeTenant.md)
+- [Set-CIPPExtensionMappingHaloPSA](./Docs/Set-CIPPExtensionMappingHaloPSA.md)
 - [Set-CIPPPasswordSettings](./Docs/Set-CIPPPasswordSettings.md)
 ## Email-Exchange
 - [Add-CIPPContact](./Docs/Add-CIPPContact.md)
@@ -274,6 +278,7 @@ Get-CIPPLogs
   - [Get-CIPPNamedLocations](./Docs/Get-CIPPNamedLocations.md)
   - [Set-CIPPCAPolicy](./Docs/Set-CIPPCAPolicy.md)
 - GDAP
+  - [Get-CIPPGDAPInvite](./Docs/Get-CIPPGDAPInvite.md)
   - [Get-CIPPGDAPRoles](./Docs/Get-CIPPGDAPRoles.md)
   - [Remove-CIPPGDAPRelationship](./Docs/Remove-CIPPGDAPRelationship.md)
 - Reports
@@ -285,6 +290,7 @@ Get-CIPPLogs
   - [Get-CIPPDomainAnalyser](./Docs/Get-CIPPDomainAnalyser.md)
   - [Get-CIPPDomainHealth](./Docs/Get-CIPPDomainHealth.md)
   - [Get-CIPPStandards](./Docs/Get-CIPPStandards.md)
+  - [Remove-CIPPStandard](./Docs/Remove-CIPPStandard.md)
   - [Set-CIPPStandardsRun](./Docs/Set-CIPPStandardsRun.md)
 - Tools
   - [Get-CIPPAuditLogTest](./Docs/Get-CIPPAuditLogTest.md)
@@ -312,6 +318,7 @@ Get-CIPPLogs
 - [Get-CIPPCATemplates](./Docs/Get-CIPPCATemplates.md)
 - [Get-CIPPNamedLocations](./Docs/Get-CIPPNamedLocations.md)
 - [Set-CIPPCAPolicy](./Docs/Set-CIPPCAPolicy.md)
+- [Get-CIPPGDAPInvite](./Docs/Get-CIPPGDAPInvite.md)
 - [Get-CIPPGDAPRoles](./Docs/Get-CIPPGDAPRoles.md)
 - [Remove-CIPPGDAPRelationship](./Docs/Remove-CIPPGDAPRelationship.md)
 - [Get-CIPPLicenses](./Docs/Get-CIPPLicenses.md)
@@ -321,6 +328,7 @@ Get-CIPPLogs
 - [Get-CIPPDomainAnalyser](./Docs/Get-CIPPDomainAnalyser.md)
 - [Get-CIPPDomainHealth](./Docs/Get-CIPPDomainHealth.md)
 - [Get-CIPPStandards](./Docs/Get-CIPPStandards.md)
+- [Remove-CIPPStandard](./Docs/Remove-CIPPStandard.md)
 - [Set-CIPPStandardsRun](./Docs/Set-CIPPStandardsRun.md)
 - [Get-CIPPAuditLogTest](./Docs/Get-CIPPAuditLogTest.md)
 - [Get-CIPPExternalGEOIPLookup](./Docs/Get-CIPPExternalGEOIPLookup.md)
@@ -365,6 +373,7 @@ Some example scripts can be found Below:
 ## Special Thanks
 
 Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnDuprey](https://github.com/JohnDuprey/), [@rvdwegen](https://github.com/rvdwegen) and [@Jr7468](https://github.com/Jr7468/).  I Could not have got this far without you! 
+
 
 
 
