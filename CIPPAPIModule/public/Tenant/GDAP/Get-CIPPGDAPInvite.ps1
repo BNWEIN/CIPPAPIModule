@@ -59,8 +59,8 @@ function Get-CIPPGDAPInvite {
     $endpoint = '/api/ExecGDAPInvite'
 
     $Body = @{
-        gdapRoles = $GDAPRoles
+        roleMappings = $GDAPRoles
     }
 
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $Body
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Method 'POST' -Body $Body
 }
