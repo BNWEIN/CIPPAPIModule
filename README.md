@@ -51,7 +51,6 @@ Get-CIPPLogs
   - [Get-CIPPLogs](./Docs/Get-CIPPLogs.md)
   - [Get-CIPPPublicPhishingCheck](./Docs/Get-CIPPPublicPhishingCheck.md)
   - [Set-CIPPExecCPVPerms](./Docs/Set-CIPPExecCPVPerms.md)
-- Scheduler
 - Settings
   - [Get-CIPPExcludedLicenses](./Docs/Get-CIPPExcludedLicenses.md)
   - [Get-CIPPExcludedTenants](./Docs/Get-CIPPExcludedTenants.md)
@@ -61,7 +60,6 @@ Get-CIPPLogs
   - [Set-CIPPExcludeTenant](./Docs/Set-CIPPExcludeTenant.md)
   - [Set-CIPPExtensionMappingHaloPSA](./Docs/Set-CIPPExtensionMappingHaloPSA.md)
   - [Set-CIPPPasswordSettings](./Docs/Set-CIPPPasswordSettings.md)
-- Setup
 - [Get-CIPPAccessCheck](./Docs/Get-CIPPAccessCheck.md)
 - [Get-CIPPExecAPIPermissionsList](./Docs/Get-CIPPExecAPIPermissionsList.md)
 - [Get-CIPPFunctionParameters](./Docs/Get-CIPPFunctionParameters.md)
@@ -135,7 +133,6 @@ Get-CIPPLogs
 - [Get-CIPPDevices](./Docs/Get-CIPPDevices.md)
 ## Identity
 - Administration
-  - [Devices](./Docs/Devices.md)
   - [Groups](./Docs/Groups.md)
   - [Users](./Docs/Users.md)
   - [Get-CIPPRoles](./Docs/Get-CIPPRoles.md)
@@ -144,7 +141,6 @@ Get-CIPPLogs
   - [Get-CIPPInactiveAccounts](./Docs/Get-CIPPInactiveAccounts.md)
   - [Get-CIPPMFAUsers](./Docs/Get-CIPPMFAUsers.md)
   - [Get-CIPPSignIns](./Docs/Get-CIPPSignIns.md)
-- Devices
 - Groups
   - [Get-CIPPGroups](./Docs/Get-CIPPGroups.md)
   - [Get-CIPPGroupTemplates](./Docs/Get-CIPPGroupTemplates.md)
@@ -268,8 +264,6 @@ Get-CIPPLogs
 - [Get-CIPPTeamsVoice](./Docs/Get-CIPPTeamsVoice.md)
 ## Tenant
 - Administration
-  - [Alerts](./Docs/Alerts.md)
-  - [Tenant](./Docs/Tenant.md)
   - [Get-CIPPAppConsentReqs](./Docs/Get-CIPPAppConsentReqs.md)
   - [Get-CIPPDomains](./Docs/Get-CIPPDomains.md)
 - Conditional
@@ -278,8 +272,8 @@ Get-CIPPLogs
   - [Get-CIPPNamedLocations](./Docs/Get-CIPPNamedLocations.md)
   - [Set-CIPPCAPolicy](./Docs/Set-CIPPCAPolicy.md)
 - GDAP
-  - [Get-CIPPGDAPInvite](./Docs/Get-CIPPGDAPInvite.md)
   - [Get-CIPPGDAPRoles](./Docs/Get-CIPPGDAPRoles.md)
+  - [New-CIPPGDAPInvite](./Docs/New-CIPPGDAPInvite.md)
   - [Remove-CIPPGDAPRelationship](./Docs/Remove-CIPPGDAPRelationship.md)
 - Reports
   - [Get-CIPPLicenses](./Docs/Get-CIPPLicenses.md)
@@ -299,7 +293,6 @@ Get-CIPPLogs
   - [Get-CIPPGraphRequest](./Docs/Get-CIPPGraphRequest.md)
 - Alerts
   - [Get-CIPPAlerts](./Docs/Get-CIPPAlerts.md)
-- Application Approval
 - Tenant
   - [Get-CIPPADConnectStatus](./Docs/Get-CIPPADConnectStatus.md)
   - [Get-CIPPOrg](./Docs/Get-CIPPOrg.md)
@@ -318,8 +311,8 @@ Get-CIPPLogs
 - [Get-CIPPCATemplates](./Docs/Get-CIPPCATemplates.md)
 - [Get-CIPPNamedLocations](./Docs/Get-CIPPNamedLocations.md)
 - [Set-CIPPCAPolicy](./Docs/Set-CIPPCAPolicy.md)
-- [Get-CIPPGDAPInvite](./Docs/Get-CIPPGDAPInvite.md)
 - [Get-CIPPGDAPRoles](./Docs/Get-CIPPGDAPRoles.md)
+- [New-CIPPGDAPInvite](./Docs/New-CIPPGDAPInvite.md)
 - [Remove-CIPPGDAPRelationship](./Docs/Remove-CIPPGDAPRelationship.md)
 - [Get-CIPPLicenses](./Docs/Get-CIPPLicenses.md)
 - [Get-CIPPOAuthApps](./Docs/Get-CIPPOAuthApps.md)
@@ -373,6 +366,7 @@ Some example scripts can be found Below:
 ## Special Thanks
 
 Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnDuprey](https://github.com/JohnDuprey/), [@rvdwegen](https://github.com/rvdwegen) and [@Jr7468](https://github.com/Jr7468/).  I Could not have got this far without you! 
+
 
 
 

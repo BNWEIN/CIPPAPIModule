@@ -79,7 +79,7 @@ function Get-CIPPGraphRequest {
     }
 
     $optionalParams = @{
-        '$count'                      = $count
+        '$count'                      = if ($count -eq $true) { 'true' } else { $null }
         '$select'                     = $Select
         'NoPagination'                = if ($DisablePagination) { 'true' } else { 'false' }
         '$top'                        = $Top
