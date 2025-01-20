@@ -21,7 +21,7 @@ function Get-CIPPTransportRules {
     )
 
     Write-Verbose "Getting transport rules for $CustomerTenantID"
-    $endpoint = '/api/listtransportrulestemplates'
+    $endpoint = '/api/listtransportrules'
     $params = @{
         tenantfilter = $CustomerTenantID
     }
