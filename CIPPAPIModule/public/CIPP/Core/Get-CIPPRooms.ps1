@@ -24,7 +24,7 @@ function Get-CIPPRooms {
     )
 
     Write-Verbose "Retrieving rooms for tenant $CustomerTenantID"
-    $Endpoint = '/api/listrooms'
+    $Endpoint = '/api/ListRooms'
     $Params = @{
         tenantFilter = $CustomerTenantID
         RoomID       = $RoomID
