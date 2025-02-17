@@ -1,9 +1,14 @@
 <#
 .SYNOPSIS
-Converts a mailbox to a shared mailbox or user mailbox in the CIPP system.
+Converts a mailbox to a different type in the CIPP system.
 
 .DESCRIPTION
-The Set-CIPPConvertMailbox function is used to convert a mailbox in the CIPP system to either a shared mailbox or a user mailbox. It sends a request to the CIPP API to perform the conversion.
+The Set-CIPPConvertMailbox function converts a mailbox to one of the following types:
+- Shared mailbox
+- Regular user mailbox
+- Room mailbox
+- Equipment mailbox
+It sends a request to the CIPP API to perform the conversion.
 
 .PARAMETER CustomerTenantID
 The ID of the customer tenant where the mailbox belongs.
@@ -11,17 +16,27 @@ The ID of the customer tenant where the mailbox belongs.
 .PARAMETER UserID
 The ID of the user whose mailbox needs to be converted.
 
-.PARAMETER ConvertToUserMailbox
-Specifies whether the mailbox should be converted to a user mailbox. If this switch is provided, the mailbox will be converted to a user mailbox. If not provided, the mailbox will be converted to a shared mailbox.
+.PARAMETER Username
+Optional. The username associated with the mailbox.
+
+.PARAMETER MailboxType
+The type to convert the mailbox to. Valid values are:
+- Shared: Convert to shared mailbox
+- Regular: Convert to regular user mailbox
+- Room: Convert to room mailbox
+- Equipment: Convert to equipment mailbox
 
 .EXAMPLE
-Set-CIPPConvertMailbox -CustomerTenantID "contoso.onmicrosoft.com" -UserID "user@domain.com" -ConvertToUserMailbox
-Converts the mailbox of user "user1" in the customer tenant "contoso.onmicrosoft.com" to a user mailbox.
+Set-CIPPConvertMailbox -CustomerTenantID "contoso.onmicrosoft.com" -UserID "user@domain.com" -MailboxType "Shared"
+Converts the specified mailbox to a shared mailbox.
 
 .EXAMPLE
-Set-CIPPConvertMailbox -CustomerTenantID "contoso.onmicrosoft.com" -UserID "user@domain.com"
-Converts the mailbox of user "user@domain.com" in the customer tenant "contoso.onmicrosoft.com" to a shared mailbox.
+Set-CIPPConvertMailbox -CustomerTenantID "contoso.onmicrosoft.com" -UserID "user@domain.com" -MailboxType "Regular"
+Converts the specified mailbox to a regular user mailbox.
 
+.EXAMPLE
+Set-CIPPConvertMailbox -CustomerTenantID "contoso.onmicrosoft.com" -UserID "room@domain.com" -MailboxType "Room"
+Converts the specified mailbox to a room mailbox.
 #>
 function Set-CIPPConvertMailbox {
     [CmdletBinding()]
@@ -31,17 +46,20 @@ function Set-CIPPConvertMailbox {
         [Parameter(Mandatory = $true)]
         [string]$UserID,
         [Parameter(Mandatory = $false)]
-        [switch]$ConvertToUserMailbox
+        [string]$Username,
+        [Parameter(Mandatory = $true)]
+        [ValidateSet('Shared', 'Regular', 'Room', 'Equipment')][string]$MailboxType
     )
     
-    Write-Verbose "Converting Mailbox $userID"
+    Write-Verbose "Converting Mailbox $UserID to $MailboxType"
     
-    $endpoint = '/api/execconverttosharedmailbox'
+    $endpoint = '/api/ExecConvertMailbox'
     $params = @{
-        tenantfilter  = $CustomerTenantID
-        id            = $UserID
-        ConvertToUser = if ($ConvertToUserMailbox) { 'true' } else { 'false' }
+        tenantFilter = $CustomerTenantID
+        id           = $UserID
+        MailboxType  = $MailboxType
+        Username     = $Username
     }
 
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params -Method 'POST'
 }
