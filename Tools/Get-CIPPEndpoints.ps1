@@ -63,7 +63,8 @@ Write-Host $MissingEndpoints -ForegroundColor Red
 
 # Export to CSV
 $ExportPath = Join-Path $PSScriptRoot "CIPPEndpointsCoverage_$(Get-Date -Format 'yyyyMMdd_HHmmss').csv"
-$Results | Export-Csv -Path $ExportPath -NoTypeInformation
+$Results | Where-Object { $_.Status -ne 'Found' } | Export-Csv -Path $ExportPath -NoTypeInformation
+# $Results | Export-Csv -Path $ExportPath -NoTypeInformation
 
 Write-Host "`nExport Details" -ForegroundColor Cyan
 Write-Host "==============`n" -ForegroundColor Cyan
