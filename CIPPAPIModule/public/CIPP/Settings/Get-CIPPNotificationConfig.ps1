@@ -31,7 +31,9 @@ function Get-CIPPNotificationConfig {
             Severity          = $result.Severity
             Email             = $result.email
             Webhook           = $result.webhook
-            sendtoIntegration = $result.sendtoIntegration
+            SendToIntegration = $result.sendtoIntegration
+            IncludeTenantId   = $result.includeTenantId
+            OneEmailPerTenant = $result.onePerTenant
             Schedule          = $result.schedule
             Type              = $result.type
         }
