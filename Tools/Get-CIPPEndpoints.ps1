@@ -51,6 +51,7 @@ foreach ($result in $Results) {
 $TotalEndpoints = $Results.Count
 $FoundEndpoints = ($Results | Where-Object { $_.Status -eq 'Found' }).Count
 $MissingEndpoints = $TotalEndpoints - $FoundEndpoints
+$Percentage = [math]::Round(($FoundEndpoints / $TotalEndpoints) * 100, 2)
 
 Write-Host "`nSummary" -ForegroundColor Cyan
 Write-Host "========`n" -ForegroundColor Cyan
@@ -60,6 +61,8 @@ Write-Host 'Found: ' -NoNewline
 Write-Host $FoundEndpoints -ForegroundColor Green
 Write-Host 'Missing: ' -NoNewline
 Write-Host $MissingEndpoints -ForegroundColor Red
+Write-Host 'Percentage of Endpoints with a function: ' -NoNewline
+Write-Host "$Percentage%" -ForegroundColor Yellow
 
 # Export to CSV
 $ExportPath = Join-Path $PSScriptRoot "CIPPEndpointsCoverage_$(Get-Date -Format 'yyyyMMdd_HHmmss').csv"
