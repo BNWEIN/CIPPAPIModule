@@ -3,7 +3,7 @@
 Converts a mailbox to a different type in the CIPP system.
 
 .DESCRIPTION
-The Set-CIPPConvertMailbox function converts a mailbox to one of the following types:
+The Convert-CIPPMailbox function converts a mailbox to one of the following types:
 - Shared mailbox
 - Regular user mailbox
 - Room mailbox
@@ -27,19 +27,20 @@ The type to convert the mailbox to. Valid values are:
 - Equipment: Convert to equipment mailbox
 
 .EXAMPLE
-Set-CIPPConvertMailbox -CustomerTenantID "contoso.onmicrosoft.com" -UserID "user@domain.com" -MailboxType "Shared"
+Convert-CIPPMailbox -CustomerTenantID "contoso.onmicrosoft.com" -UserID "user@domain.com" -MailboxType "Shared"
 Converts the specified mailbox to a shared mailbox.
 
 .EXAMPLE
-Set-CIPPConvertMailbox -CustomerTenantID "contoso.onmicrosoft.com" -UserID "user@domain.com" -MailboxType "Regular"
+Convert-CIPPMailbox -CustomerTenantID "contoso.onmicrosoft.com" -UserID "user@domain.com" -MailboxType "Regular"
 Converts the specified mailbox to a regular user mailbox.
 
 .EXAMPLE
-Set-CIPPConvertMailbox -CustomerTenantID "contoso.onmicrosoft.com" -UserID "room@domain.com" -MailboxType "Room"
+Convert-CIPPMailbox -CustomerTenantID "contoso.onmicrosoft.com" -UserID "room@domain.com" -MailboxType "Room"
 Converts the specified mailbox to a room mailbox.
 #>
-function Set-CIPPConvertMailbox {
+function Convert-CIPPMailbox {
     [CmdletBinding()]
+    [Alias('Set-CIPPConvertMailbox')]
     Param(
         [Parameter(Mandatory = $true)]
         [string]$CustomerTenantID,

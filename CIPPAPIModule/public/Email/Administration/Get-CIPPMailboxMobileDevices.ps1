@@ -26,9 +26,9 @@ function Get-CIPPMailboxMobileDevices {
     )
 
     Write-Verbose "Getting mailbox mobile devices for $Mailbox"
-    $endpoint = '/api/listmailboxmobiledevices'
+    $endpoint = '/api/ListMailboxMobileDevices'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         mailbox      = $Mailbox
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

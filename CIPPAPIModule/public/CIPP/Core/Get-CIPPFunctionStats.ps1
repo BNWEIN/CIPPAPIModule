@@ -11,18 +11,16 @@ Specifies the ID of the customer tenant to filter results for. Use 'AllTenants' 
 .PARAMETER FunctionType
 Specifies the type of functions to retrieve stats for. Defaults to 'Durable'.
 
-.PARAMETER Interval
-Specifies the time interval unit to look back. Valid values are 'Days', 'Hours', or 'Minutes'.
-
-.PARAMETER Time
-Specifies the number of interval units to look back. For example, if Interval is 'Days' and Time is 7, looks back 7 days.
+.PARAMETER LookbackPeriod
+A timespan object specifying how far back to retrieve stats from.
+Will be converted to appropriate interval (days, hours, or minutes).
 
 .EXAMPLE
-Get-CIPPFunctionStats -CustomerTenantID "AllTenants" -FunctionType "Durable" -Interval Days -Time 7
+Get-CIPPFunctionStats -CustomerTenantID "AllTenants" -FunctionType "Durable" -LookbackPeriod ([TimeSpan]::FromDays(7))
 Gets function statistics for all tenants from the past 7 days.
 
 .EXAMPLE
-Get-CIPPFunctionStats -CustomerTenantID "12345678-1234-1234-1234-1234567890AB" -Interval Hours -Time 24
+Get-CIPPFunctionStats -CustomerTenantID "12345678-1234-1234-1234-1234567890AB" -LookbackPeriod ([TimeSpan]::FromHours(24))
 Gets function statistics for the specified tenant from the past 24 hours.
 
 .NOTES
@@ -32,18 +30,14 @@ Requires CIPP.Core.Read permissions.
 function Get-CIPPFunctionStats {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory = $false)]
-        [string]$CustomerTenantID = 'AllTenants',
+        [Parameter(Mandatory = $true)]
+        [string]$CustomerTenantID,
 
         [Parameter(Mandatory = $false)]
         [string]$FunctionType = 'Durable',
 
         [Parameter(Mandatory = $false)]
-        [ValidateSet('Days', 'Hours', 'Minutes')]
-        [string]$Interval,
-
-        [Parameter(Mandatory = $false)]
-        [int]$Time
+        [timespan]$LookbackPeriod
     )
 
     Write-Verbose "Getting function statistics for tenant filter '$CustomerTenantID'"
@@ -54,9 +48,17 @@ function Get-CIPPFunctionStats {
         FunctionType = $FunctionType
     }
 
-    if ($Interval -and $Time) {
-        $params['Interval'] = $Interval
-        $params['Time'] = $Time
+    if ($LookbackPeriod) {
+        if ($LookbackPeriod.Days -gt 0) {
+            $params['Interval'] = 'Days'
+            $params['Time'] = $LookbackPeriod.Days
+        } elseif ($LookbackPeriod.Hours -gt 0) {
+            $params['Interval'] = 'Hours'
+            $params['Time'] = $LookbackPeriod.Hours
+        } else {
+            $params['Interval'] = 'Minutes'
+            $params['Time'] = $LookbackPeriod.Minutes
+        }
     }
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params -Method GET
