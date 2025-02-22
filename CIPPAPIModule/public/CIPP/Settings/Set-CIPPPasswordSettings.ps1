@@ -31,14 +31,14 @@ function Set-CIPPPasswordSettings {
         )]
         [string]$Type,
         [Parameter(Mandatory = $false)]
-        [bool]$List
+        [switch]$List
     )
 
     Write-Verbose 'Getting CIPP Password Settings'
 
     $endpoint = '/api/execpasswordconfig'
 
-    if ($List) {
+    if ($List.IsPresent -eq $true) {
         $params = @{
             List = 'true'
         }
