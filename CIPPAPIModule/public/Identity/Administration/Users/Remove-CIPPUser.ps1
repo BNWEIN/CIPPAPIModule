@@ -22,7 +22,6 @@ This command removes the user with the specified UserID from the tenant with the
 
 .NOTES
 The function uses the Invoke-CIPPRestMethod cmdlet to send the request to the API endpoint. 
-There is a note indicating that the original code uses a GET request, but it might be more appropriate to use a DELETE request.
 #>
 function Remove-CIPPUser {
     [CmdletBinding()]
@@ -36,11 +35,9 @@ function Remove-CIPPUser {
     Write-Verbose "Deleting user $userID for tenant $CustomerTenantID"
 
     $endpoint = '/api/RemoveUser'
-    $params = @{
+    $body = @{
         TenantFilter = $CustomerTenantID
         ID           = $User
     }
-    # HACK: This is a GET request in the original code, but it should probably be a DELETE request? -Bobby
-    # Modules\CIPPCore\Public\Invoke-RemoveUser.ps1
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }
