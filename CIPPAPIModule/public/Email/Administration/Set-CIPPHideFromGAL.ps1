@@ -29,22 +29,22 @@ function Set-CIPPHideFromGAL {
         [Parameter(Mandatory = $true)]
         [string]$UserID,
         [Parameter(Mandatory = $true)]
-        [validateset(
+        [ValidateSet(
             'true',
             'false'
         )]
-        [string]$hidefromgal
+        [string]$HideFromGAL
     )
 
-    Write-Verbose "Setting hide from GAL to $hidefromgal for $UserID"
+    Write-Verbose "Setting hide from GAL to $HideFromGAL for $UserID"
 
     $endpoint = '/api/exechidefromgal'
-    $params = @{
-        tenantfilter = $CustomerTenantID
+    $body = @{
+        tenantFilter = $CustomerTenantID
         id           = $UserID
-        hidefromgal  = $hidefromgal
+        hidefromgal  = $HideFromGAL
     }
 
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
     
 }

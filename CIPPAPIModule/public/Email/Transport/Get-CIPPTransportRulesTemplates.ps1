@@ -13,7 +13,7 @@ Get-CIPPTransportRules -CustomerTenantID "contoso.onmicrosoft.com"
 Retrieves the transport rules for the customer tenant with the ID "contoso.onmicrosoft.com".
 
 #>
-function Get-CIPPTransportRules {
+function Get-CIPPTransportRulesTemplates {
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory = $true)]
@@ -23,7 +23,7 @@ function Get-CIPPTransportRules {
     Write-Verbose "Getting transport rules for $CustomerTenantID"
     $endpoint = '/api/listtransportrules'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

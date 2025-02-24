@@ -1,8 +1,8 @@
 ## What is this?
 
-This is the code for a [PowerShell](https://microsoft.com/powershell) module for [CIPP](https://cipp.app/). It is a work in progress, and only has about 134 out of the almost 300 API Endpoints built in. However, more will follow and it does have a generic 'Invoke-CIPPRestMethod' available so you can make any API call you want. See advanced usage examples below. 
+This is the code for a [PowerShell](https://microsoft.com/powershell) module for [CIPP](https://cipp.app/). It is a work in progress, and only has about 134 out of the almost 300 API Endpoints built in. However, more will follow and it does have a generic 'Invoke-CIPPRestMethod' available so you can make any API call you want. See advanced usage examples below.
 
-The module is written for [PowerShell 7](https://docs.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-71?view=powershell-7.1). 
+The module is written for [PowerShell 7](https://docs.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-71?view=powershell-7.1).
 
 ## What does it do?
 
@@ -28,21 +28,24 @@ Update-Module -Name CIPPAPIModule
 
 The first and probably most important requirement for this module is getting it connected to your CIPP API.
 
-
 ### Connecting the PowerShell module to the API
 
 1. Set API Connection details
+
 ```powershell
 Set-CIPPAPIDetails -CIPPClientID "YourClientIDGoesHere" -CIPPClientSecret "YourClientSecretGoesHere" -CIPPAPIUrl "https://your.cipp.apiurl" -TenantID "YourTenantID"
 ```
 
 2. Test your first call to the API
+
 ```powershell
-Get-CIPPLogs
+Test-CIPPApiConnection
 ```
 
 # Cmdlet Help
+
 ## CIPP
+
 - Core
   - [Get-CIPPAccessCheck](./Docs/Get-CIPPAccessCheck.md)
   - [Get-CIPPExecAPIPermissionsList](./Docs/Get-CIPPExecAPIPermissionsList.md)
@@ -75,7 +78,9 @@ Get-CIPPLogs
 - [Set-CIPPExcludeTenant](./Docs/Set-CIPPExcludeTenant.md)
 - [Set-CIPPExtensionMappingHaloPSA](./Docs/Set-CIPPExtensionMappingHaloPSA.md)
 - [Set-CIPPPasswordSettings](./Docs/Set-CIPPPasswordSettings.md)
+
 ## Email-Exchange
+
 - [Add-CIPPContact](./Docs/Add-CIPPContact.md)
 - [Add-CIPPRoomMailbox](./Docs/Add-CIPPRoomMailbox.md)
 - [Add-CIPPSharedMailbox](./Docs/Add-CIPPSharedMailbox.md)
@@ -116,7 +121,9 @@ Get-CIPPLogs
 - [Set-CIPPQuarantineManagement](./Docs/Set-CIPPQuarantineManagement.md)
 - [Set-CIPPSpamFilter](./Docs/Set-CIPPSpamFilter.md)
 - [Set-CIPPTransportRule](./Docs/Set-CIPPTransportRule.md)
+
 ## Endpoint
+
 - Applications
   - [Get-CIPPApps](./Docs/Get-CIPPApps.md)
 - Autopilot
@@ -131,7 +138,9 @@ Get-CIPPLogs
 - [Get-CIPPAutoPilotConfig](./Docs/Get-CIPPAutoPilotConfig.md)
 - [Set-CIPPMEMPolicy](./Docs/Set-CIPPMEMPolicy.md)
 - [Get-CIPPDevices](./Docs/Get-CIPPDevices.md)
+
 ## Identity
+
 - Administration
   - [Groups](./Docs/Groups.md)
   - [Users](./Docs/Users.md)
@@ -204,7 +213,9 @@ Get-CIPPLogs
 - [Get-CIPPInactiveAccounts](./Docs/Get-CIPPInactiveAccounts.md)
 - [Get-CIPPMFAUsers](./Docs/Get-CIPPMFAUsers.md)
 - [Get-CIPPSignIns](./Docs/Get-CIPPSignIns.md)
+
 ## Intune
+
 - Device
   - [Get-CIPPGetBitLockerKey](./Docs/Get-CIPPGetBitLockerKey.md)
   - [Get-CIPPIntuneIntents](./Docs/Get-CIPPIntuneIntents.md)
@@ -220,7 +231,9 @@ Get-CIPPLogs
 - [Get-CIPPLocalAdminPassword](./Docs/Get-CIPPLocalAdminPassword.md)
 - [Set-CIPPAutoPilotSync](./Docs/Set-CIPPAutoPilotSync.md)
 - [Set-CIPPDeviceAction](./Docs/Set-CIPPDeviceAction.md)
+
 ## Security
+
 - Defender
   - [Get-CIPPDefenderState](./Docs/Get-CIPPDefenderState.md)
   - [Get-CIPPDefenderTVM](./Docs/Get-CIPPDefenderTVM.md)
@@ -234,7 +247,9 @@ Get-CIPPLogs
 - [Get-CIPPAlertsList](./Docs/Get-CIPPAlertsList.md)
 - [Get-CIPPIncidentList](./Docs/Get-CIPPIncidentList.md)
 - [Get-CIPPDeviceCompliance](./Docs/Get-CIPPDeviceCompliance.md)
+
 ## Teams-Sharepoint
+
 - OneDrive
   - [Get-CIPPOneDriveList](./Docs/Get-CIPPOneDriveList.md)
   - [Set-CIPPOneDrivePerms](./Docs/Set-CIPPOneDrivePerms.md)
@@ -262,7 +277,9 @@ Get-CIPPLogs
 - [Get-CIPPTeams](./Docs/Get-CIPPTeams.md)
 - [Get-CIPPTeamsActivity](./Docs/Get-CIPPTeamsActivity.md)
 - [Get-CIPPTeamsVoice](./Docs/Get-CIPPTeamsVoice.md)
+
 ## Tenant
+
 - Administration
   - [Get-CIPPAppConsentReqs](./Docs/Get-CIPPAppConsentReqs.md)
   - [Get-CIPPDomains](./Docs/Get-CIPPDomains.md)
@@ -327,9 +344,13 @@ Get-CIPPLogs
 - [Get-CIPPExternalGEOIPLookup](./Docs/Get-CIPPExternalGEOIPLookup.md)
 - [Get-CIPPExternalTenantInfo](./Docs/Get-CIPPExternalTenantInfo.md)
 - [Get-CIPPGraphRequest](./Docs/Get-CIPPGraphRequest.md)
+
 ## Invoke-CIPPRestMethod
+
 - [Invoke-CIPPRestMethod](./Docs/Invoke-CIPPRestMethod.md)
+
 ## Set-CIPPAPIDetails
+
 - [Set-CIPPAPIDetails](./Docs/Set-CIPPAPIDetails.md)
 
 ## Advanced Usage Examples
@@ -365,9 +386,4 @@ Some example scripts can be found Below:
 
 ## Special Thanks
 
-Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnDuprey](https://github.com/JohnDuprey/), [@rvdwegen](https://github.com/rvdwegen) and [@Jr7468](https://github.com/Jr7468/).  I Could not have got this far without you! 
-
-
-
-
-
+Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnDuprey](https://github.com/JohnDuprey/), [@rvdwegen](https://github.com/rvdwegen) and [@Jr7468](https://github.com/Jr7468/). I Could not have got this far without you!

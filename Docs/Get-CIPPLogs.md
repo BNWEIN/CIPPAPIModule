@@ -10,7 +10,7 @@ The Get-CIPPLogs function retrieves logs from the CIPP API by invoking the "/api
 Accepts any of: debug,info,warn,error,critical,alert. If DateFilter is not specified alongside, it assumes current date in local time.
 
   ## **-DateFilter**
-> ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-(Get-Date -Format 'yyyyMMdd')-Blue?color=5547a8)\
+> ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-(Get-Date -Format "yyyyMMdd")-Blue?color=5547a8)\
 Date in "yyyyMMdd" format. This should be in the time zone of your CIPP instance (default UTC).
 
  #### EXAMPLE 1

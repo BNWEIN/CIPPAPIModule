@@ -33,9 +33,9 @@ function Get-CIPPMailboxCAS {
     )
     
     Write-Verbose "Getting Mailbox Client Access Settings for $CustomerTenantID"
-    $endpoint = '/api/listmailboxcas'
+    $endpoint = '/api/ListMailboxCAS'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }
