@@ -31,11 +31,12 @@ $Results = foreach ($endpoint in $AllCippEndpoints) {
     $Found = $AllCippApiModuleEndpointsContent | Where-Object { $_.Content -like "*'/api/$($ApiName)'*" }
     
     [PSCustomObject]@{
-        APIEndpoint = $ApiName
-        Status      = if ($Found) { 'Found' } else { 'Missing' }
-        Location    = if ($Found) { $Found.Name -join ';' } else { 'N/A' }
-        SourceFile  = $endpoint.Name
-        TargetFile  = if ($Found) { $Found.FullPath -join ';' } else { 'N/A' }
+        APIEndpoint    = $ApiName
+        Status         = if ($Found) { 'Found' } else { 'Missing' }
+        Location       = if ($Found) { $Found.Name -join ';' } else { 'N/A' }
+        SourceFile     = $endpoint.Name
+        SourceFullPath = $endpoint.FullName
+        TargetFile     = if ($Found) { $Found.FullPath -join ';' } else { 'N/A' }
     }
 }
 
