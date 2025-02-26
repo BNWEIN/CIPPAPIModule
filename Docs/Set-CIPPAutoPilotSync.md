@@ -2,7 +2,7 @@
 ## SYNOPSIS
 Syncs AutoPilot devices for a specified customer tenant ID.
 ## DESCRIPTION
-The Get-CIPPAutoPilotSync function is used to sync AutoPilot devices for a specific customer tenant ID. It makes a request to the specified endpoint with the provided parameters.
+The Set-CIPPAutoPilotSync function is used to sync AutoPilot devices for a specific customer tenant ID. It makes a request to the specified endpoint with the provided parameters.
 # PARAMETERS
 
 ## **-CustomerTenantID**
@@ -11,6 +11,6 @@ Specifies the customer tenant ID for which the AutoPilot devices need to be sync
 
  #### EXAMPLE 1
 ```powershell
-PS > Get-CIPPAutoPilotSync -CustomerTenantID "contoso.onmicrosoft.com"
+PS > Set-CIPPAutoPilotSync -CustomerTenantID "contoso.onmicrosoft.com"
 ```
 
