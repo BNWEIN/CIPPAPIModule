@@ -13,7 +13,7 @@ Specifies the ID of the customer's tenant.
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
 Specifies the ID of the user for whom the "hide from GAL" property needs to be set.
 
-  ## **-hidefromgal**
+  ## **-HideFromGAL**
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
 Specifies whether the user's email address should be hidden from the GAL or not. Valid values are 'true' and 'false'.
 

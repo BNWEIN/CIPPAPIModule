@@ -152,19 +152,25 @@ function Add-CIPPUser {
 
     $endpoint = '/api/adduser'
     $body = @{
-        tenantID       = $CustomerTenantID
-        DisplayName    = $DisplayName
-        UserName       = $UserName
-        AutoPassword   = $AutoPassword
-        FirstName      = $FirstName
-        LastName       = $LastName
-        Domain         = $Domain
+        tenantFilter   = $CustomerTenantID
+        displayName    = $DisplayName
+        mailNickname   = $UserName
+        Autopassword   = $AutoPassword
+        givenName      = $FirstName
+        surname        = $LastName
+        primDomain     = @{
+            label        = $Domain
+            value        = $Domain
+            addedFields  = @{}
+        }
         AddedAliases   = $AddedAliases
         CopyFrom       = $CopyFrom
-        Usagelocation  = $UsageLocation
+        Usagelocation  = @{
+            value = $UsageLocation
+            label = $UsageLocation
+        }
         MustChangePass = $MustChangePass
-
-        
+        removeLicenses = $false
     }
 
     $optionalParams = @{
@@ -177,7 +183,7 @@ function Add-CIPPUser {
         Jobtitle      = $Jobtitle
         Department    = $Department
         City          = $City
-        setManager    = @{ value = $Manager }
+        setManager    = if ($Manager) { @{ value = $Manager } } else { $null }
         Scheduled     = @{
             enabled = $ScheduledFor -ne $null
             date    = if ($ScheduledFor) { ([System.DateTimeOffset]$ScheduledFor).ToUnixTimeSeconds() } else { $null }

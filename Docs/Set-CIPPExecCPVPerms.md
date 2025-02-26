@@ -9,13 +9,13 @@ The Set-CIPPExecCPVPerms function is used to refresh the CPV permissions for a s
 > ![Foo](https://img.shields.io/badge/Type-Guid-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
 Specifies the ID of the customer tenant for which the CPV permissions need to be refreshed. This parameter is mandatory.
 
-  ## **-resetsp**
-> ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-false-Blue?color=5547a8)\
+  ## **-ResetSP**
+> ![Foo](https://img.shields.io/badge/Type-Boolean-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
 Specifies whether to reset the Stored Procedure (SP) associated with the CPV permissions. The valid values are "true" and "false". This parameter is optional and defaults to "false".
 
  #### EXAMPLE 1
 ```powershell
-PS > Set-CIPPExecCPVPerms -CustomerTenantID "12345678-1234-1234-1234-1234567890AB" -resetsp "true"
+PS > Set-CIPPExecCPVPerms -CustomerTenantID "12345678-1234-1234-1234-1234567890AB" -ResetSP "true"
 ```
  #### EXAMPLE 2
 ```powershell

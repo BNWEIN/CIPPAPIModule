@@ -8,11 +8,11 @@ The Set-CIPPExecCPVPerms function is used to refresh the CPV permissions for a s
 .PARAMETER CustomerTenantID
 Specifies the ID of the customer tenant for which the CPV permissions need to be refreshed. This parameter is mandatory.
 
-.PARAMETER resetsp
+.PARAMETER ResetSP
 Specifies whether to reset the Stored Procedure (SP) associated with the CPV permissions. The valid values are "true" and "false". This parameter is optional and defaults to "false".
 
 .EXAMPLE
-Set-CIPPExecCPVPerms -CustomerTenantID "12345678-1234-1234-1234-1234567890AB" -resetsp "true"
+Set-CIPPExecCPVPerms -CustomerTenantID "12345678-1234-1234-1234-1234567890AB" -ResetSP "true"
 Refreshes the CPV permissions for the customer tenant with the ID "12345678-1234-1234-1234-1234567890AB" and resets the associated Stored Procedure.
 
 .EXAMPLE
@@ -25,18 +25,14 @@ function Set-CIPPExecCPVPerms {
         [Parameter(Mandatory = $true)]
         [guid]$CustomerTenantID,
         [Parameter(Mandatory = $false)]
-        [ValidateSet(
-            'true',
-            'false' 
-        )]
-        [string]$resetsp = 'false'
+        [bool]$ResetSP = $false
     )
     
     Write-Verbose "Refreshing CPV for $CustomerTenantID"
-    $endpoint = '/api/execcpvpermissions'
+    $endpoint = '/api/ExecCPVPermissions'
     $params = @{
-        tenantfilter = $CustomerTenantID
-        ResetSP      = $resetsp
+        tenantFilter = $CustomerTenantID
+        ResetSP      = if ($ResetSP -eq $true) { 'true' } else { 'false' }
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

@@ -10,7 +10,7 @@ The Set-CIPPPasswordSettings function is used to view the password settings for 
 Specifies the type of password settings to be set. Valid values are "Correct-Battery-Horse" and "Classic".
 
   ## **-List**
-> ![Foo](https://img.shields.io/badge/Type-Boolean-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
+> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
 Specifies whether to list the current password settings. If set to $true, the function will retrieve the current password settings.
 
  #### EXAMPLE 1
