@@ -10,6 +10,7 @@ $IgnoredEndpoints = @(
     'Invoke-ExecListAppId' # This endpoint is used in the SAM setup and it might be a bad idea to have it in the CIPP API Module
     'Invoke-ExecSendOrgMessage' # WIP Endpoint
     'Invoke-ListUserSettings' # Relies on header parameters
+    'Invoke-AddSiteBulk' # Makes no sense to have this in the CIPP API Module, when you can just use the add single site endpoint in a foreach
 )
 
 # Remove ignored endpoints from AllCippEndpoints
