@@ -23,7 +23,7 @@ function Get-CIPPOAuthApps {
     Write-Verbose "Getting OAuth apps for $CustomerTenantID"
     $endpoint = '/api/listoauthapps'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

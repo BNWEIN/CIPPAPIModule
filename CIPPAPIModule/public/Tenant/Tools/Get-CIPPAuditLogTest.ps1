@@ -37,7 +37,7 @@ function Get-CIPPAuditLogTest {
     Write-Verbose "Looking up $LogType logs for tenant $CustomerTenantId"
     $endpoint = '/api/ListAuditLogTest'
     $params = @{
-        TenantFilter = $CustomerTenantId
+        tenantFilter = $CustomerTenantID
         LogType      = $LogType
     }
     

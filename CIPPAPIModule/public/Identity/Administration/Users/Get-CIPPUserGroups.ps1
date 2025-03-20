@@ -30,7 +30,7 @@ function Get-CIPPUserGroups {
     
     $endpoint = '/api/listusergroups'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         userId       = $UserID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

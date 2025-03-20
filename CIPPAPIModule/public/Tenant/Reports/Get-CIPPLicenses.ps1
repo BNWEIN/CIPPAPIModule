@@ -27,7 +27,7 @@ function Get-CIPPLicenses {
     Write-Verbose "Getting Licenses for $CustomerTenantID"
     $endpoint = '/api/ListLicenses'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

@@ -29,7 +29,7 @@ Function Get-CIPPIntuneIntents {
     # Define the endpoint and parameters
     $endpoint = '/api/listintuneintents'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     
     # Use the Invoke-CIPPRequest function to make the request

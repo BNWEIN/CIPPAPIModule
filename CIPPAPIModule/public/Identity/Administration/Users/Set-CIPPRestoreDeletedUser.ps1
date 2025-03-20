@@ -30,7 +30,7 @@ function Set-CIPPRestoreDeletedUser {
 
     $endpoint = '/api/execrestoredeleted'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         Id           = $ID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

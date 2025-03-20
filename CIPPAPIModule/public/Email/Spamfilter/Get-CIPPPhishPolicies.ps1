@@ -23,7 +23,7 @@ function Get-CIPPPhishPolicies {
     Write-Verbose "Getting Phish Policies for $CustomerTenantID"
     $endpoint = '/api/listphishpolicies'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

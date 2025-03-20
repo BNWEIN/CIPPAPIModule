@@ -44,7 +44,7 @@ function Get-CIPPOneDriveList {
     Write-Verbose "Getting sites for $CustomerTenantID"
     $endpoint = '/api/listsites'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         type         = 'OneDriveUsageAccount'
         userupn      = $UserUPN
     }

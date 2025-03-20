@@ -38,7 +38,7 @@ function Set-CIPPResetPassword {
 
     $endpoint = '/api/execresetpass'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         Id           = $UserID
         MustChange   = $MustChange
     }

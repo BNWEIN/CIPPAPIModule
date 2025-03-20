@@ -33,7 +33,7 @@ function Get-CIPPTeams {
     Write-Verbose "Getting teams sites for $CustomerTenantID"
     $endpoint = '/api/listteams'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         type         = if ($ID) { 'team' } else { 'list' }
         ID           = $id
     }

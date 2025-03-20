@@ -27,7 +27,7 @@ function Get-CIPPSharePointQuota {
     Write-Verbose "Getting SharePoint quota for $CustomerTenantID"
     $endpoint = '/api/listsharepointquota'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

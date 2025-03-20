@@ -23,7 +23,7 @@ function Get-CIPPSpamFilter {
     Write-Verbose "Getting spam filter settings for $CustomerTenantID"
     $endpoint = '/api/listspamfilter'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

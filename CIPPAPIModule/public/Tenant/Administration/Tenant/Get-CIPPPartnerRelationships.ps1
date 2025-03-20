@@ -27,7 +27,7 @@ function Get-CIPPPartnerRelationships {
     Write-Verbose "Getting org $CustomerTenantID"
     $endpoint = '/api/listpartnerrelationships'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

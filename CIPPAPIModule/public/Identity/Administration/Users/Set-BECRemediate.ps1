@@ -35,7 +35,7 @@ function Set-BECRemediate {
 
     $endpoint = '/api/execbecremediate'
     $body = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         username     = $Username
         userid       = $Userid
     }

@@ -27,7 +27,7 @@ function Get-CIPPOrg {
     Write-Verbose "Getting org $CustomerTenantID"
     $endpoint = '/api/listorg'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

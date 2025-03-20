@@ -47,7 +47,7 @@ function Set-CIPPQuarantineManagement {
     Write-Verbose "Managing Quarantine for $CustomerTenantID"
     $endpoint = '/api/execquarantinemanagement'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         id           = $ID
         allowSender  = $AllowSender
         type         = $Type

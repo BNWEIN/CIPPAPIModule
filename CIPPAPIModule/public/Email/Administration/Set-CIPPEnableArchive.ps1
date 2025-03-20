@@ -31,7 +31,7 @@ function Set-CIPPEnableArchive {
     
     $endpoint = '/api/execenablearchive'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         id           = $UserID
     }
 

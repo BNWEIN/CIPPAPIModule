@@ -67,7 +67,7 @@ function Get-CIPPGroups {
     } 
     $endpoint = '/api/listgroups'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         groupid      = $GroupID
     }
 

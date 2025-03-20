@@ -27,9 +27,9 @@ function Set-CIPPCreateTap {
 
     Write-Verbose "Creating TAP for User: $userID"
 
-    $endpoint = '/api/execcreatetap'
+    $endpoint = '/api/ExecCreateTAP'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         Id           = $UserID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

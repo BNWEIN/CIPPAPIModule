@@ -30,7 +30,7 @@ function Get-CIPPUserDevices {
     
     $endpoint = '/api/listuserdevices'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         userId       = $UserID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

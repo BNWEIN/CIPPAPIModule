@@ -137,7 +137,7 @@ function New-CIPPUserOffboarding {
     Write-Verbose "Offboarding user $User from $CustomerTenantID"
     $endpoint = '/api/ExecOffboardUser'
     $body = @{
-        TenantFilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         user         = @{ value = $User }
     }
     

@@ -30,7 +30,7 @@ function Get-CIPPUserSignIns {
 
     $endpoint = '/api/listusersigninlogs'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         userId       = $UserID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

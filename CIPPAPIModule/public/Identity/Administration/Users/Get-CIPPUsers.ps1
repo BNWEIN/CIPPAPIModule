@@ -35,7 +35,7 @@ function Get-CIPPUsers {
     }
     $endpoint = '/api/Listusers'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         userId       = $UserID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

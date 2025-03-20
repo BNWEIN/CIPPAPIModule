@@ -27,7 +27,7 @@ function Get-CIPPStandards {
     Write-Verbose "Getting standards for $CustomerTenantID"
     $endpoint = '/api/liststandards'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

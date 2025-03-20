@@ -29,7 +29,7 @@ function Send-CIPPPush {
 
     $endpoint = '/api/execsendpush'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         Useremail    = $UserEmail
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

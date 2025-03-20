@@ -48,7 +48,7 @@ function Get-CIPPMessageTrace {
     Write-Verbose "Getting message trace for $CustomerTenantID"
     $endpoint = '/api/listmessagetrace'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         days         = $Days
         sender       = $Sender
         recipient    = $Recipient

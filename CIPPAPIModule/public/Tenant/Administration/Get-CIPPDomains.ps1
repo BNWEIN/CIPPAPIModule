@@ -26,7 +26,7 @@ Function Get-CIPPDomains {
     # Define the endpoint and parameters
     $endpoint = '/api/ListDomains'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     
     # Use the Invoke-CIPPRequest function to make the request

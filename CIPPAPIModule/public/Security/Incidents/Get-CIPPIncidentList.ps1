@@ -23,7 +23,7 @@ function Get-CIPPIncidentList {
     Write-Verbose "Getting Incidents for customer: $CustomerTenantID"
     $endpoint = '/api/execincidentslist'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

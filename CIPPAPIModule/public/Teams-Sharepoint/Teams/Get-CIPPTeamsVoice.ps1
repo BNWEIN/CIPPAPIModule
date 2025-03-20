@@ -23,7 +23,7 @@ function Get-CIPPTeamsVoice {
     Write-Verbose "Getting teams voice $CustomerTenantID"
     $endpoint = '/api/listteamsvoice'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

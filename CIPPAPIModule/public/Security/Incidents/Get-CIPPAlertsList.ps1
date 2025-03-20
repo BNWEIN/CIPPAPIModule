@@ -23,7 +23,7 @@ function Get-CIPPAlertsList {
     Write-Verbose "Getting Alerts for customer: $CustomerTenantID"
     $endpoint = '/api/execalertslist'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

@@ -30,7 +30,7 @@ function Get-CIPPUserMailboxDetails {
     
     $endpoint = '/api/listusermailboxdetails'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         userId       = $UserID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

@@ -23,7 +23,7 @@ function Get-CIPPApps {
     Write-Verbose "Getting Apps for $CustomerTenantID"
     $Endpoint = '/api/listapps'
     $Params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
 
     Invoke-CIPPRestMethod -Endpoint $Endpoint -Params $Params

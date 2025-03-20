@@ -40,7 +40,7 @@ function Set-CIPPOneDriveShortCut {
     Write-Verbose "Creating OneDrive Shortcut for $Username to $SharePointURL"
     $endpoint = '/api/execonedriveshortcut'
     $body = @{
-        TenantFilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         username     = $Username
         userid       = $UserID
         input        = $SharePointURL

@@ -39,7 +39,7 @@ function Set-CIPPTransportRule {
     Write-Verbose "Editing transport rule for tenant $CustomerTenantID"
     $endpoint = '/api/edittransportrule'
     $params = @{
-        TenantFilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         state        = $State
         GUID         = $Guid
     }

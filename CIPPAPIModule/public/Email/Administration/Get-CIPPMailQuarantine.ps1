@@ -23,7 +23,7 @@ function Get-CIPPMailQuarantine {
     Write-Verbose "Getting mail quarantine for $CustomerTenantID"
     $endpoint = '/api/listmailquarantine'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

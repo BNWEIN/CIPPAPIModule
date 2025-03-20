@@ -24,7 +24,7 @@ function Get-CIPPExchangeConnectors {
     Write-Verbose "Getting Exchange Connectors for customer: $CustomerTenantID"
     $endpoint = '/api/listexchangeconnectors'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

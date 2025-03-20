@@ -32,7 +32,7 @@ function Set-CIPPRevokeSessions {
 
     $endpoint = '/api/execrevokesessions'
     $params = @{
-        TenantFilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         ID           = $UserID
         UserName     = $UserName
 

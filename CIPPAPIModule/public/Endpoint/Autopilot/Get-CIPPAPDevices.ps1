@@ -23,7 +23,7 @@ function Get-CIPPAPDevices {
     Write-Verbose "Getting AutoPilot Devices for $CustomerTenantID"
     $Endpoint = '/api/listapdevices'
     $Params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     
     Invoke-CIPPRestMethod -Endpoint $Endpoint -Params $Params

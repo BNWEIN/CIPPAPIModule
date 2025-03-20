@@ -58,14 +58,14 @@ function Set-CIPPMailboxMobileDevices {
     $endpoint = '/api/execmailboxmobiledevices'
     if ($Quarantine) {
         $params = @{
-            tenantfilter = $CustomerTenantID
+            tenantFilter = $CustomerTenantID
             DeviceID     = $DeviceID
             Userid       = $UserID
             Quarantine   = $Quarantine
         }
     } else {
         $params = @{
-            tenantfilter = $CustomerTenantID
+            tenantFilter = $CustomerTenantID
             Userid       = $UserID
             Delete       = $Delete
             GUID         = $DeviceGUID

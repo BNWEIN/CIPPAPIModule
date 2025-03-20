@@ -38,7 +38,7 @@ function Set-CIPPCAPolicy {
     Write-Verbose "Editing CA Policy for tenant $CustomerTenantID"
     $endpoint = '/api/editcapolicy'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         state        = $State
         guid         = $Guid
     }
