@@ -30,7 +30,7 @@ Function Get-CIPPGetBitLockerKey {
     # Define the endpoint and parameters
     $endpoint = '/api/execgetrecoverykey'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         guid         = $guid 
     }
     

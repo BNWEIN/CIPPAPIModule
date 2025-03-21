@@ -41,7 +41,7 @@ function Set-CIPPExchConnector {
     Write-Verbose "Editing Exchange Connector for tenant $CustomerTenantID"
     $endpoint = '/api/editexconnector'
     $params = @{
-        TenantFilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         state        = $State
         GUID         = $Guid
         Type         = $Type

@@ -38,7 +38,7 @@ function Get-CIPPAutoPilotConfig {
     
     $Endpoint = '/api/listautopilotconfig'
     $Params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         type         = $Type
     }
         

@@ -27,7 +27,7 @@ function Get-CIPPCAPolicies {
     Write-Verbose "Getting Conditional Access Policies for customer: $CustomerTenantID"
     $Endpoint = '/api/listconditionalaccesspolicies'
     $Params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
 
     Invoke-CIPPRestMethod -Endpoint $Endpoint -Params $Params

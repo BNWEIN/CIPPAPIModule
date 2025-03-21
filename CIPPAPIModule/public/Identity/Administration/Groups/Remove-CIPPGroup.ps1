@@ -38,7 +38,7 @@ function Remove-CIPPGroup {
 
     $endpoint = '/api/execgroupsdelete'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         id           = $GroupID
         grouptype    = $Grouptype
         displayname  = $DisplayName

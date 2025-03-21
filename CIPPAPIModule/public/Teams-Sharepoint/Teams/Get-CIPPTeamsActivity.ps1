@@ -23,7 +23,7 @@ function Get-CIPPTeamsActivity {
     Write-Verbose "Getting teams activity $CustomerTenantID"
     $endpoint = '/api/listteamsactivity'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         type         = 'TeamsUserActivityUser'
     }
 

@@ -23,7 +23,7 @@ function Get-CIPPDeviceCompliance {
     Write-Verbose "Getting Device Compliance for $CustomerTenantID"
     $endpoint = '/api/listalltenantdevicecompliance'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

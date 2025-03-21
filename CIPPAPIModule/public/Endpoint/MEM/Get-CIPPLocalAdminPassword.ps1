@@ -43,7 +43,7 @@ Function Get-CIPPLocalAdminPassword {
     # Define the endpoint and parameters
     $endpoint = '/api/execgetlocaladminpassword'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         guid         = $guid 
     }
     

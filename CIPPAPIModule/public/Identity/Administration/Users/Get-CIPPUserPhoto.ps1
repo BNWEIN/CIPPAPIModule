@@ -31,7 +31,7 @@ function Get-CIPPUserPhoto {
     
     $endpoint = '/api/listuserphoto'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         userId       = $UserID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

@@ -32,7 +32,7 @@ function Get-CIPPMailboxes {
     Write-Verbose "Getting Mailbox List for $CustomerTenantID"
     $endpoint = '/api/ListMailboxes'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     if ($SoftDeletedMailboxes) {
         $params.Add('SoftDeletedMailbox', 'true')

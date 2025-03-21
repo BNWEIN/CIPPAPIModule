@@ -36,7 +36,7 @@ function Get-CIPPContacts {
     }
     $endpoint = '/api/listcontacts'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         contactid    = $ContactID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

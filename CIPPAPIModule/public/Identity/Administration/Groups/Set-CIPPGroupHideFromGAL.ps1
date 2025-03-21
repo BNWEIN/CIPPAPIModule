@@ -52,7 +52,7 @@ function Set-CIPPGroupHideFromGAL {
 
     $endpoint = '/api/execgroupshidefromgal'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         id           = $GroupID
         grouptype    = $Grouptype
         hidefromgal  = $hidefromgal

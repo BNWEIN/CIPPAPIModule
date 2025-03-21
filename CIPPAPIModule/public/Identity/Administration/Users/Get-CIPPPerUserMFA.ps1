@@ -42,7 +42,7 @@ function Get-CIPPPerUserMFA {
 
     $endpoint = '/api/ListPerUserMFA'
     $params = @{
-        TenantFilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         userId       = $UserId
         allUsers     = $AllUsers.IsPresent
     }

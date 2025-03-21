@@ -38,7 +38,7 @@ function Get-CIPPMailboxRestores {
     Write-Verbose "Getting mailbox restores for $CustomerTenantID"
     $endpoint = '/api/listmailboxrestores'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         identity     = $Identity
     }
 

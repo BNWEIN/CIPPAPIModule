@@ -30,7 +30,7 @@ function Get-CIPPBPA {
     Write-Verbose "Getting BPA Report for customer: $CustomerTenantID"
     $Endpoint = '/api/listbpa'
     $Params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         Report       = $ReportName
     }
 

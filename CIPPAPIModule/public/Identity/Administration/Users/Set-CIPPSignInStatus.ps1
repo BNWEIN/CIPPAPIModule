@@ -47,7 +47,7 @@ function Set-CIPPSignInStatus {
     }
     $endpoint = '/api/execdisableuser'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         Id           = $UserID
         Enable       = $Enable
     }

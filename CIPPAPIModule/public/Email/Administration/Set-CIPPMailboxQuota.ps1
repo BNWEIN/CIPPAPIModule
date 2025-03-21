@@ -52,7 +52,7 @@ function Set-CIPPMailboxQuota {
     
     $endpoint = '/api/execsetmailboxquota'
     $body = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         user         = $UserID
     }
 
