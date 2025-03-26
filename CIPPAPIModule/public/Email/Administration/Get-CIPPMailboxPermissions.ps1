@@ -30,7 +30,7 @@ function Get-CIPPMailboxPermissions {
     Write-Verbose "Getting mailbox permissions for $CustomerTenantID"
     $endpoint = '/api/listmailboxpermissions'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         userid       = $UserID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params

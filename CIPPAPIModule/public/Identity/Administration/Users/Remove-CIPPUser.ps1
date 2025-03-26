@@ -36,7 +36,7 @@ function Remove-CIPPUser {
 
     $endpoint = '/api/RemoveUser'
     $body = @{
-        TenantFilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         ID           = $User
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST

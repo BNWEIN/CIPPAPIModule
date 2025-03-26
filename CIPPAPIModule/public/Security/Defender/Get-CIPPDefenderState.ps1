@@ -23,7 +23,7 @@ function Get-CIPPDefenderState {
     Write-Verbose "Getting Defender State for customer: $CustomerTenantID"
     $endpoint = '/api/listdefenderstate'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 

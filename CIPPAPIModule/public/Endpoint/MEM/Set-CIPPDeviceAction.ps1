@@ -144,7 +144,7 @@ Function Set-CIPPDeviceAction {
     # Define the endpoint and parameters
     $endpoint = '/api/ExecDeviceAction'
     $params = @{
-        TenantFilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         GUID         = $DeviceID
         Action       = $actionQuery
     }

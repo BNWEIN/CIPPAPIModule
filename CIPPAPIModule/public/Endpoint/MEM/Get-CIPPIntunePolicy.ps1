@@ -44,7 +44,7 @@ Function Get-CIPPIntunePolicy {
     # Define the endpoint and parameters
     $endpoint = '/api/listintunepolicy'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         URLName      = $urlname
         id           = $PolicyID
     }

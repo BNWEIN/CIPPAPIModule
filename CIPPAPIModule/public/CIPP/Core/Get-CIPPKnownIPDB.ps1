@@ -34,7 +34,7 @@ function Get-CIPPKnownIPDB {
     Write-Verbose "Getting Known IP Database for $CustomerTenantID"
     $endpoint = '/api/listknownipdb'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

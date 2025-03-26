@@ -27,7 +27,7 @@ function Get-CIPPTenantDetails {
     Write-Verbose "Getting Tenant Details for $CustomerTenantID"
     $endpoint = '/api/ListTenantDetails'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

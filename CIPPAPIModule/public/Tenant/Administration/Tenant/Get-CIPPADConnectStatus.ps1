@@ -55,7 +55,7 @@ function Get-CIPPADConnectStatus {
     }
     $Endpoint = '/api/listazureadconnectstatus'
     $Params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         datatoreturn = $dataToReturn
     }
     Invoke-CIPPRestMethod -Endpoint $Endpoint -Params $Params

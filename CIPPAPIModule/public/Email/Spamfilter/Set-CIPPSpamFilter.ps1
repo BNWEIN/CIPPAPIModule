@@ -43,7 +43,7 @@ function Set-CIPPSpamFilter {
     Write-Verbose 'Editing Spam Filter'
     $endpoint = '/api/editspamfilter'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         guid         = $Guid
         name         = $Name
         state        = $State

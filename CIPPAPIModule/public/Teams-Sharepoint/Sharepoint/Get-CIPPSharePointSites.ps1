@@ -41,7 +41,7 @@ function Get-CIPPSharePointSites {
     Write-Verbose "Getting sites for $CustomerTenantID"
     $endpoint = '/api/listsites'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         type         = 'SharePointSiteUsage'
         userupn      = $UserUPN
     }

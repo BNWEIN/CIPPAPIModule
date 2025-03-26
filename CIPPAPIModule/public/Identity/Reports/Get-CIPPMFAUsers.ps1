@@ -23,7 +23,7 @@ function Get-CIPPMFAUsers {
     Write-Verbose "Getting MFA users for $CustomerTenantID"
     $endpoint = '/api/listmfausers'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

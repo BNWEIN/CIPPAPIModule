@@ -27,7 +27,7 @@ function Get-CIPPNamedLocations {
     Write-Verbose "Getting named locations for $CustomerTenantID"
     $endpoint = '/api/listnamedlocations'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

@@ -44,7 +44,7 @@ function Get-CIPPFunctionStats {
 
     $endpoint = '/api/ListFunctionStats'
     $params = @{
-        TenantFilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         FunctionType = $FunctionType
     }
 

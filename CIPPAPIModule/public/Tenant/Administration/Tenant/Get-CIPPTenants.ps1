@@ -33,7 +33,7 @@ function Get-CIPPTenants {
     Write-Verbose 'Getting Tenants'
     $endpoint = '/api/listtenants'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
 
     if ($ClearCache) {

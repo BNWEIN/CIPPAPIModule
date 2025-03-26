@@ -36,7 +36,7 @@ function Get-CIPPBECCheck {
 
     $endpoint = '/api/execbeccheck'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         userId       = $UserID
         username     = $UserName
     }

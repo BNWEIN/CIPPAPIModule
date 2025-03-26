@@ -23,7 +23,7 @@ function Get-CIPPMailboxStatistics {
     Write-Verbose "Getting mailbox statistics for $CustomerTenantID"
     $endpoint = '/api/listmailboxstatistics'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }

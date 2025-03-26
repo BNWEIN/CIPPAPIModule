@@ -55,12 +55,12 @@ function Convert-CIPPMailbox {
     Write-Verbose "Converting Mailbox $UserID to $MailboxType"
     
     $endpoint = '/api/ExecConvertMailbox'
-    $params = @{
+    $body = @{
         tenantFilter = $CustomerTenantID
         id           = $UserID
         MailboxType  = $MailboxType
         Username     = $Username
     }
 
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params -Method 'POST'
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }

@@ -74,7 +74,7 @@ function Get-CIPPGraphRequest {
     Write-Verbose "Querying Graph Endpoint $EndPoint for tenant $CustomerTenantId"
     $endpoint = '/api/ListGraphRequest'
     $params = [ordered]@{
-        tenantFilter = $CustomerTenantId
+        tenantFilter = $CustomerTenantID
         endpoint     = $GraphEndPoint
     }
 

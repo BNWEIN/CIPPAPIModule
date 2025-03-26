@@ -10,6 +10,7 @@ $IgnoredEndpoints = @(
     'Invoke-ExecListAppId' # This endpoint is used in the SAM setup and it might be a bad idea to have it in the CIPP API Module
     'Invoke-ExecSendOrgMessage' # WIP Endpoint
     'Invoke-ListUserSettings' # Relies on header parameters
+    'Invoke-AddSiteBulk' # Makes no sense to have this in the CIPP API Module, when you can just use the add single site endpoint in a foreach
 )
 
 # Remove ignored endpoints from AllCippEndpoints
@@ -31,11 +32,12 @@ $Results = foreach ($endpoint in $AllCippEndpoints) {
     $Found = $AllCippApiModuleEndpointsContent | Where-Object { $_.Content -like "*'/api/$($ApiName)'*" }
     
     [PSCustomObject]@{
-        APIEndpoint = $ApiName
-        Status      = if ($Found) { 'Found' } else { 'Missing' }
-        Location    = if ($Found) { $Found.Name -join ';' } else { 'N/A' }
-        SourceFile  = $endpoint.Name
-        TargetFile  = if ($Found) { $Found.FullPath -join ';' } else { 'N/A' }
+        APIEndpoint    = $ApiName
+        Status         = if ($Found) { 'Found' } else { 'Missing' }
+        Location       = if ($Found) { $Found.Name -join ';' } else { 'N/A' }
+        SourceFile     = $endpoint.Name
+        SourceFullPath = $endpoint.FullName
+        TargetFile     = if ($Found) { $Found.FullPath -join ';' } else { 'N/A' }
     }
 }
 

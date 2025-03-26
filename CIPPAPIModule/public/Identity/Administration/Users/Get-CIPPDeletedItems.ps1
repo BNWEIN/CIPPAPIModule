@@ -24,7 +24,7 @@ function Get-CIPPDeletedItems {
 
     $endpoint = '/api/listdeleteditems'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
         userId       = $UserID
     }
 

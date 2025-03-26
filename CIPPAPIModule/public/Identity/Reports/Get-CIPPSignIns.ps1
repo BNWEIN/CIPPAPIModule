@@ -27,19 +27,19 @@ function Get-CIPPSignIns {
         [Parameter(Mandatory = $true)]
         [string]$CustomerTenantID,
         [Parameter(Mandatory = $false)]
-        [switch]$failedlogononly,
+        [switch]$FailedLogonOnly,
         [Parameter(Mandatory = $false)]
-        [string]$filter
+        [string]$Filter
     )
 
     Write-Verbose "Getting Signins for $CustomerTenantID"
     $endpoint = '/api/listsignins'
     $params = @{
-        tenantfilter = $CustomerTenantID
-        filter       = $filter
+        tenantFilter = $CustomerTenantID
+        filter       = $Filter
     }
 
-    if ($failedlogononly) {
+    if ($FailedLogonOnly) {
         $params.failedlogononly = 'true'
     }
 

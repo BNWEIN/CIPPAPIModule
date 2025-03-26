@@ -33,7 +33,7 @@ function Get-CIPPDevices {
     Write-Verbose "Getting Devices for customer: $CustomerTenantID"
     $endpoint = '/api/listdevices'
     $params = @{
-        tenantfilter = $CustomerTenantID
+        tenantFilter = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
 }
