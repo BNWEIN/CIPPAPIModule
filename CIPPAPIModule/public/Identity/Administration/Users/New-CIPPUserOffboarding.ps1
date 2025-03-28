@@ -104,16 +104,11 @@ function New-CIPPUserOffboarding {
         [string]$CustomerTenantID,
         [Parameter(Mandatory = $true)]
         [string]$User,
-        [Parameter(Mandatory = $false)]
         [string]$OutOfOffice,
-        [Parameter(Mandatory = $false)]
         [string]$ForwardTo,
         [switch]$ForwardKeepCopyInMailbox,
-        [Parameter(Mandatory = $false)]
         [string]$OnedriveAccessTo,
-        [Parameter(Mandatory = $false)]
         [string]$MailboxAccessNoAutomap,
-        [Parameter(Mandatory = $false)]
         [string]$MailboxAccessAutomap,
         [switch]$ConvertToSharedMailbox,
         [switch]$HideFromGAL,
@@ -123,6 +118,8 @@ function New-CIPPUserOffboarding {
         [switch]$CancelAllCalendarInvites,
         [switch]$RemoveAllLicenses,
         [switch]$ResetPassword,
+        [switch]$ClearImmutableId,
+        [switch]$RemoveMFADevices,
         [switch]$RevokeAllSessions,
         [switch]$RemoveAllMailboxRules,
         [switch]$RemoveAllMobileDevices,
@@ -138,30 +135,29 @@ function New-CIPPUserOffboarding {
     Write-Verbose "Offboarding user $User from $CustomerTenantID"
     $endpoint = '/api/ExecOffboardUser'
     $body = @{
-        tenantFilter = $CustomerTenantID
+        tenantFilter = @{ value = $CustomerTenantID }
         user         = @{ value = $User }
     }
     
     
     $optionalParams = @{
-        OOO                   = $OutOfOffice
-        forward               = $ForwardTo
-        keepCopy              = $ForwardKeepCopyInMailbox.IsPresent ? $true : $null
-        OnedriveAccess        = @{ value = $OnedriveAccessTo }
-        AccessNoAutomap       = @{ value = $MailboxAccessNoAutomap }
-        AccessAutomap         = @{ value = $MailboxAccessAutomap }
         ConvertToShared       = $ConvertToSharedMailbox.IsPresent ? $true : $null
         HideFromGAL           = $HideFromGAL.IsPresent ? $true : $null
-        DisableSignIn         = $DisableSignIn.IsPresent ? $true : $null
-        RemoveGroups          = $RemoveFromAllGroups.IsPresent ? $true : $null
         removeCalendarInvites = $CancelAllCalendarInvites.IsPresent ? $true : $null
-        RemoveLicenses        = $RemoveAllLicenses.IsPresent ? $true : $null
-        ResetPass             = $ResetPassword.IsPresent ? $true : $null
-        RevokeSessions        = $RevokeAllSessions.IsPresent ? $true : $null
-        deleteuser            = $DeleteUser.IsPresent ? $true : $null
+        removePermissions     = $RemoveAllMailboxPermissions.IsPresent ? $true : $null
         removeRules           = $RemoveAllMailboxRules.IsPresent ? $true : $null
         removeMobile          = $RemoveAllMobileDevices.IsPresent ? $true : $null
-        removePermissions     = $RemoveAllMailboxPermissions.IsPresent ? $true : $null
+        RemoveGroups          = $RemoveFromAllGroups.IsPresent ? $true : $null
+        RemoveLicenses        = $RemoveAllLicenses.IsPresent ? $true : $null
+        RevokeSessions        = $RevokeAllSessions.IsPresent ? $true : $null
+        DisableSignIn         = $DisableSignIn.IsPresent ? $true : $null
+        ClearImmutableId      = $ClearImmutableId.IsPresent ? $true : $null
+        ResetPass             = $ResetPassword.IsPresent ? $true : $null
+        RemoveMFADevices      = $RemoveMFADevices.IsPresent ? $true : $null
+        DeleteUser            = $DeleteUser.IsPresent ? $true : $null
+        forward               = $ForwardTo
+        keepCopy              = $ForwardKeepCopyInMailbox.IsPresent ? $true : $null
+        OOO                   = $OutOfOffice
         Scheduled             = @{
             enabled = $ScheduledFor -ne $null
             date    = if ($ScheduledFor) { ([System.DateTimeOffset]$ScheduledFor).ToUnixTimeSeconds() } else { $null }
@@ -181,5 +177,17 @@ function New-CIPPUserOffboarding {
         }
     }
 
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method 'POST'
+    if (-not [string]::IsNullOrWhiteSpace($OnedriveAccessTo)) {
+        $body.OnedriveAccess = @{ value = $OnedriveAccessTo }
+    }
+
+    if (-not [string]::IsNullOrWhiteSpace($MailboxAccessNoAutomap)) {
+        $body.AccessNoAutomap = @{ value = $MailboxAccessNoAutomap }
+    }
+
+    if (-not [string]::IsNullOrWhiteSpace($MailboxAccessAutomap)) {
+        $body.AccessAutomap = @{ value = $MailboxAccessAutomap }
+    }
+
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }
