@@ -11,6 +11,7 @@ $IgnoredEndpoints = @(
     'Invoke-ExecSendOrgMessage' # WIP Endpoint
     'Invoke-ListUserSettings' # Relies on header parameters
     'Invoke-AddSiteBulk' # Makes no sense to have this in the CIPP API Module, when you can just use the add single site endpoint in a foreach
+    'Invoke-CIPPOffboardingJob' # This endpoint is the endpoint another offboarding endpoint calls, so it should not be in the CIPP API Module
 )
 
 # Remove ignored endpoints from AllCippEndpoints
