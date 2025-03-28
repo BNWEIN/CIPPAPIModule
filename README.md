@@ -343,7 +343,6 @@ Test-CIPPApiConnection
   - [Set-BECRemediate](./Docs/Set-BECRemediate.md)
   - [Set-CIPPSignInStatus](./Docs/Set-CIPPSignInStatus.md)
   - [Set-CIPPUser](./Docs/Set-CIPPUser.md)
-  - [Start-CIPPUserOffboarding](./Docs/Start-CIPPUserOffboarding.md)
 - [Get-CIPPRoles](./Docs/Get-CIPPRoles.md)
 - [Get-CIPPGroups](./Docs/Get-CIPPGroups.md)
 - [Get-CIPPGroupTemplates](./Docs/Get-CIPPGroupTemplates.md)
@@ -375,7 +374,6 @@ Test-CIPPApiConnection
 - [Set-BECRemediate](./Docs/Set-BECRemediate.md)
 - [Set-CIPPSignInStatus](./Docs/Set-CIPPSignInStatus.md)
 - [Set-CIPPUser](./Docs/Set-CIPPUser.md)
-- [Start-CIPPUserOffboarding](./Docs/Start-CIPPUserOffboarding.md)
 - [Get-CIPPBasicAuth](./Docs/Get-CIPPBasicAuth.md)
 - [Get-CIPPInactiveAccounts](./Docs/Get-CIPPInactiveAccounts.md)
 - [Get-CIPPMFAUsers](./Docs/Get-CIPPMFAUsers.md)
@@ -569,5 +567,6 @@ Some example scripts can be found Below:
 ## Special Thanks
 
 Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnDuprey](https://github.com/JohnDuprey/), [@rvdwegen](https://github.com/rvdwegen) and [@Jr7468](https://github.com/Jr7468/). I Could not have got this far without you!
+
 
 
