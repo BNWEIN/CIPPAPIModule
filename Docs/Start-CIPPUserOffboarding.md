@@ -1,100 +1,127 @@
-# Start-CIPPUserOffboarding
+# New-CIPPUserOffboarding
 ## SYNOPSIS
-Starts an offboarding job for a user in the specified tenant.
+Offboards a user from a specified customer tenant.
 ## DESCRIPTION
-The Start-CIPPOffboardingJob function initiates the offboarding process for a user, handling various cleanup tasks like removing licenses and revoking sessions.
+The New-CIPPUserOffboarding function automates the offboarding process for a user in a specified customer tenant. 
+It provides various options to customize the offboarding process, including forwarding emails, converting the mailbox 
+to a shared mailbox, disabling sign-in, removing licenses, and more. It is also possible to schedule the offboarding for a later date.
 # PARAMETERS
 
 ## **-CustomerTenantID**
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
-The ID of the customer tenant. If not provided, the default tenant is used.
+The ID of the customer tenant from which the user is being offboarded. This parameter is mandatory.
 
-  ## **-UserID**
-> ![Foo](https://img.shields.io/badge/Type-Guid-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
-The ID of the user to be offboarded.
-
-  ## **-ConvertToSharedMailbox**
-> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
-
-
-  ## **-HideFromGAL**
-> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
-Hide the user from the Global Address List.
-
-  ## **-RemoveCalendarInvites**
-> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
-Remove all calendar invites for the user.
-
-  ## **-RemovePermissions**
-> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
-Remove all mailbox permissions.
-
-  ## **-RemoveRules**
-> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
-Remove all mailbox rules.
-
-  ## **-RemoveMobileDevices**
-> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
-
-
-  ## **-RemoveGroups**
-> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
-Remove the user from all groups.
-
-  ## **-RemoveLicenses**
-> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
-Remove all licenses assigned to the user.
-
-  ## **-RevokeSessions**
-> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
-Revoke all active sessions for the user.
-
-  ## **-DisableSignIn**
-> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
-Disable the user's sign-in capability.
-
-  ## **-ClearImmutableId**
-> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
-Clear the immutable ID for the user.
-
-  ## **-ResetPass**
-> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
-Reset the user's password.
-
-  ## **-RemoveMFADevices**
-> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
-Remove all MFA devices associated with the user.
-
-  ## **-DeleteUser**
-> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
-Delete the user account.
-
-  ## **-OnedriveAccess**
-> ![Foo](https://img.shields.io/badge/Type-String[]-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) \
-Grant OneDrive access to specified users.
-
-  ## **-FullAccessNoAutomap**
-> ![Foo](https://img.shields.io/badge/Type-String[]-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) \
-
-
-  ## **-FullAccessAutomap**
-> ![Foo](https://img.shields.io/badge/Type-String[]-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) \
-
+  ## **-User**
+> ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
+The username of the user being offboarded. UserPrincipalName(UPN) should be used. This parameter is mandatory.
 
   ## **-OutOfOffice**
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) \
-
+Sets an out-of-office message for the user. This parameter is optional.
 
   ## **-ForwardTo**
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) \
+Forwards the user's emails to another address. This parameter is optional.
 
+  ## **-ForwardKeepCopyInMailbox**
+> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
+Keeps a copy of forwarded emails in the user's mailbox. This parameter is optional.
 
-  ## **-KeepCopy**
+  ## **-OnedriveAccessTo**
+> ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) \
+Grants access to the user's OneDrive to another user. UserPrincipalName(UPN) should be used. This parameter is optional.
+
+  ## **-MailboxAccessNoAutomap**
+> ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) \
+Grants access to the user's mailbox without automapping. UserPrincipalName(UPN) should be used. This parameter is optional.
+
+  ## **-MailboxAccessAutomap**
+> ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) \
+Grants access to the user's mailbox with automapping. UserPrincipalName(UPN) should be used. This parameter is optional.
+
+  ## **-ConvertToSharedMailbox**
+> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
+Converts the user's mailbox to a shared mailbox. This parameter is optional.
+
+  ## **-HideFromGAL**
+> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
+Hides the user from the Global Address List (GAL). This parameter is optional.
+
+  ## **-DisableSignIn**
+> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
+Disables sign-in for the user. This parameter is optional.
+
+  ## **-DeleteUser**
+> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
+Deletes the user account. This parameter is optional.
+
+  ## **-RemoveFromAllGroups**
+> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
+Removes the user from all groups. This parameter is optional.
+
+  ## **-CancelAllCalendarInvites**
+> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
+Cancels all calendar invites for the user. This parameter is optional.
+
+  ## **-RemoveAllLicenses**
+> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
+Removes all licenses assigned to the user. This parameter is optional.
+
+  ## **-ResetPassword**
+> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
+Resets the user's password. This parameter is optional.
+
+  ## **-ClearImmutableId**
 > ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
 
 
+  ## **-RemoveMFADevices**
+> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
+
+
+  ## **-RevokeAllSessions**
+> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
+Revokes all active sessions for the user. This parameter is optional.
+
+  ## **-RemoveAllMailboxRules**
+> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
+Removes all mailbox rules for the user. This parameter is optional.
+
+  ## **-RemoveAllMobileDevices**
+> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
+Removes all mobile devices associated with the user. This parameter is optional.
+
+  ## **-RemoveAllMailboxPermissions**
+> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
+Removes all mailbox permissions for the user. This parameter is optional.
+
+  ## **-ScheduledFor**
+> ![Foo](https://img.shields.io/badge/Type-DateTime-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) \
+Specifies the date and time when the user should be added. If not specified, the user will be offboarded immediately. Input should be a valid datetime object. Will be converted to Unix time. This parameter is optional.
+
+  ## **-SendResultsToEmail**
+> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
+Specifies whether to send the results of the scheduled task to the email address specified in the notification settings of your CIPP instance. This parameter is optional.
+
+  ## **-SendResultsToPSA**
+> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
+Specifies whether to send the results of the scheduled task to the PSA system specified in the notification settings of your CIPP instance. This parameter is optional.
+
+  ## **-SendResultsToWebhook**
+> ![Foo](https://img.shields.io/badge/Type-SwitchParameter-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-False-Blue?color=5547a8)\
+Specifies whether to send the results of the scheduled task to the webhook specified in the notification settings of your CIPP instance. This parameter is optional.
+
  #### EXAMPLE 1
 ```powershell
-PS > Start-CIPPOffboardingJob -CustomerTenantID "7ced1621-b8f7-4231-868c-bc6b1a2f1778" -UserID "98765432-1234-5678-9012-34567890ABCD" -RevokeSessions -RemoveGroups -DeleteUser
+PS > New-CIPPUserOffboarding -CustomerTenantID "8ad00f9e-1953-47d1-897b-8fec4138cde7" -User "jdoe@domain.com" -DisableSignIn -RemoveAllLicenses -ConvertToSharedMailbox
+
+This example immediately offboards the user "jdoe@domain.com" from the customer tenant with ID "8ad00f9e-1953-47d1-897b-8fec4138cde7", disables sign-in, removes all licenses, and converts the user's mailbox to a shared mailbox.
+```
+ #### EXAMPLE 2
+```powershell
+PS > New-CIPPUserOffboarding -CustomerTenantID "8ad00f9e-1953-47d1-897b-8fec4138cde7" -User "jane.doe@domain.com" -DeleteUser -ScheduledFor ((Get-Date).AddDays(7)) -SendResultsToEmail
+
+This example schedules the offboarding of the user "jane.doe@domain.com" from the customer tenant with ID "8ad00f9e-1953-47d1-897b-8fec4138cde7" for 7 days from the current date.
+The results of the scheduled task will be sent to the email address specified in the notification settings of your CIPP instance.
 ```
 
