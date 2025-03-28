@@ -97,6 +97,7 @@
 
 #>
 function New-CIPPUserOffboarding {
+    [Alias('Start-CIPPUserOffboarding')]
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)]
