@@ -43,9 +43,7 @@ Test-CIPPApiConnection
 ```
 
 # Cmdlet Help
-
 ## CIPP
-
 - Core
   - [Get-CIPPAccessCheck](./Docs/Get-CIPPAccessCheck.md)
   - [Get-CIPPApplicationQueue](./Docs/Get-CIPPApplicationQueue.md)
@@ -116,9 +114,7 @@ Test-CIPPApiConnection
 - [Set-CIPPExcludeTenant](./Docs/Set-CIPPExcludeTenant.md)
 - [Set-CIPPPasswordSettings](./Docs/Set-CIPPPasswordSettings.md)
 - [Get-CIPPPendingWebhooks](./Docs/Get-CIPPPendingWebhooks.md)
-
 ## Email
-
 - Administration
   - [Add-CIPPContact](./Docs/Add-CIPPContact.md)
   - [Add-CIPPExchConnector](./Docs/Add-CIPPExchConnector.md)
@@ -245,9 +241,7 @@ Test-CIPPApiConnection
 - [Remove-CIPPTransportRuleTemplate](./Docs/Remove-CIPPTransportRuleTemplate.md)
 - [Set-CIPPExchConnector](./Docs/Set-CIPPExchConnector.md)
 - [Set-CIPPTransportRule](./Docs/Set-CIPPTransportRule.md)
-
 ## Endpoint
-
 - Applications
   - [Get-CIPPApps](./Docs/Get-CIPPApps.md)
   - [Get-CIPPAppStatus](./Docs/Get-CIPPAppStatus.md)
@@ -294,9 +288,7 @@ Test-CIPPApiConnection
 - [Set-CIPPDeviceAction](./Docs/Set-CIPPDeviceAction.md)
 - [Set-CIPPMEMPolicy](./Docs/Set-CIPPMEMPolicy.md)
 - [Get-CIPPDevices](./Docs/Get-CIPPDevices.md)
-
 ## Extensions
-
 - HaloPSA
   - [Set-CIPPExtensionMappingHaloPSA](./Docs/Set-CIPPExtensionMappingHaloPSA.md)
 - NinjaOne
@@ -307,9 +299,7 @@ Test-CIPPApiConnection
 - [Set-CIPPExtensionMappingHaloPSA](./Docs/Set-CIPPExtensionMappingHaloPSA.md)
 - [Set-CIPPNinjaOneQueue](./Docs/Set-CIPPNinjaOneQueue.md)
 - [Get-CIPPExtensionsConfig](./Docs/Get-CIPPExtensionsConfig.md)
-
 ## Identity
-
 - Administration
   - [Devices](./Docs/Devices.md)
   - [Groups](./Docs/Groups.md)
@@ -388,9 +378,7 @@ Test-CIPPApiConnection
 - [Get-CIPPInactiveAccounts](./Docs/Get-CIPPInactiveAccounts.md)
 - [Get-CIPPMFAUsers](./Docs/Get-CIPPMFAUsers.md)
 - [Get-CIPPSignIns](./Docs/Get-CIPPSignIns.md)
-
 ## Security
-
 - Defender
   - [Get-CIPPDefenderState](./Docs/Get-CIPPDefenderState.md)
   - [Get-CIPPDefenderTVM](./Docs/Get-CIPPDefenderTVM.md)
@@ -412,19 +400,13 @@ Test-CIPPApiConnection
 - [Get-CIPPBreachesTenant](./Docs/Get-CIPPBreachesTenant.md)
 - [Get-CIPPBreachSearch](./Docs/Get-CIPPBreachSearch.md)
 - [Get-CIPPDeviceCompliance](./Docs/Get-CIPPDeviceCompliance.md)
-
 ## Settings
-
 - [Invoke-CIPPSchedulerBillingRun](./Docs/Invoke-CIPPSchedulerBillingRun.md)
-
 ## Teams
-
 - Voice
   - [Get-CIPPTeamsLisLocation](./Docs/Get-CIPPTeamsLisLocation.md)
 - [Get-CIPPTeamsLisLocation](./Docs/Get-CIPPTeamsLisLocation.md)
-
 ## Teams-Sharepoint
-
 - OneDrive
   - [Get-CIPPOneDriveList](./Docs/Get-CIPPOneDriveList.md)
   - [Set-CIPPOneDrivePerms](./Docs/Set-CIPPOneDrivePerms.md)
@@ -452,9 +434,7 @@ Test-CIPPApiConnection
 - [Get-CIPPTeams](./Docs/Get-CIPPTeams.md)
 - [Get-CIPPTeamsActivity](./Docs/Get-CIPPTeamsActivity.md)
 - [Get-CIPPTeamsVoice](./Docs/Get-CIPPTeamsVoice.md)
-
 ## Tenant
-
 - Administration
   - [Alerts](./Docs/Alerts.md)
   - [Licenses](./Docs/Licenses.md)
@@ -548,13 +528,9 @@ Test-CIPPApiConnection
 - [Get-CIPPExternalGEOIPLookup](./Docs/Get-CIPPExternalGEOIPLookup.md)
 - [Get-CIPPExternalTenantInfo](./Docs/Get-CIPPExternalTenantInfo.md)
 - [Get-CIPPGraphRequest](./Docs/Get-CIPPGraphRequest.md)
-
 ## Invoke-CIPPRestMethod
-
 - [Invoke-CIPPRestMethod](./Docs/Invoke-CIPPRestMethod.md)
-
 ## Set-CIPPAPIDetails
-
 - [Set-CIPPAPIDetails](./Docs/Set-CIPPAPIDetails.md)
 
 ## Advanced Usage Examples
@@ -591,3 +567,4 @@ Some example scripts can be found Below:
 ## Special Thanks
 
 Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnDuprey](https://github.com/JohnDuprey/), [@rvdwegen](https://github.com/rvdwegen) and [@Jr7468](https://github.com/Jr7468/). I Could not have got this far without you!
+
