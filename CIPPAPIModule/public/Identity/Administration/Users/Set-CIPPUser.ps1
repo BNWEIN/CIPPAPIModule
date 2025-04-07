@@ -158,7 +158,7 @@ function Set-CIPPUser {
     }
 
     $body = @{
-        TenantFilter          = $CustomerTenantID
+        tenantFilter      = $CustomerTenantID
         UserID            = $UserID
         userPrincipalName = $UserName ? ($UserName + '@' + $Domain) : $existingUser.UserPrincipalName
         Username          = $UserName ? $UserName : $existingUser.UserName
