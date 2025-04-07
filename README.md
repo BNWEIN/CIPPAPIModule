@@ -566,5 +566,5 @@ Some example scripts can be found Below:
 
 ## Special Thanks
 
-Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnDuprey](https://github.com/JohnDuprey/), [@rvdwegen](https://github.com/rvdwegen) and [@Jr7468](https://github.com/Jr7468/). I Could not have got this far without you!
+Special thanks to [@KelvinTegelaar](https://github.com/KelvinTegelaar/), [@JohnDuprey](https://github.com/JohnDuprey/), [@rvdwegen](https://github.com/rvdwegen), [@Jr7468](https://github.com/Jr7468/) and [@kris6673](kris6673) . I Could not have got this far without you!
 
