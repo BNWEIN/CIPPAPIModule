@@ -42,6 +42,43 @@ Set-CIPPAPIDetails -CIPPClientID "YourClientIDGoesHere" -CIPPClientSecret "YourC
 Test-CIPPApiConnection
 ```
 
+## Advanced Usage Examples
+
+Below are some examples for some generic requests
+
+```powershell
+Invoke-CIPPRestMethod -Endpoint '/api/Listusers' -Method 'GET' -Params @{ 'tenantfilter' = '11c11ab1-527a-1d29-l92e-76413h012s76' }
+```
+
+This example sends a GET request to the '/api/Listusers' endpoint with a query parameter 'tenantfilter' set to '11c11ab1-527a-1d29-l92e-76413h012s76'.
+
+```powershell
+Invoke-CIPPRestMethod -Endpoint '/api/ListMailboxPermissions' -Params @{ 'tenantfilter' = 'M365x72601982.onmicrosoft.com', 'userid' = '11c11ab1-527a-1d29-l92e-76413h012s76'}
+```
+
+This example sends a GET request to the '/api/ListMailboxPermissions' endpoint with a query parameter 'tenantfilter' set to 'M365x72601982.onmicrosoft.com' and 'userid' set to '11c11ab1-527a-1d29-l92e-76413h012s76'
+
+```powershell
+Invoke-CIPPRestMethod -Endpoint '/api/adduser' -method 'POST' -Body @{ 'tenantID' = '11c11ab1-527a-1d29-l92e-76413h012s76';'DisplayName' = 'Test User';'UserName' = 'testuser';'AutoPassword' = $true;'FirstName' = 'Test';'LastName' = 'User';'Domain' = 'M365x72601982.onmicrosoft.com';'CopyFrom' = "" }
+```
+
+This example sends a POST request to the '/api/adduser' endpoint with a Body 'tenantID' set to '11c11ab1-527a-1d29-l92e-76413h012s76' and 'DisplayName' set to 'Test User', 'UserName' set to 'testuser', 'AutoPassword' set to $true, 'FirstName' set to 'Test', 'LastName' set to 'User', 'Domain' set to 'M365x72601982.onmicrosoft.com'
+
+## Example Scripts
+
+Some example scripts can be found Below:
+
+- [Get-AllTenants-Licenses.ps1](./Example%20Scripts/Get-AllTenants-Licenses.ps1)
+- [Get-AllTenants-SharedMailboxesEnabledAccount.ps1](./Example%20Scripts/Get-AllTenants-SharedMailboxesEnabledAccount.ps1)
+- [Get-AllTenants-SoftDeletedMailboxes.ps1](./Example%20Scripts/Get-AllTenants-SoftDeletedMailboxes.ps1)
+- [Get-AllTenants-LicensedUsers.ps1](./Example%20Scripts/Get-AllTenants-LicensedUsers.ps1)
+
+
+## Assigning Yourself an Issue
+
+If you want to help by fixing a bug or implementing a feature request from an open issue, you can assign yourself the issue by creating a comment that says `I would like to work on this please!`. 
+You must enter that text exactly, otherwise the assignment does not trigger.
+
 # Cmdlet Help
 ## CIPP
 - Core
@@ -533,36 +570,6 @@ Test-CIPPApiConnection
 ## Set-CIPPAPIDetails
 - [Set-CIPPAPIDetails](./Docs/Set-CIPPAPIDetails.md)
 
-## Advanced Usage Examples
-
-Below are some examples for some generic requests
-
-```powershell
-Invoke-CIPPRestMethod -Endpoint '/api/Listusers' -Method 'GET' -Params @{ 'tenantfilter' = '11c11ab1-527a-1d29-l92e-76413h012s76' }
-```
-
-This example sends a GET request to the '/api/Listusers' endpoint with a query parameter 'tenantfilter' set to '11c11ab1-527a-1d29-l92e-76413h012s76'.
-
-```powershell
-Invoke-CIPPRestMethod -Endpoint '/api/ListMailboxPermissions' -Params @{ 'tenantfilter' = 'M365x72601982.onmicrosoft.com', 'userid' = '11c11ab1-527a-1d29-l92e-76413h012s76'}
-```
-
-This example sends a GET request to the '/api/ListMailboxPermissions' endpoint with a query parameter 'tenantfilter' set to 'M365x72601982.onmicrosoft.com' and 'userid' set to '11c11ab1-527a-1d29-l92e-76413h012s76'
-
-```powershell
-Invoke-CIPPRestMethod -Endpoint '/api/adduser' -method 'POST' -Body @{ 'tenantID' = '11c11ab1-527a-1d29-l92e-76413h012s76';'DisplayName' = 'Test User';'UserName' = 'testuser';'AutoPassword' = $true;'FirstName' = 'Test';'LastName' = 'User';'Domain' = 'M365x72601982.onmicrosoft.com';'CopyFrom' = "" }
-```
-
-This example sends a POST request to the '/api/adduser' endpoint with a Body 'tenantID' set to '11c11ab1-527a-1d29-l92e-76413h012s76' and 'DisplayName' set to 'Test User', 'UserName' set to 'testuser', 'AutoPassword' set to $true, 'FirstName' set to 'Test', 'LastName' set to 'User', 'Domain' set to 'M365x72601982.onmicrosoft.com'
-
-## Example Scripts
-
-Some example scripts can be found Below:
-
-- [Get-AllTenants-Licenses.ps1](./Example%20Scripts/Get-AllTenants-Licenses.ps1)
-- [Get-AllTenants-SharedMailboxesEnabledAccount.ps1](./Example%20Scripts/Get-AllTenants-SharedMailboxesEnabledAccount.ps1)
-- [Get-AllTenants-SoftDeletedMailboxes.ps1](./Example%20Scripts/Get-AllTenants-SoftDeletedMailboxes.ps1)
-- [Get-AllTenants-LicensedUsers.ps1](./Example%20Scripts/Get-AllTenants-LicensedUsers.ps1)
 
 ## Special Thanks
 
