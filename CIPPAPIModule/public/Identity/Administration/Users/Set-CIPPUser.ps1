@@ -158,7 +158,7 @@ function Set-CIPPUser {
     }
 
     $body = @{
-        tenantID          = $CustomerTenantID
+        tenantFilter      = $CustomerTenantID
         UserID            = $UserID
         userPrincipalName = $UserName ? ($UserName + '@' + $Domain) : $existingUser.UserPrincipalName
         Username          = $UserName ? $UserName : $existingUser.UserName
@@ -186,5 +186,7 @@ function Set-CIPPUser {
         MustChangePass    = $MustChangePass
     }
 
-    Invoke-CIPPRestMethod -Endpoint '/api/edituser' -Body $body -Method 'POST'
+    $Endpoint = '/api/EditUser'
+
+    Invoke-CIPPRestMethod -Endpoint $Endpoint -Body $body -Method POST
 }

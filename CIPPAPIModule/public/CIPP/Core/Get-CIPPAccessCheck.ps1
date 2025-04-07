@@ -27,7 +27,7 @@ function Get-CIPPAccessCheck {
         tenants = 'true'
     }
     $body = @{
-        tenantid = $CustomerTenantID
+        tenantId = $CustomerTenantID
     }
     Invoke-CIPPRestMethod -Endpoint $Endpoint -Body $body -Params $params -Method POST
 }
