@@ -186,5 +186,7 @@ function Set-CIPPUser {
         MustChangePass    = $MustChangePass
     }
 
-    Invoke-CIPPRestMethod -Endpoint '/api/edituser' -Body $body -Method 'POST'
+    $Endpoint = '/api/EditUser'
+
+    Invoke-CIPPRestMethod -Endpoint $Endpoint -Body $body -Method POST
 }
