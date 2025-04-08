@@ -128,6 +128,10 @@ function Set-CIPPUser {
     Write-Verbose "Editing user data for $UserID in $CustomerTenantID"
     
     $existingUser = Get-CIPPUsers -CustomerTenantID $CustomerTenantID -UserID $UserID
+    # The edit command relies on the id of the user, so it cannot be empty.
+    if ($existingUser.Count -eq 0) {
+        throw "User with ID $UserID not found in tenant $CustomerTenantID."
+    }
 
     if ($AddToGroups.Count -gt 0) {
         $GroupsToAdd = foreach ($group in $AddToGroups) {
@@ -159,11 +163,11 @@ function Set-CIPPUser {
 
     $body = @{
         tenantFilter      = $CustomerTenantID
-        UserID            = $UserID
+        id                = $existingUser.id
         userPrincipalName = $UserName ? ($UserName + '@' + $Domain) : $existingUser.UserPrincipalName
         Username          = $UserName ? $UserName : $existingUser.UserName
         DisplayName       = $DisplayName ? $DisplayName : $existingUser.DisplayName
-        Domain            = $Domain ? $Domain : $existingUser.primDomain
+        Domain            = $Domain ? $Domain : $existingUser.primDomain.value
         firstName         = $FirstName ? $FirstName : $existingUser.GivenName
         LastName          = $LastName ? $LastName : $existingUser.surname
         Jobtitle          = $Jobtitle ? $Jobtitle : $existingUser.Jobtitle
@@ -186,7 +190,9 @@ function Set-CIPPUser {
         MustChangePass    = $MustChangePass
     }
 
+    Write-Verbose 'Sending request to CIPP API, with the following body:'
+    Write-Verbose (ConvertTo-Json -InputObject $body -Depth 10)
+    
     $Endpoint = '/api/EditUser'
-
     Invoke-CIPPRestMethod -Endpoint $Endpoint -Body $body -Method POST
 }
