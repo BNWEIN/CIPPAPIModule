@@ -128,6 +128,10 @@ function Set-CIPPUser {
     Write-Verbose "Editing user data for $UserID in $CustomerTenantID"
     
     $existingUser = Get-CIPPUsers -CustomerTenantID $CustomerTenantID -UserID $UserID
+    # The edit command relies on the id of the user, so it cannot be empty.
+    if ($existingUser.Count -eq 0) {
+        throw "User with ID $UserID not found in tenant $CustomerTenantID."
+    }
 
     if ($AddToGroups.Count -gt 0) {
         $GroupsToAdd = foreach ($group in $AddToGroups) {
