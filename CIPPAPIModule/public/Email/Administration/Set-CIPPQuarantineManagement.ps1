@@ -29,7 +29,8 @@ function Set-CIPPQuarantineManagement {
         [Parameter(Mandatory = $true)]
         [string]$CustomerTenantID,
         [Parameter(Mandatory = $true)]
-        [string]$ID,
+        [Alias('ID')]
+        [string]$Identity,
         [Parameter(Mandatory = $false)]
         [ValidateSet(
             'true',
@@ -45,13 +46,13 @@ function Set-CIPPQuarantineManagement {
     )
 
     Write-Verbose "Managing Quarantine for $CustomerTenantID"
-    $endpoint = '/api/execquarantinemanagement'
-    $params = @{
+    $endpoint = '/api/ExecQuarantineManagement'
+    $body = @{
         tenantFilter = $CustomerTenantID
-        id           = $ID
-        allowSender  = $AllowSender
-        type         = $Type
+        Identity     = $ID
+        AllowSender  = $AllowSender
+        Type         = $Type
     }
 
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }
