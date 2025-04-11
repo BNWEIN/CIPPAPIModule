@@ -45,11 +45,11 @@ function Set-CIPPSignInStatus {
     } else {
         Write-Verbose "Disabling signin for $UserID"
     }
-    $endpoint = '/api/execdisableuser'
-    $params = @{
+    $endpoint = '/api/ExecDisableUser'
+    $body = @{
         tenantFilter = $CustomerTenantID
         Id           = $UserID
         Enable       = $Enable
     }
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }

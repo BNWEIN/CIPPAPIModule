@@ -27,10 +27,10 @@ function Remove-CIPPAPDevice {
     Write-Verbose "Removing Autopilot device $($DeviceID)"
 
     $endpoint = '/api/RemoveAPDevice' 
-    $params = @{
+    $body = @{
         tenantFilter = $CustomerTenantID
-        deviceID     = $DeviceID
+        ID           = $DeviceID
     }
 
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params -Method POST
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }

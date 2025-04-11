@@ -48,7 +48,7 @@ function Set-CIPPExcludeLicense {
         throw 'You must specify either -AddExclusion or -RemoveExclusion switch.'
     }
 
-    $endpoint = '/api/execexcludelicenses'
+    $endpoint = '/api/ExecExcludeLicenses'
     
     if ($RemoveExclusion) {
         $params = @{

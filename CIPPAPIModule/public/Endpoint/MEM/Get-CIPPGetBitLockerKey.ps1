@@ -22,18 +22,18 @@ Function Get-CIPPGetBitLockerKey {
         [Parameter(Mandatory = $true)]
         [string]$CustomerTenantID,
         [Parameter(Mandatory = $true)]
-        [guid]$guid
+        [guid]$GUID
     )
 
-    Write-Verbose "Getting bitlocker key for computer: $guid"
+    Write-Verbose "Getting bitlocker key for computer: $GUID"
     
     # Define the endpoint and parameters
-    $endpoint = '/api/execgetrecoverykey'
-    $params = @{
+    $endpoint = '/api/ExecGetRecoveryKey'
+    $body = @{
         tenantFilter = $CustomerTenantID
-        guid         = $guid 
+        GUID         = $GUID 
     }
     
     # Use the Invoke-CIPPRequest function to make the request
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST 
 }

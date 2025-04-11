@@ -29,19 +29,19 @@ function Set-CIPPCAPolicy {
     Param(
         [Parameter(Mandatory = $true)]
         [string]$CustomerTenantID,
-        [ValidateSet('Enabled', 'Disabled')]
+        [ValidateSet('Enabled', 'Disabled', 'enabledForReportingButNotEnforced')]
         [string]$State,
         [Parameter(Mandatory = $true)]
         [guid]$Guid
     )
 
     Write-Verbose "Editing CA Policy for tenant $CustomerTenantID"
-    $endpoint = '/api/editcapolicy'
-    $params = @{
+    $endpoint = '/api/EditCAPolicy'
+    $body = @{
         tenantFilter = $CustomerTenantID
-        state        = $State
-        guid         = $Guid
+        State        = $State
+        GUID         = $Guid
     }
     
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }

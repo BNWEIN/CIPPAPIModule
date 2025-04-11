@@ -33,31 +33,30 @@ function Set-CIPPGroupHideFromGAL {
         [Parameter(Mandatory = $true)]
         [guid]$GroupID,
         [Parameter(Mandatory = $true)]
-        [validateset(
+        [ValidateSet(
             'Distribution List',
             'Mail-Enabled Security',
             'Microsoft 365',
             'Security'
         )]
-        [string]$Grouptype,
+        [string]$GroupType,
         [Parameter(Mandatory = $true)]
-        [validateset(
+        [ValidateSet(
             'true',
             'false'
         )]
-        [string]$hidefromgal
+        [string]$HideFromGAL
     )
 
-    Write-Verbose "Setting hide from GAL to $hidefromgal for $GroupID"
+    Write-Verbose "Setting hide from GAL to $HideFromGAL for $GroupID"
 
-    $endpoint = '/api/execgroupshidefromgal'
-    $params = @{
+    $endpoint = '/api/ExecGroupsHideFromGAL'
+    $body = @{
         tenantFilter = $CustomerTenantID
-        id           = $GroupID
-        grouptype    = $Grouptype
-        hidefromgal  = $hidefromgal
+        ID           = $GroupID
+        GroupType    = $GroupType
+        HideFromGAL  = $HideFromGAL
     }
 
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
-    
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }

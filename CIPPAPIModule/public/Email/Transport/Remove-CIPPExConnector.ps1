@@ -49,5 +49,5 @@ function Remove-CIPPExConnector {
         Type         = $ConnectorType
     }
 
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method Post
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }

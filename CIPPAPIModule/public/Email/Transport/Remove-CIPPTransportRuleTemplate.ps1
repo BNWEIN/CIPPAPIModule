@@ -34,8 +34,8 @@ function Remove-CIPPTransportRuleTemplate {
     $endpoint = '/api/RemoveTransportRuleTemplate'
     $body = @{
         tenantFilter = $CustomerTenantID
-        id           = $TemplateId
+        ID           = $TemplateId
     }
 
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method Post
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }

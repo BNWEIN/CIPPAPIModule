@@ -22,7 +22,7 @@ function Get-CIPPExcludedLicenses {
 
     Write-Verbose 'Getting Excluded License List'
 
-    $endpoint = '/api/execexcludelicenses'
+    $endpoint = '/api/ExecExcludeLicenses'
     $params = @{
         List = 'true'
     }

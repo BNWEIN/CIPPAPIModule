@@ -33,5 +33,5 @@ function Remove-CIPPStandardTemplate {
         ID = $TemplateId
     }
 
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method Post
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }

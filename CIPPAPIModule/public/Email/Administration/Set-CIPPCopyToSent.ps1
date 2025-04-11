@@ -38,10 +38,10 @@ function Set-CIPPCopyToSent {
 
     Write-Verbose "Copy Sent Items to Shared Mailbox for $userID $MessageCopyForSentAsEnabled"
 
-    $endpoint = '/api/execcopyforsent'
+    $endpoint = '/api/ExecCopyForSent'
     $body = @{
         tenantFilter                = $CustomerTenantID
-        id                          = $UserID
+        ID                          = $UserID
         MessageCopyForSentAsEnabled = $MessageCopyForSentAsEnabled
     }
 

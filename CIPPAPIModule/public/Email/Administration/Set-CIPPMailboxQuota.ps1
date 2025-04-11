@@ -50,7 +50,7 @@ function Set-CIPPMailboxQuota {
     
     Write-Verbose "Setting Mailbox Quota for $userID"
     
-    $endpoint = '/api/execsetmailboxquota'
+    $endpoint = '/api/ExecSetMailboxQuota'
     $body = @{
         tenantFilter = $CustomerTenantID
         user         = $UserID
@@ -69,5 +69,5 @@ function Set-CIPPMailboxQuota {
         throw 'At least one of the following parameters must be provided: ProhibitSendQuota, IssueWarningQuota, ProhibitSendReceiveQuota'
     }
 
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method 'POST'
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }

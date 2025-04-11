@@ -37,5 +37,5 @@ function Remove-CIPPTransportRule {
         guid         = $RuleGuid
     }
 
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method Post
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }
