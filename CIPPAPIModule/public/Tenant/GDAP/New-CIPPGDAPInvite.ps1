@@ -62,5 +62,5 @@ function New-CIPPGDAPInvite {
         roleMappings = $GDAPRoles
     }
 
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $Body -Method Post
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $Body -Method POST
 }

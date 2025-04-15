@@ -53,20 +53,20 @@ function Set-CIPPOOO {
             'Disabled',
             'Enabled'
         )]
-        [string]$autoreplystate,
+        [string]$AutoreplyState,
         [Parameter(Mandatory = $false)]
-        [string]$externalmessage,
+        [string]$ExternalMessage,
         [Parameter(Mandatory = $false)]
-        [string]$internalmessage,
+        [string]$InternalMessage,
         [Parameter(Mandatory = $false)]
-        [datetime]$endtime,
+        [datetime]$EndTime,
         [Parameter(Mandatory = $false)]
-        [datetime]$starttime
+        [datetime]$StartTime
     )
 
-    Write-Verbose "Setting out of office for $User to $autoreplystate"
+    Write-Verbose "Setting out of office for $User to $AutoreplyState"
 
-    if ($autoreplystate -eq 'Scheduled') {
+    if ($AutoreplyState -eq 'Scheduled') {
         if (-not $PSBoundParameters.ContainsKey('starttime')) {
             throw "Start time is mandatory when autoreplystate is 'Scheduled'."
         }
@@ -75,17 +75,17 @@ function Set-CIPPOOO {
         }
     }
 
-    $endpoint = '/api/execsetooo'
+    $endpoint = '/api/ExecSetOoO'
     $body = @{
         TenantFilter    = $CustomerTenantID
         User            = $User
-        AutoReplyState  = $autoreplystate
-        externalmessage = $externalmessage
-        internalmessage = $internalmessage
-        endtime         = $endtime
-        starttime       = $starttime
+        AutoReplyState  = $AutoreplyState
+        ExternalMessage = $ExternalMessage
+        InternalMessage = $InternalMessage
+        endtime         = $EndTime
+        starttime       = $StartTime
         input           = $Input
     }
     
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method 'POST'
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }

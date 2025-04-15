@@ -47,7 +47,7 @@ function Set-CIPPMailboxForwarding {
     )
 
     Write-Verbose "Forwarding Mailbox for $UserID to $ForwardExternalEmailAddress $ForwardInternalEmailAddress"
-    $endpoint = '/api/execemailforward'
+    $endpoint = '/api/ExecEmailForward'
     $body = @{
         tenantFilter      = $CustomerTenantID
         ForwardExternal   = $ForwardExternalEmailAddress
@@ -57,5 +57,5 @@ function Set-CIPPMailboxForwarding {
         disableForwarding = $DisableForwarding
     }
 
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }

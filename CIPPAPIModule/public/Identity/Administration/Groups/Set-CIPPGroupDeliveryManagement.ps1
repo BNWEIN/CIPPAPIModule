@@ -30,30 +30,30 @@ function Set-CIPPGroupDeliveryManagement {
         [Parameter(Mandatory = $true)]
         [guid]$GroupID,
         [Parameter(Mandatory = $true)]
-        [validateset(
+        [ValidateSet(
             'Distribution List',
             'Mail-Enabled Security',
             'Microsoft 365'
         )]
-        [string]$Grouptype,
+        [string]$GroupType,
         [Parameter(Mandatory = $true)]
-        [validateset(
+        [ValidateSet(
             'true',
             'false'
         )]
-        [string]$onlyallowinternal
+        [string]$OnlyAllowInternal
     )
 
     Write-Verbose "Setting delivery management for group: $GroupID"
 
-    $endpoint = '/api/execgroupsdeliverymanagement'
-    $params = @{
-        tenantfilter      = $CustomerTenantID
-        id                = $GroupID
-        grouptype         = $Grouptype
-        onlyallowinternal = $onlyallowinternal
+    $endpoint = '/api/ExecGroupsDeliveryManagement'
+    $body = @{
+        tenantFilter      = $CustomerTenantID
+        ID                = $GroupID
+        GroupType         = $GroupType
+        OnlyAllowInternal = $OnlyAllowInternal
     }
 
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
     
 }

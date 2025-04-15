@@ -26,7 +26,11 @@ function Remove-CIPPTenantAllowBlockList {
         [string]$CustomerTenantID,
 
         [Parameter(Mandatory = $true)]
-        [string]$Entries
+        [string]$Entries,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateSet('FileHash', 'Sender', 'URL', 'IP')]
+        [string]$ListType
     )
 
     Write-Verbose "Removing allow/block list entries $Entries from tenant $CustomerTenantID"
@@ -34,8 +38,9 @@ function Remove-CIPPTenantAllowBlockList {
     $endpoint = '/api/RemoveTenantAllowBlockList'
     $body = @{
         tenantFilter = $CustomerTenantID
-        entries      = $Entries
+        Entries      = $Entries
+        ListType     = $ListType
     }
 
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method Post
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }

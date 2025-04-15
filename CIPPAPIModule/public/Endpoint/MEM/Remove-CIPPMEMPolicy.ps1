@@ -44,5 +44,5 @@ function Remove-CIPPMEMPolicy {
         URLName      = $UrlName
     }
 
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method Post
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }

@@ -30,9 +30,9 @@ function Set-CIPPExecCPVPerms {
     
     Write-Verbose "Refreshing CPV for $CustomerTenantID"
     $endpoint = '/api/ExecCPVPermissions'
-    $params = @{
+    $body = @{
         tenantFilter = $CustomerTenantID
         ResetSP      = if ($ResetSP -eq $true) { 'true' } else { 'false' }
     }
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }
