@@ -13,11 +13,11 @@ The ID of the customer tenant.
 > ![Foo](https://img.shields.io/badge/Type-Guid-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
 The ID of the group.
 
-  ## **-Grouptype**
+  ## **-GroupType**
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
 The type of the group. Valid values are 'Distribution List', 'Mail-Enabled Security', and 'Microsoft 365'.
 
-  ## **-onlyallowinternal**
+  ## **-OnlyAllowInternal**
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
 Specifies whether to only allow internal delivery. Valid values are 'true' and 'false'.
 

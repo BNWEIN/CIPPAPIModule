@@ -43,9 +43,9 @@ function Clear-CIPPImmutableID {
     Write-Verbose "Clearing Immutable ID for User: $UserID"
 
     $endpoint = '/api/ExecClrImmId'
-    $params = @{
+    $body = @{
         tenantFilter = $CustomerTenantID
         Id           = $UserID
     }
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }

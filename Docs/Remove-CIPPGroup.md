@@ -13,7 +13,7 @@ The ID of the customer tenant.
 > ![Foo](https://img.shields.io/badge/Type-Guid-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
 The ID of the group to be removed.
 
-  ## **-Grouptype**
+  ## **-GroupType**
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
 The type of the group.
 

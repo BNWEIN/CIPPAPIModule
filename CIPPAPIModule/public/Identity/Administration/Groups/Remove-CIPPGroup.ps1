@@ -29,18 +29,18 @@ function Remove-CIPPGroup {
         [Parameter(Mandatory = $true)]
         [guid]$GroupID,
         [Parameter(Mandatory = $true)]
-        [string]$Grouptype,
+        [string]$GroupType,
         [Parameter(Mandatory = $true)]
         [string]$DisplayName
     )
 
     Write-Verbose "Removing group: $GroupID"
 
-    $endpoint = '/api/execgroupsdelete'
+    $endpoint = '/api/ExecGroupsDelete'
     $Body = @{
         tenantFilter = $CustomerTenantID
         ID           = $GroupID
-        GroupType    = $Grouptype
+        GroupType    = $GroupType
         DisplayName  = $DisplayName
     }
 

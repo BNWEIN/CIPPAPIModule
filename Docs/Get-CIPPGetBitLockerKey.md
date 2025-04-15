@@ -9,7 +9,7 @@ The Get-CIPPGetBitLockerKey function retrieves the BitLocker recovery key for a 
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
 Specifies the ID of the customer tenant.
 
-  ## **-guid**
+  ## **-GUID**
 > ![Foo](https://img.shields.io/badge/Type-Guid-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
 Specifies the GUID of the computer for which to retrieve the BitLocker recovery key.
 

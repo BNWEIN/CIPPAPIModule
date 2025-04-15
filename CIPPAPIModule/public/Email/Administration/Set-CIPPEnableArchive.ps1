@@ -23,17 +23,20 @@ function Set-CIPPEnableArchive {
         [Parameter(Mandatory = $true)]
         [string]$CustomerTenantID,
         [Parameter(Mandatory = $true)]
-        [string]$UserID
+        [string]$UserID,
+        [Parameter(Mandatory = $false)]
+        [string]$Username
     )
     
     
     Write-Verbose "Enabling Email Archive for $userID"
     
-    $endpoint = '/api/execenablearchive'
-    $params = @{
+    $endpoint = '/api/ExecEnableArchive'
+    $body = @{
         tenantFilter = $CustomerTenantID
-        id           = $UserID
+        ID           = $UserID
+        username     = $Username
     }
 
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }

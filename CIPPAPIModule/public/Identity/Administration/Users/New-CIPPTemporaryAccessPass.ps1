@@ -40,7 +40,7 @@ function New-CIPPTemporaryAccessPass {
     $endpoint = '/api/ExecCreateTAP'
     $Body = @{
         tenantFilter = $CustomerTenantID
-        Id           = $UserID
+        ID           = $UserID
     }
     Invoke-CIPPRestMethod -Endpoint $endpoint -Body $Body -Method POST
 }

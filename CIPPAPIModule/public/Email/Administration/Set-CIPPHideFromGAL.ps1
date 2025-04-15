@@ -38,11 +38,11 @@ function Set-CIPPHideFromGAL {
 
     Write-Verbose "Setting hide from GAL to $HideFromGAL for $UserID"
 
-    $endpoint = '/api/exechidefromgal'
+    $endpoint = '/api/ExecHideFromGAL'
     $body = @{
         tenantFilter = $CustomerTenantID
-        id           = $UserID
-        hidefromgal  = $HideFromGAL
+        ID           = $UserID
+        HidefromGAL  = $HideFromGAL
     }
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST

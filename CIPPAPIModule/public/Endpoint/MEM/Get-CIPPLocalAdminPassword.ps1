@@ -35,18 +35,17 @@ Function Get-CIPPLocalAdminPassword {
         [Parameter(Mandatory = $true)]
         [string]$CustomerTenantID,
         [Parameter(Mandatory = $true)]
-        [guid]$guid
+        [guid]$GUID
     )
 
-    Write-Verbose "Getting local admin password for computer: $guid"
+    Write-Verbose "Getting local admin password for computer: $GUID"
     
     # Define the endpoint and parameters
     $endpoint = '/api/ExecGetLocalAdminPassword'
     $Body = @{
         tenantFilter = $CustomerTenantID
-        GUID         = $guid 
+        GUID         = $GUID 
     }
     
-    # Use the Invoke-CIPPRequest function to make the request
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $Body -Method POST -Body $Body
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Method POST -Body $Body
 }

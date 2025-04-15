@@ -21,16 +21,17 @@ function Send-CIPPPush {
     Param(
         [Parameter(Mandatory = $true)]
         [string]$CustomerTenantID,
+        [Alias('User')]
         [Parameter(Mandatory = $true)]
         [string]$UserEmail
     )
     
     Write-Verbose "Sending Push Notification to $UserEmail"
 
-    $endpoint = '/api/execsendpush'
-    $params = @{
+    $endpoint = '/api/ExecSendPush'
+    $body = @{
         tenantFilter = $CustomerTenantID
-        Useremail    = $UserEmail
+        UserEmail    = $UserEmail
     }
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
 }
