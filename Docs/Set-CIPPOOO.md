@@ -13,23 +13,23 @@ The ID of the customer's tenant.
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
 The user for whom the out of office settings should be set.
 
-  ## **-autoreplystate**
+  ## **-AutoreplyState**
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
 The auto reply state. Valid values are 'Scheduled', 'Disabled', or 'Enabled'.
 
-  ## **-externalmessage**
+  ## **-ExternalMessage**
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) \
 The external message to be sent as an auto reply.
 
-  ## **-internalmessage**
+  ## **-InternalMessage**
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) \
 The internal message to be sent as an auto reply.
 
-  ## **-endtime**
+  ## **-EndTime**
 > ![Foo](https://img.shields.io/badge/Type-DateTime-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) \
 The end time for the out of office settings. This parameter is mandatory when autoreplystate is 'Scheduled'.
 
-  ## **-starttime**
+  ## **-StartTime**
 > ![Foo](https://img.shields.io/badge/Type-DateTime-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) \
 The start time for the out of office settings. This parameter is mandatory when autoreplystate is 'Scheduled'.
 

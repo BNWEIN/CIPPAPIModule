@@ -13,6 +13,10 @@ The unique identifier of the customer tenant.
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
 The unique identifier of the user.
 
+  ## **-Username**
+> ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) \
+
+
  #### EXAMPLE 1
 ```powershell
 PS > Set-CIPPEnableArchive -CustomerTenantID "contoso.onmicrosoft.com" -UserID "user@domain.com"

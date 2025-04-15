@@ -9,9 +9,9 @@ The Set-CIPPQuarantineManagement function is used to manage quarantine for a spe
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
 Specifies the customer tenant ID for which the quarantine management is performed. This parameter is mandatory.
 
-  ## **-ID**
+  ## **-Identity**
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
-Specifies the ID of the quarantine management. This parameter is mandatory.
+
 
   ## **-AllowSender**
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) \

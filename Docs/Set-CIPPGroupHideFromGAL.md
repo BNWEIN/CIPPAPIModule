@@ -13,11 +13,11 @@ Specifies the ID of the customer tenant. This parameter is mandatory.
 > ![Foo](https://img.shields.io/badge/Type-Guid-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
 Specifies the ID of the group. This parameter is mandatory.
 
-  ## **-Grouptype**
+  ## **-GroupType**
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
 Specifies the type of the group. Valid values are 'Distribution List', 'Mail-Enabled Security', 'Microsoft 365', and 'Security'. This parameter is mandatory.
 
-  ## **-hidefromgal**
+  ## **-HideFromGAL**
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
 Specifies whether the group should be hidden from the Global Address List (GAL). Valid values are 'true' and 'false'. This parameter is mandatory.
 

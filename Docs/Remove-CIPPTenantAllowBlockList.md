@@ -13,6 +13,10 @@ Specifies the ID of the customer tenant where the operation will be performed. T
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
 
 
+  ## **-ListType**
+> ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
+
+
  #### EXAMPLE 1
 ```powershell
 PS > Remove-CIPPTenantAllowBlockList -CustomerTenantID "12345678-1234-1234-1234-1234567890AB" -EntryId "98765432-4321-4321-4321-BA0987654321"
