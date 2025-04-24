@@ -165,15 +165,15 @@ function Set-CIPPUser {
         tenantFilter      = $CustomerTenantID
         id                = $existingUser.id
         userPrincipalName = $UserName ? ($UserName + '@' + $Domain) : $existingUser.UserPrincipalName
-        Username          = $UserName ? $UserName : $existingUser.UserName
-        DisplayName       = $DisplayName ? $DisplayName : $existingUser.DisplayName
+        username          = $UserName ? $UserName : $existingUser.UserName
+        displayName       = $DisplayName ? $DisplayName : $existingUser.displayName
         Domain            = $Domain ? $Domain : $existingUser.primDomain.value
-        firstName         = $FirstName ? $FirstName : $existingUser.GivenName
-        LastName          = $LastName ? $LastName : $existingUser.surname
-        Jobtitle          = $Jobtitle ? $Jobtitle : $existingUser.Jobtitle
+        givenName         = $FirstName ? $FirstName : $existingUser.GivenName
+        surname           = $LastName ? $LastName : $existingUser.surname
+        jobTitle          = $Jobtitle ? $Jobtitle : $existingUser.jobTitle
         usageLocation     = $UsageLocation ? $UsageLocation : $existingUser.UsageLocation
-        BusinessPhone     = if ($BusinessPhone.Count -eq 0) { 
-            $existingUser.BusinessPhones 
+        businessPhones    = if ($BusinessPhone.Count -eq 0) { 
+            $existingUser.businessPhones 
         } else { 
             $BusinessPhone 
         }
@@ -183,7 +183,7 @@ function Set-CIPPUser {
         Country           = $Country ? $Country : $existingUser.Country
         PostalCode        = $PostalCode ? $PostalCode : $existingUser.PostalCode
         CompanyName       = $CompanyName ? $CompanyName : $existingUser.CompanyName
-        StreetAddress     = $StreetAddress ? $StreetAddress : $existingUser.StreetAddress
+        streetAddress     = $StreetAddress ? $StreetAddress : $existingUser.streetAddress
         MobilePhone       = $MobilePhone ? $MobilePhone : $existingUser.MobilePhone
         Department        = $Department ? $Department : $existingUser.Department
         City              = $City ? $City : $existingUser.City
