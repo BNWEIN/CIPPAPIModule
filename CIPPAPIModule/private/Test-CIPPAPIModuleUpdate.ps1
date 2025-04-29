@@ -37,7 +37,7 @@ function Test-CIPPAPIModuleUpdate {
     $moduleManifestPath = Join-Path $PSScriptRoot '..\CIPPAPIModule.psd1'
 
     if (-not (Test-Path $moduleManifestPath)) {
-        Write-Warning "Could not find module manifest at expected location: $moduleManifestPath. Cannot determine local version."
+        Write-Verbose "Could not find module manifest at expected location: $moduleManifestPath. Cannot determine local version."
         # Attempt to get from installed modules as a fallback
         $installedModule = Get-InstalledModule -Name $moduleName -ErrorAction SilentlyContinue
         if (-not $installedModule) {

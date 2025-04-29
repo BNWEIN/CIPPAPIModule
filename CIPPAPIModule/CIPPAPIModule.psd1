@@ -12,7 +12,7 @@
     RootModule = 'CIPPAPIModule.psm1'
     
     # Version number of this module.
-    ModuleVersion = '1.2.4'
+    ModuleVersion = '1.2.6'
     
     # Supported PSEditions
     # CompatiblePSEditions = @()
