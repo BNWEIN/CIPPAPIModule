@@ -1002,7 +1002,6 @@ You must enter that text exactly, otherwise the assignment does not trigger.
 ## Tenant
 - Administration
   - [Alerts](./Docs/Alerts.md)
-  - [Application Approval](./Docs/Application Approval.md)
   - [Licenses](./Docs/Licenses.md)
   - [Tenant](./Docs/Tenant.md)
   - [Get-CIPPAppConsentReqs](./Docs/Get-CIPPAppConsentReqs.md)
