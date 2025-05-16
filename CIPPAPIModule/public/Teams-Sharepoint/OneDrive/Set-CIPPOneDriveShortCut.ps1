@@ -31,7 +31,7 @@ function Set-CIPPOneDriveShortCut {
         [string]$CustomerTenantID,
         [Parameter(Mandatory = $true)]
         [string]$Username,
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [guid]$UserID,
         [Parameter(Mandatory = $true)]
         [string]$SharePointURL
@@ -43,7 +43,7 @@ function Set-CIPPOneDriveShortCut {
         tenantFilter = $CustomerTenantID
         username     = $Username
         userid       = $UserID
-        input        = $SharePointURL
+        siteUrl      = @{ value = $SharePointURL }
     }
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Body $body -Method POST
