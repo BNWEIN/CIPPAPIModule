@@ -13,7 +13,7 @@
     Retrieves the version of the CIPP application.
 
 #>
-function Get-CIPPVersion1 {
+function Get-CIPPVersion {
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory = $true)]

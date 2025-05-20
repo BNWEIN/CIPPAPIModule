@@ -27,7 +27,7 @@
     Update-Module
 #>
 # Function to check for CIPPAPIModule updates
-function Test-CIPPAPIModuleUpdate2 {
+function Test-CIPPAPIModuleUpdate {
     [CmdletBinding()]
     param ()
     Write-Verbose 'Checking for CIPPAPIModule updates...'
