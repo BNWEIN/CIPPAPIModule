@@ -13,12 +13,18 @@
     Retrieves the version of the CIPP application.
 
 #>
-function Get-CIPPVersion {
+function Get-CIPPVersion1 {
     [CmdletBinding()]
-    Param()
+    Param(
+        [Parameter(Mandatory = $true)]
+        [version]$LocalVersion
+    )
 
     Write-Verbose 'Getting CIPP Version'
     $endpoint = '/api/GetVersion'
+    $Params = @{
+        LocalVersion = $LocalVersion
+    }
     
-    Invoke-CIPPRestMethod -Endpoint $endpoint
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $Params
 }
