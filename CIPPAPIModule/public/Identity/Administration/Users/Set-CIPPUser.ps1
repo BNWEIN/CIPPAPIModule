@@ -118,9 +118,9 @@ function Set-CIPPUser {
         [Parameter(Mandatory = $false)]
         [bool]$MustChangePass = $false,
         [Parameter(Mandatory = $false)]
-        [array]$AddToGroups = @(),
+        [guid[]]$AddToGroups = @(),
         [Parameter(Mandatory = $false)]
-        [array]$RemoveFromGroups = @(),
+        [guid[]]$RemoveFromGroups = @(),
         [Parameter(Mandatory = $false)]
         [array]$BusinessPhone = @()
     )
@@ -135,24 +135,28 @@ function Set-CIPPUser {
 
     if ($AddToGroups.Count -gt 0) {
         $GroupsToAdd = foreach ($group in $AddToGroups) {
-            $CIPPAddGroup = Get-CIPPGroups -CustomerTenantID $CustomerTenantID -GroupID $group
+            $CIPPAddGroup = (Get-CIPPGroups -CustomerTenantID $CustomerTenantID -GroupID $group).groupInfo
             [PSCustomObject]@{
-                value = [PSCustomObject]@{
-                    groupid   = $cippAddGroup.ID
-                    groupName = $cippAddGroup.DisplayName
-                    groupType = $CIPPAddGroup.calculatedGroupType
+                label       = $CIPPAddGroup.displayName
+                value       = $CIPPAddGroup.id
+                addedFields = @{
+                    calculatedGroupType = $CIPPAddGroup.calculatedGroupType
                 }
-                label = "$($CIPPAddGroup.DisplayName) - $($CIPPAddGroup.calculatedGroupType)"
             }
         }
     }
 
     if ($RemoveFromGroups.Count -gt 0) {
-        $GroupsToRemove = foreach ($oldgroup in $RemoveFromGroups) {
-            $CIPPRemoveGroup = Get-CIPPGroups -CustomerTenantID $CustomerTenantID -GroupID $oldgroup
+        $GroupsToRemove = foreach ($oldGroup in $RemoveFromGroups) {
+            # FIXME - Add this back when the frontend supports it again.
+            Write-Output 'Removing groups from user via EditUser is currently not supported in CIPP.'
+            Write-Output 'This functionality will (most likely) be added in a future release.'
+            break
+            # The following code is a placeholder until the functionality is implemented.
+            $CIPPRemoveGroup = Get-CIPPGroups -CustomerTenantID $CustomerTenantID -GroupID $oldGroup
             [PSCustomObject]@{
                 value = [PSCustomObject]@{
-                    groupid   = $CIPPRemoveGroup.ID
+                    GroupID   = $CIPPRemoveGroup.ID
                     groupName = $CIPPRemoveGroup.DisplayName
                     groupType = $CIPPRemoveGroup.calculatedGroupType
                 }
