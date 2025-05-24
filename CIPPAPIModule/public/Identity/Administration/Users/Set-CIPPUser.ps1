@@ -148,11 +148,6 @@ function Set-CIPPUser {
 
     if ($RemoveFromGroups.Count -gt 0) {
         $GroupsToRemove = foreach ($oldGroup in $RemoveFromGroups) {
-            # FIXME - Add this back when the frontend supports it again.
-            Write-Host 'Removing groups from user via EditUser is currently not supported in CIPP.'
-            Write-Host 'This functionality will (most likely) be added in a future release.'
-            break
-            # The following code is a placeholder until the functionality is implemented.
             $CIPPRemoveGroup = (Get-CIPPGroups -CustomerTenantID $CustomerTenantID -GroupID $oldGroup).groupInfo
             [PSCustomObject]@{
                 label       = $CIPPRemoveGroup.displayName
