@@ -5,7 +5,11 @@ Retrieves the version of the CIPP application.
 The Get-CIPPVersion function retrieves the version of the CIPP application by making a REST API call to the "/api/GetVersion" endpoint.
 # PARAMETERS
 
-#### EXAMPLE 1
+## **-LocalVersion**
+> ![Foo](https://img.shields.io/badge/Type-Version-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
+
+
+ #### EXAMPLE 1
 ```powershell
 PS > Get-CIPPVersion
 ```
