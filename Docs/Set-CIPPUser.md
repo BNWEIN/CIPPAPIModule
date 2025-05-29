@@ -82,11 +82,11 @@ The company name of the user.
 Specifies whether the user must change their password. Default value is $false.
 
   ## **-AddToGroups**
-> ![Foo](https://img.shields.io/badge/Type-Array-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-@()-Blue?color=5547a8)\
+> ![Foo](https://img.shields.io/badge/Type-Guid[]-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-@()-Blue?color=5547a8)\
 An array of group IDs to which the user should be added.
 
   ## **-RemoveFromGroups**
-> ![Foo](https://img.shields.io/badge/Type-Array-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-@()-Blue?color=5547a8)\
+> ![Foo](https://img.shields.io/badge/Type-Guid[]-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-@()-Blue?color=5547a8)\
 An array of group IDs from which the user should be removed.
 
   ## **-BusinessPhone**

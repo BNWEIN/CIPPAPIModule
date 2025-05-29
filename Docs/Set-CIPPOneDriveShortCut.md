@@ -14,7 +14,7 @@ The default domain of the customer's tenant.
 The username of the user for whom the OneDrive shortcut is being created.
 
   ## **-UserID**
-> ![Foo](https://img.shields.io/badge/Type-Guid-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
+> ![Foo](https://img.shields.io/badge/Type-Guid-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) \
 The UserID of the user for whom the OneDrive shortcut is being created.
 
   ## **-SharePointURL**
