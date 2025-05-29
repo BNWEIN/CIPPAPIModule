@@ -39,45 +39,35 @@ function Get-CIPPGroups {
         [Parameter(Mandatory = $true)]
         [string]$CustomerTenantID,
         [Parameter(Mandatory = $false)]
-        [GUID]$GroupID,
+        [guid]$GroupID,
         [Parameter(Mandatory = $false)]
         [switch]$Members,
         [Parameter(Mandatory = $false)]
         [switch]$Owners
     )
-
-    $switchCount = 0
-
-    if ($Members) { $switchCount++ }
-    if ($Owners) { $switchCount++ }
-
-    if ($switchCount -gt 1) {
-        Write-Error 'Only one role switch can be specified at a time.'
-        return
-    } 
     
-    if (-not $GroupID) {
+    # Validate parameters
+    if (-not $GroupID -and ($Members.IsPresent -or $Owners.IsPresent)) {
+        throw 'Parameter combination is not valid. Please provide a GroupID when using Members or Owners switches.'
+    } elseif (-not $GroupID) {
         Write-Verbose "Getting all Groups for tenant $CustomerTenantID"
-    } elseif ($GroupID -and -not $Members -and -not $Owners) {
+    } elseif ($Members.IsPresent -eq $false -and $Owners.IsPresent -eq $false) {
         Write-Verbose "Getting Group Details for Group $GroupID"
-    } elseif ($GroupID -and $Members -and -not $Owners) {
+    } elseif ($Members.IsPresent -and $Owners.IsPresent -eq $false) {
         Write-Verbose "Getting Group Members for Group $GroupID"
-    } elseif ($GroupID -and -not $Members -and $Owners) {
+    } elseif ($Members.IsPresent -eq $false -and $Owners.IsPresent) {
         Write-Verbose "Getting Group Owners for Group $GroupID"
-    } 
-    $endpoint = '/api/listgroups'
-    $params = @{
+    } elseif ($Members.IsPresent -and $Owners.IsPresent) {
+        Write-Verbose "Getting Group Members and Owners for Group $GroupID"
+    }
+
+    $Endpoint = '/api/ListGroups'
+    $Params = @{
         tenantFilter = $CustomerTenantID
-        groupid      = $GroupID
+        GroupID      = $GroupID
+        members      = $Members.IsPresent ? $true : $null
+        owners       = $Owners.IsPresent ? $true : $null
     }
 
-    if ($Members) {
-        $params.members = 'true'
-    }
-
-    if ($Owners) {
-        $params.owners = 'true'
-    }
-
-    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
+    Invoke-CIPPRestMethod -Endpoint $Endpoint -Params $Params
 }
