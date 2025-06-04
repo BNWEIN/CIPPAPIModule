@@ -31,7 +31,7 @@ function Get-CIPPDevices {
     )
     
     Write-Verbose "Getting Devices for customer: $CustomerTenantID"
-    $endpoint = '/api/listdevices'
+    $endpoint = '/api/ListDevices'
     $params = @{
         tenantFilter = $CustomerTenantID
     }
