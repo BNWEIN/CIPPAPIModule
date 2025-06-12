@@ -112,6 +112,7 @@ You must enter that text exactly, otherwise the assignment does not trigger.
   - [Get-CIPPExcludedLicenses](./Docs/Get-CIPPExcludedLicenses.md)
   - [Get-CIPPExcludedTenants](./Docs/Get-CIPPExcludedTenants.md)
   - [Get-CIPPNotificationConfig](./Docs/Get-CIPPNotificationConfig.md)
+  - [Get-CIPPTenantGroups](./Docs/Get-CIPPTenantGroups.md)
   - [Get-CIPPVersion](./Docs/Get-CIPPVersion.md)
   - [Set-CIPPExcludeLicense](./Docs/Set-CIPPExcludeLicense.md)
   - [Set-CIPPExcludeTenant](./Docs/Set-CIPPExcludeTenant.md)
@@ -146,6 +147,7 @@ You must enter that text exactly, otherwise the assignment does not trigger.
 - [Get-CIPPExcludedLicenses](./Docs/Get-CIPPExcludedLicenses.md)
 - [Get-CIPPExcludedTenants](./Docs/Get-CIPPExcludedTenants.md)
 - [Get-CIPPNotificationConfig](./Docs/Get-CIPPNotificationConfig.md)
+- [Get-CIPPTenantGroups](./Docs/Get-CIPPTenantGroups.md)
 - [Get-CIPPVersion](./Docs/Get-CIPPVersion.md)
 - [Set-CIPPExcludeLicense](./Docs/Set-CIPPExcludeLicense.md)
 - [Set-CIPPExcludeTenant](./Docs/Set-CIPPExcludeTenant.md)
@@ -281,6 +283,7 @@ You must enter that text exactly, otherwise the assignment does not trigger.
 ## Endpoint
 - Applications
   - [Get-CIPPApps](./Docs/Get-CIPPApps.md)
+  - [Get-CIPPAppsRepository](./Docs/Get-CIPPAppsRepository.md)
   - [Get-CIPPAppStatus](./Docs/Get-CIPPAppStatus.md)
   - [Remove-CIPPIntuneApp](./Docs/Remove-CIPPIntuneApp.md)
   - [Remove-CIPPQueuedApp](./Docs/Remove-CIPPQueuedApp.md)
@@ -305,6 +308,7 @@ You must enter that text exactly, otherwise the assignment does not trigger.
 - Reports
   - [Get-CIPPDevices](./Docs/Get-CIPPDevices.md)
 - [Get-CIPPApps](./Docs/Get-CIPPApps.md)
+- [Get-CIPPAppsRepository](./Docs/Get-CIPPAppsRepository.md)
 - [Get-CIPPAppStatus](./Docs/Get-CIPPAppStatus.md)
 - [Remove-CIPPIntuneApp](./Docs/Remove-CIPPIntuneApp.md)
 - [Remove-CIPPQueuedApp](./Docs/Remove-CIPPQueuedApp.md)
@@ -474,6 +478,7 @@ You must enter that text exactly, otherwise the assignment does not trigger.
 ## Tenant
 - Administration
   - [Alerts](./Docs/Alerts.md)
+  - [ApplicationApproval](./Docs/ApplicationApproval.md)
   - [Licenses](./Docs/Licenses.md)
   - [Tenant](./Docs/Tenant.md)
   - [Get-CIPPAppConsentReqs](./Docs/Get-CIPPAppConsentReqs.md)
@@ -515,12 +520,15 @@ You must enter that text exactly, otherwise the assignment does not trigger.
   - [Get-CIPPAlerts](./Docs/Get-CIPPAlerts.md)
   - [Get-CIPPAuditLog](./Docs/Get-CIPPAuditLog.md)
 - Application Approval
+- ApplicationApproval
+  - [Get-CIPPAppApprovalTemplates](./Docs/Get-CIPPAppApprovalTemplates.md)
 - Licenses
   - [Get-CIPPCSPLicenses](./Docs/Get-CIPPCSPLicenses.md)
   - [Get-CIPPCSPSku](./Docs/Get-CIPPCSPSku.md)
   - [Set-CIPPCSPLicense](./Docs/Set-CIPPCSPLicense.md)
 - Tenant
   - [Get-CIPPADConnectStatus](./Docs/Get-CIPPADConnectStatus.md)
+  - [Get-CIPPCustomVariables](./Docs/Get-CIPPCustomVariables.md)
   - [Get-CIPPOrg](./Docs/Get-CIPPOrg.md)
   - [Get-CIPPPartnerRelationships](./Docs/Get-CIPPPartnerRelationships.md)
   - [Get-CIPPTenantDetails](./Docs/Get-CIPPTenantDetails.md)
@@ -531,10 +539,12 @@ You must enter that text exactly, otherwise the assignment does not trigger.
 - [Remove-CIPPTenantAllowBlockList](./Docs/Remove-CIPPTenantAllowBlockList.md)
 - [Get-CIPPAlerts](./Docs/Get-CIPPAlerts.md)
 - [Get-CIPPAuditLog](./Docs/Get-CIPPAuditLog.md)
+- [Get-CIPPAppApprovalTemplates](./Docs/Get-CIPPAppApprovalTemplates.md)
 - [Get-CIPPCSPLicenses](./Docs/Get-CIPPCSPLicenses.md)
 - [Get-CIPPCSPSku](./Docs/Get-CIPPCSPSku.md)
 - [Set-CIPPCSPLicense](./Docs/Set-CIPPCSPLicense.md)
 - [Get-CIPPADConnectStatus](./Docs/Get-CIPPADConnectStatus.md)
+- [Get-CIPPCustomVariables](./Docs/Get-CIPPCustomVariables.md)
 - [Get-CIPPOrg](./Docs/Get-CIPPOrg.md)
 - [Get-CIPPPartnerRelationships](./Docs/Get-CIPPPartnerRelationships.md)
 - [Get-CIPPTenantDetails](./Docs/Get-CIPPTenantDetails.md)
