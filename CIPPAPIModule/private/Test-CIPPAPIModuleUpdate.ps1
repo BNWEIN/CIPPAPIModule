@@ -40,8 +40,9 @@ function Test-CIPPAPIModuleUpdate {
     } else {
         # Check if Get-InstalledPSResource cmdlet exists before using it
         if (Get-Command -Name Get-InstalledPSResource -ErrorAction SilentlyContinue) {
-            $InstalledModule = foreach ($Scope in @('CurrentUser','AllUsers')) {
-                Get-InstalledPSResource -Name $ModuleName -Scope $Scope -ErrorAction SilentlyContinue
+            $InstalledModule = Get-InstalledPSResource -Name $ModuleName -Scope 'CurrentUser' -ErrorAction SilentlyContinue
+            if (!$InstalledModule) {
+                $InstalledModule = Get-InstalledPSResource -Name $ModuleName -Scope 'AllUsers' -ErrorAction SilentlyContinue
             }
             if ($InstalledModule) {
                 $PSResourceGet = $True
