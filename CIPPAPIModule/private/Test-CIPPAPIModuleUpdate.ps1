@@ -41,6 +41,11 @@ function Test-CIPPAPIModuleUpdate {
         $InstalledModule = foreach ($Scope in @('CurrentUser','AllUsers') {
             Get-InstalledPSResource -Name $ModuleName -Scope $Scope -ErrorAction SilentlyContinue
         }
+        if ($InstalledModule) {
+            $PSResourceGet = $True
+        } else {
+            $PSResourceGet = $False
+        }
     }
     if (-not $InstalledModule) {
         Write-Warning "Module '$ModuleName' not found via Get-InstalledModule or Get-InstalledPSResource. Cannot check for updates."
