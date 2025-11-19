@@ -33,17 +33,24 @@ function Test-CIPPAPIModuleUpdate {
     Write-Verbose 'Checking for CIPPAPIModule updates...'
     $ModuleName = 'CIPPAPIModule'
 
-    # Get the local version
+    # Get the local version, try using both `Get-InstalledModule` and `Get-InstalledPSResource`.
     $InstalledModule = Get-InstalledModule -Name $ModuleName -ErrorAction SilentlyContinue
+    if ($InstalledModule) {
+        $PSResourceGet = $False
+    } else {
+        $InstalledModule = foreach ($Scope in @('CurrentUser','AllUsers') {
+            Get-InstalledPSResource -Name $ModuleName -Scope $Scope -ErrorAction SilentlyContinue
+        }
+    }
     if (-not $InstalledModule) {
-        Write-Warning "Module '$ModuleName' not found via Get-InstalledModule. Cannot check for updates."
+        Write-Warning "Module '$ModuleName' not found via Get-InstalledModule or Get-InstalledPSResource. Cannot check for updates."
         return
     }
     # Ensure Version object exists before accessing ToString()
     if ($InstalledModule.Version) {
         $LocalVersionString = $InstalledModule.Version.ToString()
     } else {
-        Write-Warning "Module '$ModuleName' found via Get-InstalledModule, but version information is missing. Cannot check for updates."
+        Write-Warning "Module '$ModuleName' found via Get-InstalledModule or Get-InstalledPSResource, but version information is missing. Cannot check for updates."
         return
     }
 
@@ -60,7 +67,11 @@ function Test-CIPPAPIModuleUpdate {
         # Find the module in the gallery
         Write-Verbose "Querying PowerShell Gallery for the latest version of $ModuleName..."
         # Specify repository to avoid potential conflicts if multiple sources are registered
-        $GalleryModule = Find-Module -Name $ModuleName -Repository PSGallery -ErrorAction Stop
+        if ($PSResourceGet) {
+            $GalleryModule = Find-PSResource -Name $ModuleName -Repository PSGallery -ErrorAction Stop
+        } else {
+            $GalleryModule = Find-Module -Name $ModuleName -Repository PSGallery -ErrorAction Stop
+        }
         $GalleryVersion = $GalleryModule.Version
 
         Write-Verbose "Latest version on PSGallery: $GalleryVersion"
@@ -70,7 +81,11 @@ function Test-CIPPAPIModuleUpdate {
             Write-Host '---------------------------------------------------------------------' -ForegroundColor Yellow
             Write-Host "WARNING: A newer version of CIPPAPIModule (v$GalleryVersion) is available." -ForegroundColor Yellow
             Write-Host "You are currently running v$LocalVersion." -ForegroundColor Yellow
-            Write-Host "Consider running 'Update-Module $ModuleName' to get the latest features and fixes." -ForegroundColor Yellow
+            if ($PSResourceGet) {
+                Write-Host "Consider running 'Update-PSResource $ModuleName' to get the latest features and fixes." -ForegroundColor Yellow
+            } else {
+                Write-Host "Consider running 'Update-Module $ModuleName' to get the latest features and fixes." -ForegroundColor Yellow
+            }
             Write-Host '---------------------------------------------------------------------' -ForegroundColor Yellow
         } else {
             Write-Verbose "CIPPAPIModule is up to date (v$LocalVersion)."
@@ -80,6 +95,9 @@ function Test-CIPPAPIModuleUpdate {
         Write-Warning "Network error: Failed to connect to the PowerShell Gallery to check for $ModuleName updates. Please check your internet connection. Error: $($_.Exception.Message)"
     } catch [Microsoft.PowerShell.Commands.ModuleNotFoundException] {
         # Catch if Find-Module specifically fails to find the module
+        Write-Warning "'$ModuleName' not found on the PowerShell Gallery (PSGallery). Cannot check for updates."
+    } catch [Microsoft.PowerShell.PSResourceGet.UtilClasses.ResourceNotFoundException] {
+        # Catch if Find-PSResource specifically fails to find the module
         Write-Warning "'$ModuleName' not found on the PowerShell Gallery (PSGallery). Cannot check for updates."
     } catch {
         # Catch any other errors during Find-Module or version comparison
