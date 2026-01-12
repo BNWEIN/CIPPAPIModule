@@ -59,7 +59,7 @@ function Invoke-CIPPPreFlightCheck {
             CIPPClientID     = $script:CIPPClientID
             CIPPClientSecret = $script:CIPPClientSecret
             CIPPAPIUrl       = $script:CIPPAPIUrl
-            TenantID         = $TenantID
+            TenantID         = $script:TenantID
         }
 
         Connect-CIPP @request
