@@ -21,6 +21,9 @@ Optional message to include in the guest invitation.
 .PARAMETER RedirectURL
 URL to redirect the guest user to after accepting the invitation.
 
+.PARAMETER SendInvite
+When set to $true (default), sends the invitation email to the guest user.
+
 .EXAMPLE
 Add-CIPPGuest -CustomerTenantID "contoso.onmicrosoft.com" -DisplayName "John Partner" -EmailAddress "john@partner.com" -Message "Welcome to our collaboration project" -RedirectURL "https://teams.microsoft.com"
 
@@ -43,7 +46,10 @@ function Add-CIPPGuest {
         [string]$Message,
         
         [Parameter(Mandatory = $false)]
-        [string]$RedirectURL
+        [string]$RedirectURL,
+        
+        [Parameter(Mandatory = $false)]
+        [bool]$SendInvite = $true
     )
 
     $endpoint = '/api/AddGuest'
@@ -51,9 +57,10 @@ function Add-CIPPGuest {
     $body = @{
         tenantFilter = $CustomerTenantID
         displayName  = $DisplayName
-        emailAddress = $EmailAddress
+        mail         = $EmailAddress
         message      = $Message
-        redirectURL  = $RedirectURL
+        redirectUri  = $RedirectURL
+        sendInvite   = $SendInvite
     }
 
     Invoke-CIPPRestMethod -Endpoint $endpoint -Method Post -Body $body
