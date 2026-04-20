@@ -22,12 +22,11 @@ function Get-CIPPEnterpriseApplications {
 
     $endpoint = '/api/ListGraphRequest'
     $params = @{
-        tenantFilter   = $CustomerTenantID
-        endpoint       = 'servicePrincipals'
-        '$select'      = 'id,appId,displayName,createdDateTime,accountEnabled,homepage,publisherName,signInAudience,replyUrls,verifiedPublisher,info,api,appOwnerOrganizationId,tags,passwordCredentials,keyCredentials'
-        '$top'         = 999
-        '$count'       = 'true'
-        'NoPagination' = 'false'
+        tenantFilter = $CustomerTenantID
+        endpoint     = 'servicePrincipals'
+        '$select'    = 'id,appId,displayName,createdDateTime,accountEnabled,homepage,publisherName,signInAudience,replyUrls,verifiedPublisher,info,api,appOwnerOrganizationId,tags,passwordCredentials,keyCredentials'
+        '$top'       = 999
+        '$count'     = 'true'
     }
 
     (Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params).Results
