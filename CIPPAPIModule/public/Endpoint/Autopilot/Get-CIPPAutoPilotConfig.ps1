@@ -4,7 +4,7 @@
 
 .DESCRIPTION
     The Get-CIPPAutoPilotConfig function retrieves AutoPilot configuration information for a specified customer tenant ID and type. 
-    It makes a REST API call to retrieve the configuration data.
+    It makes a REST API call to the generic Graph request endpoint to retrieve the configuration data.
 
 .PARAMETER CustomerTenantID
     Specifies the customer tenant ID for which to retrieve the AutoPilot configuration.
@@ -23,10 +23,11 @@
 #>
 function Get-CIPPAutoPilotConfig {
     [CmdletBinding()]
-    Param(
+    param(
         [Parameter(Mandatory = $true)]
         [string]$CustomerTenantID,
         [Parameter(Mandatory = $true)]
+        [ValidateSet('ESP', 'ApProfile')]
         [string]$Type
     )
     
@@ -36,11 +37,19 @@ function Get-CIPPAutoPilotConfig {
         Write-Verbose "Getting AutoPilot Profile for customer: $CustomerTenantID"
     }
     
-    $Endpoint = '/api/listautopilotconfig'
+    $Endpoint = '/api/ListGraphRequest'
     $Params = @{
         tenantFilter = $CustomerTenantID
-        type         = $Type
+    }
+
+    if ($Type -eq 'ESP') {
+        $Params['endpoint'] = 'deviceManagement/deviceEnrollmentConfigurations'
+        $Params['$expand'] = 'assignments'
+        $Params['$filter'] = "deviceEnrollmentConfigurationType eq 'windows10EnrollmentCompletionPageConfiguration'"
+    } elseif ($Type -eq 'ApProfile') {
+        $Params['endpoint'] = 'deviceManagement/windowsAutopilotDeploymentProfiles'
+        $Params['$expand'] = 'assignments'
     }
         
-    Invoke-CIPPRestMethod -Endpoint $Endpoint -Params $Params
+    (Invoke-CIPPRestMethod -Endpoint $Endpoint -Params $Params).Results
 }
