@@ -25,9 +25,6 @@ function Update-ModuleVersion {
         # Replace the old version line with the new version line
         $newContent = $content -replace "ModuleVersion\s*=\s*\'$version\'", "ModuleVersion = '$newVersion'"
         
-        # Backup the original file
-        Copy-Item -Path $FilePath -Destination "$FilePath.bak" -Force
-        
         # Write the new contents back to the file
         Set-Content -Path $FilePath -Value $newContent
         
