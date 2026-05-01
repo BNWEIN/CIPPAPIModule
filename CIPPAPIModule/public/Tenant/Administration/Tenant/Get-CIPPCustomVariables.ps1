@@ -7,7 +7,7 @@
     tenant in CIPP
 
 .PARAMETER CustomerTenantID
-    The GUID of the tenant for which to retrieve custom variables. This parameter is mandatory.
+    The tenant ID for which to retrieve custom variables, or 'AllTenants' for global variables.
 
 .OUTPUTS
     Returns a collection of custom variables from the CIPP system for the specified tenant.
@@ -16,6 +16,10 @@
     PS> Get-CIPPCustomVariables -CustomerTenantID "12345678-1234-1234-1234-1234567890ab"
     Retrieves all custom variables for the specified tenant.
 
+.EXAMPLE
+    PS> Get-CIPPCustomVariables -CustomerTenantID "AllTenants"
+    Retrieves global custom variables that apply to all tenants.
+
 .NOTES
     This function requires appropriate permissions to access the CIPP API.
 #>
@@ -23,10 +27,10 @@ function Get-CIPPCustomVariables {
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory = $true)]
-        [guid]$CustomerTenantID
+        [string]$CustomerTenantID
     )
-    
-    Write-Verbose "Getting org $CustomerTenantID"
+
+    Write-Verbose "Getting custom variables for tenant $CustomerTenantID"
     $endpoint = '/api/ExecCippReplacemap'
     $params = @{
         tenantId = $CustomerTenantID

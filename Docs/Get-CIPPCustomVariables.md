@@ -7,11 +7,15 @@ tenant in CIPP
 # PARAMETERS
 
 ## **-CustomerTenantID**
-> ![Foo](https://img.shields.io/badge/Type-Guid-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
-The GUID of the tenant for which to retrieve custom variables. This parameter is mandatory.
+> ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
+The tenant ID for which to retrieve custom variables, or 'AllTenants' for global variables.
 
  #### EXAMPLE 1
 ```powershell
 PS>Get-CIPPCustomVariables -CustomerTenantID "12345678-1234-1234-1234-1234567890ab"
+```
+ #### EXAMPLE 2
+```powershell
+PS>Get-CIPPCustomVariables -CustomerTenantID "AllTenants"
 ```
 
