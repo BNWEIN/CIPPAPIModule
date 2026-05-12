@@ -39,21 +39,62 @@ function Test-CIPPAPIModuleUpdate {
         Write-Warning "Module '$ModuleName' not found via Get-InstalledModule. Cannot check for updates."
         return
     }
-    # Ensure Version object exists before accessing ToString()
-    if ($InstalledModule.Version) {
-        $LocalVersionString = $InstalledModule.Version.ToString()
-    } else {
-        Write-Warning "Module '$ModuleName' found via Get-InstalledModule, but version information is missing. Cannot check for updates."
+
+    # Normalize to one version in case multiple local installs are returned.
+    $InstalledModules = @($InstalledModule)
+    $VersionCandidates = @()
+    $InstallRecords = @()
+
+    foreach ($Module in $InstalledModules) {
+        if (-not $Module.Version) {
+            continue
+        }
+
+        $VersionValues = @($Module.Version)
+        $LocationValues = @($Module.InstalledLocation)
+
+        for ($i = 0; $i -lt $VersionValues.Count; $i++) {
+            $VersionValue = $VersionValues[$i]
+            try {
+                $ParsedVersion = [version]$VersionValue.ToString()
+                $VersionCandidates += $ParsedVersion
+
+                $InstallPath = $null
+                if ($VersionValues.Count -eq $LocationValues.Count -and $VersionValues.Count -gt 0) {
+                    $InstallPath = $LocationValues[$i]
+                }
+
+                if (-not $InstallPath) {
+                    $InstallPath = $Module.InstalledLocation
+                }
+
+                $InstallRecords += [pscustomobject]@{
+                    Version = $ParsedVersion
+                    Path = $InstallPath
+                }
+            } catch {
+                Write-Verbose "Skipping invalid local version value '$VersionValue' while checking updates."
+            }
+        }
+    }
+
+    if (-not $VersionCandidates) {
+        Write-Warning "Module '$ModuleName' found via Get-InstalledModule, but no valid version information was available. Cannot check for updates."
         return
     }
 
-    # Ensure the version string is in a valid format
-    try {
-        $LocalVersion = [version]$LocalVersionString
-        Write-Verbose "Local CIPPAPIModule version: $LocalVersion"
-    } catch {
-        Write-Warning "Local version string '$LocalVersionString' from manifest is not a valid version format. Error: $($_.Exception.Message). Cannot check for updates."
-        return
+    $LocalVersion = $VersionCandidates | Sort-Object -Descending | Select-Object -First 1
+    $LocalVersionString = $LocalVersion.ToString()
+    Write-Verbose "Local CIPPAPIModule version: $LocalVersion"
+
+    # Warn if older side-by-side local installs are present.
+    $OutdatedLocalInstalls = $InstallRecords |
+        Where-Object { $_.Version -lt $LocalVersion } |
+        Sort-Object Version -Descending -Unique
+
+    foreach ($OutdatedInstall in $OutdatedLocalInstalls) {
+        $OutdatedPath = if ($OutdatedInstall.Path) { $OutdatedInstall.Path } else { '<unknown path>' }
+        Write-Warning "An outdated local install of $ModuleName (v$($OutdatedInstall.Version)) was found at: $OutdatedPath"
     }
 
     try {
