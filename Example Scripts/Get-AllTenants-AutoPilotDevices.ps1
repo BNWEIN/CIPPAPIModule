@@ -45,7 +45,7 @@ $AllTenantAPDevices = $tenantsList.defaultDomainName | ForEach-Object -Parallel 
     Set-CIPPAPIDetails -TenantID $using:TenantId -CIPPClientID $using:CIPPClientID -CIPPClientSecret $using:CIPPClientSecret -CIPPAPIUrl $using:CIPPAPIUrl
     $tenant = $_
     Write-Host "The tenant is $tenant"
-    $Devices = Get-CIPPAPDevices -CustomerTenantID $tenant
+    $Devices = Get-CIPPAutoPilotDevices -CustomerTenantID $tenant
     foreach ($device in $Devices) {
         [PSCustomObject]@{
             Tenant = $tenant

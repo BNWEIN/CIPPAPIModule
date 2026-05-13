@@ -2,7 +2,7 @@
 ## SYNOPSIS
 Sets the option to copy sent items to a shared mailbox for a specific user.
 ## DESCRIPTION
-The Set-CIPPCopyToSent function sets the option to copy sent items to a shared mailbox for a specific user in the CIPP system.
+The Set-CIPPCopyToSent function sets the option to copy sent items to a shared mailbox for a specific mailbox in the CIPP system.
 # PARAMETERS
 
 ## **-CustomerTenantID**
@@ -11,15 +11,15 @@ Specifies the ID of the customer's tenant.
 
   ## **-UserID**
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-TRUE-Red?) \
-Specifies the ID of the user.
+Specifies the ID of the mailbox to set the copy sent items option for.
 
-  ## **-MessageCopyForSentAsEnabled**
-> ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-true-Blue?color=5547a8)\
-Specifies whether to enable or disable the option to copy sent items for the user. Valid values are "true" or "false". The default value is "true".
+  ## **-MessageCopyState**
+> ![Foo](https://img.shields.io/badge/Type-Boolean-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) ![Foo](https://img.shields.io/badge/DefaultValue-True-Blue?color=5547a8)\
+Specifies whether to enable or disable the option to copy sent items for the mailbox.
 
  #### EXAMPLE 1
 ```powershell
-PS > Set-CIPPCopyToSent -CustomerTenantID "contoso.onmicrosoft.com" -UserID "john.doe@domain.com" -MessageCopyForSentAsEnabled "true"
+PS > Set-CIPPCopyToSent -CustomerTenantID "contoso.onmicrosoft.com" -UserID "john.doe@domain.com" -MessageCopyState $true
 
 This example sets the option to copy sent items to a shared mailbox for the user "john.doe@domain.com" in the customer's tenant with ID "contoso.onmicrosoft.com".
 ```

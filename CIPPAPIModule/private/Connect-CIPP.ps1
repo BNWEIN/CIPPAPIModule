@@ -24,20 +24,20 @@ Connects to the CIPP API using the specified credentials.
 #>
 function Connect-CIPP {
     [CmdletBinding()]
-    Param(
+    param(
         [string]$CIPPAPIUrl,
         [string]$CIPPClientID,
         [string]$CIPPClientSecret,
         [string]$TenantID
     )
 
-    $Script:AuthBody = @{
-        client_id     = $script:CIPPClientID
-        client_secret = $script:CIPPClientSecret
-        scope         = "api://$($script:CIPPClientID)/.default"
+    $AuthBody = @{
+        client_id     = $CIPPClientID
+        client_secret = $CIPPClientSecret
+        scope         = "api://$($CIPPClientID)/.default"
         grant_type    = 'client_credentials'
     }
-    $token = Invoke-RestMethod -Uri "https://login.microsoftonline.com/$script:TenantId/oauth2/v2.0/token" -Method POST -Body $AuthBody
+    $token = Invoke-RestMethod -Uri "https://login.microsoftonline.com/$TenantID/oauth2/v2.0/token" -Method POST -Body $AuthBody
 
     $script:AuthHeader = @{ Authorization = "Bearer $($token.access_token)" }
     $script:TokenAcquiredTime = Get-Date

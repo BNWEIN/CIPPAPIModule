@@ -4,25 +4,18 @@
 
 .DESCRIPTION
     The Invoke-CIPPPreFlightCheck function validates that all required CIPP API connection 
-    variables are set, checks for module updates, and ensures the authentication token is valid.
+    variables are set and ensures the authentication token is valid.
 
     If the authentication token is missing or expired, it automatically attempts to reconnect 
     to the CIPP API using the stored credentials.
     
-    This function should be called before any API operation to ensure proper connectivity.
-
-.PARAMETER SkipVersionCheck
-    When specified, bypasses the check for module updates. This can be useful in automated scenarios
-    or when you want to avoid the potential delay of version checking.
+    This function is called before every API operation to ensure proper connectivity and 
+    token validity. Module update checks are performed during initialization via Set-CIPPAPIDetails.
 
 .EXAMPLE
     Invoke-CIPPPreFlightCheck
     
-    Performs all pre-flight checks including module update verification.
-
-.EXAMPLE
-    Invoke-CIPPPreFlightCheck -SkipVersionCheck
-    Performs pre-flight checks but skips checking for module updates.
+    Performs credential validation and token refresh checks.
     
 .NOTES
     This function requires that Set-CIPPAPIDetails has been previously run to set up the 
@@ -35,9 +28,7 @@
 #>
 function Invoke-CIPPPreFlightCheck {
     [CmdletBinding()]
-    param (
-        [switch]$SkipVersionCheck
-    )
+    param ()
     if ($null -eq $Script:CIPPClientID -or 
         $null -eq $Script:CIPPClientSecret -or 
         $null -eq $Script:CIPPAPIUrl -or 
@@ -46,12 +37,7 @@ function Invoke-CIPPPreFlightCheck {
         break
     }
 
-    # Check for module updates
-    if ($SkipVersionCheck.IsPresent -eq $false) {
-        Test-CIPPAPIModuleUpdate
-    }
-
-    # Check token expiry
+    # Check token expiry and refresh if needed
     Get-TokenExpiry
     if ((-not $Script:ExpiryDateTime) -or ($script:ExpiryDateTime -lt (Get-Date))) {
         Write-Verbose 'Token expired or not found. Connecting to CIPP'
@@ -59,7 +45,7 @@ function Invoke-CIPPPreFlightCheck {
             CIPPClientID     = $script:CIPPClientID
             CIPPClientSecret = $script:CIPPClientSecret
             CIPPAPIUrl       = $script:CIPPAPIUrl
-            TenantID         = $TenantID
+            TenantID         = $script:TenantID
         }
 
         Connect-CIPP @request

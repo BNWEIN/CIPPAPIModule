@@ -3,7 +3,7 @@
 Retrieves AutoPilot configuration information for a specified customer tenant ID and type.
 ## DESCRIPTION
 The Get-CIPPAutoPilotConfig function retrieves AutoPilot configuration information for a specified customer tenant ID and type. 
-It makes a REST API call to retrieve the configuration data.
+It makes a REST API call to the generic Graph request endpoint to retrieve the configuration data.
 # PARAMETERS
 
 ## **-CustomerTenantID**
