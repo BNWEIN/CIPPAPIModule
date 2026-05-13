@@ -84,8 +84,7 @@ function Test-CIPPAPIModuleUpdate {
     }
 
     $LocalVersion = $VersionCandidates | Sort-Object -Descending | Select-Object -First 1
-    $LocalVersionString = $LocalVersion.ToString()
-    Write-Verbose "Local CIPPAPIModule version: $LocalVersion"
+    Write-Verbose "Local $ModuleName version: $LocalVersion"
 
     # Warn if older side-by-side local installs are present.
     $OutdatedLocalInstalls = $InstallRecords |
