@@ -41,7 +41,7 @@ function Invoke-CIPPRestMethod {
         [string]$Endpoint,
         [hashtable]$Params = @{},
         [ValidateSet('GET', 'POST')][string]$Method = 'GET',
-        [hashtable]$Body = @{},
+        [hashtable[]]$Body = @{},
         [string]$ContentType = 'application/json',
         [string]$Authorization = $null
     )
