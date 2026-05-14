@@ -60,8 +60,8 @@ function Test-CIPPAPIModuleUpdate {
     }
     # Normalize to an array so multiple side-by-side installs are handled uniformly.
     $InstalledModules = @($InstalledModule)
-    $VersionCandidates = @()
-    $InstallRecords = @()
+    $VersionCandidates = [System.Collections.Generic.List[version]]::new()
+    $InstallRecords = [System.Collections.Generic.List[object]]::new()
 
     foreach ($Module in $InstalledModules) {
         if (-not $Module.Version) {
@@ -76,7 +76,7 @@ function Test-CIPPAPIModuleUpdate {
             # Some providers can return non-version strings, so skip invalid values non-fatally.
             try {
                 $ParsedVersion = [version]$VersionValue.ToString()
-                $VersionCandidates += $ParsedVersion
+                $VersionCandidates.Add($ParsedVersion)
 
                 # Pair each version with its install path where possible.
                 $InstallPath = $null
@@ -87,17 +87,17 @@ function Test-CIPPAPIModuleUpdate {
                     $InstallPath = $Module.InstalledLocation
                 }
 
-                $InstallRecords += [pscustomobject]@{
-                    Version = $ParsedVersion
-                    Path    = $InstallPath
-                }
+                $InstallRecords.Add([pscustomobject]@{
+                        Version = $ParsedVersion
+                        Path    = $InstallPath
+                    })
             } catch {
                 Write-Verbose "Skipping invalid local version value '$VersionValue' while checking $ModuleName updates."
             }
         }
     }
 
-    if (-not $VersionCandidates) {
+    if ($VersionCandidates.Count -eq 0) {
         Write-Warning "Module '$ModuleName' found via Get-InstalledModule or Get-InstalledPSResource, but no valid version information was available. Cannot check for updates."
         return
     }
