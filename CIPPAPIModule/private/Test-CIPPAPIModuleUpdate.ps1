@@ -107,9 +107,11 @@ function Test-CIPPAPIModuleUpdate {
     Write-Verbose "Local $ModuleName version: $LocalVersion"
 
     # Warn about any older side-by-side installs so the user knows to clean them up.
+    # Sort by version descending only — do not use -Unique, as multiple installs can share
+    # the same version at different paths and each path deserves its own warning.
     $OutdatedLocalInstalls = $InstallRecords |
         Where-Object { $_.Version -lt $LocalVersion } |
-        Sort-Object Version -Descending -Unique
+        Sort-Object Version -Descending
 
     foreach ($OutdatedInstall in $OutdatedLocalInstalls) {
         $OutdatedPath = if ($OutdatedInstall.Path) { $OutdatedInstall.Path } else { '<unknown path>' }
