@@ -58,21 +58,64 @@ function Test-CIPPAPIModuleUpdate {
         Write-Warning "Module '$ModuleName' not found via Get-InstalledModule or Get-InstalledPSResource. Cannot check for updates."
         return
     }
-    # Ensure Version object exists before accessing ToString()
-    if ($InstalledModule.Version) {
-        $LocalVersionString = $InstalledModule.Version.ToString()
-    } else {
-        Write-Warning "Module '$ModuleName' found via Get-InstalledModule or Get-InstalledPSResource, but version information is missing. Cannot check for updates."
+    # Normalize to an array so multiple side-by-side installs are handled uniformly.
+    $InstalledModules = @($InstalledModule)
+    $VersionCandidates = @()
+    $InstallRecords = @()
+
+    foreach ($Module in $InstalledModules) {
+        if (-not $Module.Version) {
+            continue
+        }
+
+        $VersionValues = @($Module.Version)
+        $LocationValues = @($Module.InstalledLocation)
+
+        for ($i = 0; $i -lt $VersionValues.Count; $i++) {
+            $VersionValue = $VersionValues[$i]
+            # Some providers can return non-version strings, so skip invalid values non-fatally.
+            try {
+                $ParsedVersion = [version]$VersionValue.ToString()
+                $VersionCandidates += $ParsedVersion
+
+                # Pair each version with its install path where possible.
+                $InstallPath = $null
+                if ($VersionValues.Count -eq $LocationValues.Count -and $VersionValues.Count -gt 0) {
+                    $InstallPath = $LocationValues[$i]
+                }
+                if (-not $InstallPath) {
+                    $InstallPath = $Module.InstalledLocation
+                }
+
+                $InstallRecords += [pscustomobject]@{
+                    Version = $ParsedVersion
+                    Path    = $InstallPath
+                }
+            } catch {
+                Write-Verbose "Skipping invalid local version value '$VersionValue' while checking $ModuleName updates."
+            }
+        }
+    }
+
+    if (-not $VersionCandidates) {
+        Write-Warning "Module '$ModuleName' found via Get-InstalledModule or Get-InstalledPSResource, but no valid version information was available. Cannot check for updates."
         return
     }
 
-    # Ensure the version string is in a valid format
-    try {
-        $LocalVersion = [version]$LocalVersionString
-        Write-Verbose "Local CIPPAPIModule version: $LocalVersion"
-    } catch {
-        Write-Warning "Local version string '$LocalVersionString' from manifest is not a valid version format. Error: $($_.Exception.Message). Cannot check for updates."
-        return
+    # Use the highest valid version found across all local installs for the comparison.
+    $LocalVersion = $VersionCandidates | Sort-Object -Descending | Select-Object -First 1
+    Write-Verbose "Local $ModuleName version: $LocalVersion"
+
+    # Warn about any older side-by-side installs so the user knows to clean them up.
+    # Sort by version descending only — do not use -Unique, as multiple installs can share
+    # the same version at different paths and each path deserves its own warning.
+    $OutdatedLocalInstalls = $InstallRecords |
+        Where-Object { $_.Version -lt $LocalVersion } |
+        Sort-Object Version -Descending
+
+    foreach ($OutdatedInstall in $OutdatedLocalInstalls) {
+        $OutdatedPath = if ($OutdatedInstall.Path) { $OutdatedInstall.Path } else { '<unknown path>' }
+        Write-Warning "An outdated local install of $ModuleName (v$($OutdatedInstall.Version)) was found at: $OutdatedPath"
     }
 
     try {
@@ -91,7 +134,7 @@ function Test-CIPPAPIModuleUpdate {
         # Compare versions
         if ($GalleryVersion -gt $LocalVersion) {
             Write-Host '---------------------------------------------------------------------' -ForegroundColor Yellow
-            Write-Host "WARNING: A newer version of CIPPAPIModule (v$GalleryVersion) is available." -ForegroundColor Yellow
+            Write-Host "WARNING: A newer version of $ModuleName (v$GalleryVersion) is available." -ForegroundColor Yellow
             Write-Host "You are currently running v$LocalVersion." -ForegroundColor Yellow
             if ($PSResourceGet) {
                 Write-Host "Consider running 'Update-PSResource $ModuleName' to get the latest features and fixes." -ForegroundColor Yellow
@@ -100,7 +143,7 @@ function Test-CIPPAPIModuleUpdate {
             }
             Write-Host '---------------------------------------------------------------------' -ForegroundColor Yellow
         } else {
-            Write-Verbose "CIPPAPIModule is up to date (v$LocalVersion)."
+            Write-Verbose "$ModuleName is up to date (v$LocalVersion)."
         }
     } catch [System.Net.WebException] {
         # Catch specific network errors
