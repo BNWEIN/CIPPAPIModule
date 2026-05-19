@@ -48,20 +48,20 @@ function Set-CIPPExcludeTenant {
     $endpoint = '/api/execexcludetenant'
 
     if ($RemoveExclusion) {
+        Write-Verbose "Removing Tenant $CustomerTenantID from the exclusion list."
         $params = @{
-            TenantFilter    = $CustomerTenantID
             RemoveExclusion = $true
         }
-        Write-Verbose "Removing Tenant $CustomerTenantID from the exclusion list."
-        Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params
     } else {
+		Write-Verbose "Adding Tenant $CustomerTenantID to the exclusion list."    
         $params = @{
             AddExclusion = $true
         }
-        $body = @{
-            value = $CustomerTenantID
-        }
-        Write-Verbose "Adding Tenant $CustomerTenantID to the exclusion list."
-        Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params -Body $body -Method POST
     }
+
+    $body = @{
+        value = $CustomerTenantID
+    }
+
+    Invoke-CIPPRestMethod -Endpoint $endpoint -Params $params -Body $body -Method POST
 }
