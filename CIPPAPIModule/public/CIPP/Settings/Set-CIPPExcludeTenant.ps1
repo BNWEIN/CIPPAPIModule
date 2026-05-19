@@ -48,15 +48,15 @@ function Set-CIPPExcludeTenant {
     $endpoint = '/api/execexcludetenant'
 
     if ($RemoveExclusion) {
-        Write-Verbose "Removing Tenant $CustomerTenantID from the exclusion list."
         $params = @{
             RemoveExclusion = $true
         }
+        Write-Verbose "Removing Tenant $CustomerTenantID from the exclusion list."
     } else {
-		Write-Verbose "Adding Tenant $CustomerTenantID to the exclusion list."    
         $params = @{
             AddExclusion = $true
         }
+        Write-Verbose "Adding Tenant $CustomerTenantID to the exclusion list."    
     }
 
     $body = @{
