@@ -22,6 +22,10 @@ The value to assign to the custom variable.
 > ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) \
 An optional description for the custom variable.
 
+  ## **-VariableType**
+> ![Foo](https://img.shields.io/badge/Type-String-Blue?) ![Foo](https://img.shields.io/badge/Mandatory-FALSE-Green?) \
+Optional. One of string, integer, boolean or json. Defaults to string, which is substituted into templates as text; the other three are written as JSON literals (300 rather than "300"). The API rejects a value that does not parse as the declared type.
+
  #### EXAMPLE 1
 ```powershell
 PS > Set-CIPPCustomVariable -CustomerTenantID "12345678-1234-1234-1234-1234567890ab" -VariableName "WallpaperPath" -Value "C:\Wallpapers"
@@ -30,4 +34,7 @@ PS > Set-CIPPCustomVariable -CustomerTenantID "12345678-1234-1234-1234-123456789
 ```powershell
 PS > Set-CIPPCustomVariable -CustomerTenantID "AllTenants" -VariableName "CompanyName" -Value "Contoso" -Description "Global branding variable"
 ```
-
+ #### EXAMPLE 3
+```powershell
+PS > Set-CIPPCustomVariable -CustomerTenantID "AllTenants" -VariableName "LockSeconds" -Value "300" -VariableType integer
+```
